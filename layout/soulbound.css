@@ -1,0 +1,29 @@
+.sheet-info {
+    width: 500px;
+    display:flex;
+    flex-direction:column;
+}
+
+.sheet-info div {
+    display:flex;
+    justify-content: space-between;
+}
+
+.sheet-skills {
+    display: grid;
+    grid-template-columns: 200px 70px 70px;
+}
+
+.sheet-desc {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sheet-attribute-select {
+    width: 60px;
+    margin-left: auto;
+}
+
+.sheet-skills-list {
+    display: flex;
+}
