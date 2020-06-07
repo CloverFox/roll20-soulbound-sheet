@@ -1,3 +1,68 @@
+<script type="text/worker">
+    on("change:body change:reflexes_1 change:reflexes_2 change:reflexes_3", function() {
+        getAttrs(["body", "reflexes_1", "reflexes_2", "reflexes_3"], function(values) {
+            let defence = parseInt(values.body) + parseInt(values.reflexes_1) + parseInt(values.reflexes_2) + parseInt(values.reflexes_3);
+            setAttrs({def_poor:0, def_average:0, def_good:0 , def_great:0, def_superb:0, def_extraordinary:0}, {silent:true});
+            if (defence === 1 || defence === 2){
+                setAttrs({ def_poor:1 }, {silent:true});
+            } else if (defence === 3 || defence === 4){
+                setAttrs({ def_average:1 }, {silent:true});
+            } else if (defence === 5 || defence === 6){
+                setAttrs({ def_good:1 }, {silent:true});
+            } else if (defence === 7 || defence === 8){
+                setAttrs({ def_great:1 }, {silent:true});
+            } else if (defence === 9 || defence === 10){
+                setAttrs({ def_superb:1 }, {silent:true});
+            } else if (defence === 11 || defence === 12){
+                setAttrs({ def_extraordinary:1 }, {silent:true});
+            }
+        });
+    });
+    
+        on("change:body change:weapon_skill_1 change:weapon_skill_2 change:weapon_skill_3", function() {
+        getAttrs(["body", "weapon_skill_1", "weapon_skill_2", "weapon_skill_3"], function(values) {
+            let melee = parseInt(values.body) + parseInt(values.weapon_skill_1) + parseInt(values.weapon_skill_2) + parseInt(values.weapon_skill_3);
+            setAttrs({mel_poor:0, mel_average:0, mel_good:0 , mel_great:0, mel_superb:0, mel_extraordinary:0}, {silent:true});
+            if (melee === 1 || melee === 2){
+                setAttrs({ mel_poor:1 }, {silent:true});
+            } else if (melee === 3 || melee === 4){
+                setAttrs({ mel_average:1 }, {silent:true});
+            } else if (melee === 5 || melee === 6){
+                setAttrs({ mel_good:1 }, {silent:true});
+            } else if (melee === 7 || melee === 8){
+                setAttrs({ mel_great:1 }, {silent:true});
+            } else if (melee === 9 || melee === 10){
+                setAttrs({ mel_superb:1 }, {silent:true});
+            } else if (melee === 11 || melee === 12){
+                setAttrs({ mel_extraordinary:1 }, {silent:true});
+            }
+        });
+    });
+
+        on("change:mind change:ballistic_skill_1 change:ballistic_skill_2 change:ballistic_skill_3", function() {
+        getAttrs(["mind", "ballistic_skill_1", "ballistic_skill_2", "ballistic_skill_3"], function(values) {
+            let accuracy = parseInt(values.mind) + parseInt(values.ballistic_skill_1) + parseInt(values.ballistic_skill_2) + parseInt(values.ballistic_skill_3);
+            setAttrs({acc_poor:0, acc_average:0, acc_good:0 , acc_great:0, acc_superb:0, acc_extraordinary:0}, {silent:true});
+            if (accuracy === 1 || accuracy === 2){
+                setAttrs({ acc_poor:1 }, {silent:true});
+            } else if (accuracy === 3 || accuracy === 4){
+                setAttrs({ acc_average:1 }, {silent:true});
+            } else if (accuracy === 5 || accuracy === 6){
+                setAttrs({ acc_good:1 }, {silent:true});
+            } else if (accuracy === 7 || accuracy === 8){
+                setAttrs({ acc_great:1 }, {silent:true});
+            } else if (accuracy === 9 || accuracy === 10){
+                setAttrs({ acc_superb:1 }, {silent:true});
+            } else if (accuracy === 11 || accuracy === 12){
+                setAttrs({ acc_extraordinary:1 }, {silent:true});
+            }
+        });
+    });
+    
+
+
+</script>
+
 <div class="info">
     <div>
         <span>Character Name</span>
@@ -591,3 +656,55 @@
         </div>
     </div>
 </div>
+
+    <input type="hidden" name="attr_melee"
+           value="ceil((@{body}+@{weapon_skill_1}+@{weapon_skill_2}+@{weapon_skill_3})/2)" disabled="true">
+    <input type="hidden" name="attr_accuracy"
+           value="ceil((@{mind}+@{ballistic_skill_1}+@{ballistic_skill_2}+@{ballistic_skill_3})/2)" disabled="true">
+    <input type="hidden" name="attr_defence" value="ceil((@{body}+@{reflexes_1}+@{reflexes_2}+@{reflexes_3})/2)"
+           disabled="true">
+
+<div class="sheet-combat-abilities">
+    <div></div>
+    <div>mel</div>
+    <div>acc</div>
+    <div>def</div>
+
+    <span>extraordinary</span>
+    <input type="checkbox" name="attr_mel_extraordinary" value="1">
+    <input type="checkbox" name="attr_acc_extraordinary" value="1">
+    <input type="checkbox" name="attr_def_extraordinary" value="1">
+
+    <span>superb</span>
+    <input type="checkbox" name="attr_mel_superb" value="1">
+    <input type="checkbox" name="attr_acc_superb" value="1">
+    <input type="checkbox" name="attr_def_superb" value="1">
+
+    <span>great</span>
+    <input type="checkbox" name="attr_mel_great" value="1">
+    <input type="checkbox" name="attr_acc_great" value="1">
+    <input type="checkbox" name="attr_def_great" value="1">
+
+    <span>good</span>
+    <input type="checkbox" name="attr_mel_good" value="1">
+    <input type="checkbox" name="attr_acc_good" value="1">
+    <input type="checkbox" name="attr_def_good" value="1">
+
+    <span>average</span>
+    <input type="checkbox" name="attr_mel_average" value="1">
+    <input type="checkbox" name="attr_acc_average" value="1">
+    <input type="checkbox" name="attr_def_average" value="1">
+
+    <span>poor</span>
+    <input type="checkbox" name="attr_mel_poor" value="1">
+    <input type="checkbox" name="attr_acc_poor" value="1">
+    <input type="checkbox" name="attr_def_poor" value="1">
+</div>
+<div>
+initiate
+mettle
+armour
+toughness
+wounds
+</div>
+

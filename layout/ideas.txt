@@ -68,3 +68,16 @@ Stealth
 Survival
 Theology
 Weapon Skill
+
+
+    on("change:body change:reflexes_1 change:reflexes_2 change:reflexes_3", function() {
+        getAttrs(["body", "reflexes_1", "reflexes_2", "reflexes_3"], function(values) {
+
+            let defence = values.body + values.reflexes_1 + values.reflexes_2 + values.reflexes_3;
+            if (defence === 1 || defence === 2){
+                setAttrs({ def_poor:1 }, {silent:true});
+            } else {
+                setAttrs({ def_poor:0 }, {silent:true});
+            }
+        });
+    });

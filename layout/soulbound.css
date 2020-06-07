@@ -27,3 +27,8 @@
 .sheet-skills-list {
     display: flex;
 }
+
+.sheet-combat-abilities {
+    display: grid;
+    grid-template-columns: 150px 20px 20px 20px;
+}
