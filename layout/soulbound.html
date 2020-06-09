@@ -811,6 +811,30 @@
         <input type="text" name="attr_spell_duration" class="sheet-spells-duration"/>
         <input type="text" name="attr_spell_test" class="sheet-spells-test"/>
         <input type="text" name="attr_spell_effect"/>
-
     </div>
+</fieldset>
+<div>miracles</div>
+<div class="sheet-miracles">
+    <div>Name</div>
+    <div>Manifest</div>
+    <div>Cost</div>
+    <div>Target</div>
+    <div>Range</div>
+    <div>Duration</div>
+    <div>Effect</div>
+</div>
+<fieldset class="repeating_miracles">
+    <input type="text" name="attr_miracle_name"/>
+    <button type="roll" name="roll_spell" value="@{character_name} manifests @{miracle_name} with the effect: @{miracle_effect}"></button>
+    <input type="text" name="attr_miracle_cost" class="sheet-miracle-cost"/>
+    <input type="text" name="attr_miracle_target" class="sheet-miracle-target"/>
+    <select name="attr_miracle_range" class="sheet-miracle-range">
+        <option value="self">self</option>
+        <option value="close">close</option>
+        <option value="short">short</option>
+        <option value="medium">medium</option>
+        <option value="long">long</option>
+    </select>
+    <input type="text" name="attr_miracle_duration" class="sheet-miracle-duration"/>
+    <input type="text" name="attr_miracle_effect"/>
 </fieldset>

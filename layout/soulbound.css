@@ -85,3 +85,23 @@ input[type=number]:disabled {
     width: 3em;
 }
 
+.sheet-miracles {
+    display: grid;
+    grid-template-columns: 210px 60px 100px 75px 100px auto
+}
+
+.sheet-miracle-target {
+    width: 100px;
+}
+
+.sheet-miracle-range {
+    width: 75px;
+}
+
+.sheet-miracle-cost {
+    width: 75px;
+}
+
+.sheet-miracle-duration {
+    width: 100px;
+}
