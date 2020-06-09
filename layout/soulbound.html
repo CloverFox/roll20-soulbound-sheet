@@ -781,3 +781,36 @@
         <input type="text" name="attr_traits"/>
     </div>
 </fieldset>
+<div>Spells & Miracles</div>
+<div>Spells</div>
+<div class="sheet-spells">
+    <div>Name</div>
+    <div>Cast</div>
+    <div>DN</div><div></div><div></div><!--reserved for dn-->
+    <div>Target</div>
+    <div>Range</div>
+    <div>Duration</div>
+    <div>Test</div>
+    <div>Effect</div>
+</div>
+<fieldset class="repeating_spells">
+    <div class="sheet-spells">
+        <input type="text" name="attr_spell_name"/>
+        <button type="roll" name="roll_spell" value="@{character_name} casts @{spell_name} against DN @{spell_dn_target}:@{spell_dn_successes} gaining [[(@{mind} + @{channelling_1} + @{channelling_2} + @{channelling_3})d6>@{spell_dn_target}]] success with [[@{channelling_focus_1} + @{channelling_focus_2} + @{channelling_focus_3}]] focus points, with the effect: @{spell_effect}"></button>
+        <input type="number" name="attr_spell_dn_target" class="sheet-no-spin sheet-small-digit">
+        :
+        <input type="number" name="attr_spell_dn_successes" class="sheet-no-spin sheet-small-digit">
+        <input type="text" name="attr_spell_target" class="sheet-spells-target"/>
+        <select name="attr_spell_range" class="sheet-spells-range">
+            <option value="self">self</option>
+            <option value="close">close</option>
+            <option value="short">short</option>
+            <option value="medium">medium</option>
+            <option value="long">long</option>
+        </select>
+        <input type="text" name="attr_spell_duration" class="sheet-spells-duration"/>
+        <input type="text" name="attr_spell_test" class="sheet-spells-test"/>
+        <input type="text" name="attr_spell_effect"/>
+
+    </div>
+</fieldset>

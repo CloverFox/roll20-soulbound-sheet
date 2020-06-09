@@ -46,3 +46,42 @@
     z-index:2;
     display:block;
 }
+
+.sheet-spells {
+    display: grid;
+    grid-template-columns: 210px 40px 30px 10px 30px 100px 80px 80px 40px auto
+}
+
+input[type=number]:disabled {
+    -moz-appearance: textfield;
+}
+
+.sheet-no-spin::-webkit-inner-spin-button, .no-spin::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.sheet-no-spin {
+    -moz-appearance:textfield;
+}
+
+.sheet-small-digit {
+    width: 2em !important;
+}
+
+.sheet-spells-target {
+    width: 100px;
+}
+
+.sheet-spells-range {
+    width: 75px;
+}
+
+.sheet-spells-duration {
+    width: 75px;
+}
+
+.sheet-spells-test {
+    width: 3em;
+}
+
