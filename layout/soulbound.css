@@ -32,3 +32,17 @@
     display: grid;
     grid-template-columns: 150px 20px 20px 20px;
 }
+
+.sheet-weapons {
+    display: grid;
+    grid-template-columns: 250px 40px 70px 70px 70px auto;
+}
+
+.sheet-weapon-focus .sheet-cover {
+    width:70px;
+    height:40px;
+    background:transparent;
+    position:absolute;
+    z-index:2;
+    display:block;
+}

@@ -58,7 +58,13 @@
             }
         });
     });
-    
+
+
+
+
+
+
+
 
 
 </script>
@@ -101,7 +107,7 @@
         <input type="text" name="attr_dist_features">
     </div>
 </div>
-<div class="attributes">
+<div class="sheet-attributes">
     <div>
         <span>Body</span>
         <input type="number" name="attr_body" value="1">
@@ -115,8 +121,8 @@
         <input type="number" name="attr_soul" value="1">
     </div>
 </div>
-<div class="skills-list">
-    <div class="skills">
+<div class="sheet-skills-list">
+    <div class="sheet-skills">
         <div></div>
         <div>Training</div>
         <div>Focus</div>
@@ -657,12 +663,12 @@
     </div>
 </div>
 
-    <input type="hidden" name="attr_melee"
-           value="ceil((@{body}+@{weapon_skill_1}+@{weapon_skill_2}+@{weapon_skill_3})/2)" disabled="true">
-    <input type="hidden" name="attr_accuracy"
-           value="ceil((@{mind}+@{ballistic_skill_1}+@{ballistic_skill_2}+@{ballistic_skill_3})/2)" disabled="true">
-    <input type="hidden" name="attr_defence" value="ceil((@{body}+@{reflexes_1}+@{reflexes_2}+@{reflexes_3})/2)"
-           disabled="true">
+<input type="hidden" name="attr_melee"
+       value="ceil((@{body}+@{weapon_skill_1}+@{weapon_skill_2}+@{weapon_skill_3})/2)" disabled="true">
+<input type="hidden" name="attr_accuracy"
+       value="ceil((@{mind}+@{ballistic_skill_1}+@{ballistic_skill_2}+@{ballistic_skill_3})/2)" disabled="true">
+<input type="hidden" name="attr_defence" value="ceil((@{body}+@{reflexes_1}+@{reflexes_2}+@{reflexes_3})/2)"
+       disabled="true">
 
 <div class="sheet-combat-abilities">
     <div></div>
@@ -700,11 +706,78 @@
     <input type="checkbox" name="attr_acc_poor" value="1">
     <input type="checkbox" name="attr_def_poor" value="1">
 </div>
-<div>
-initiate
-mettle
-armour
-toughness
-wounds
-</div>
 
+<div>
+    <span>Toughness</span>
+    <input type="number" disabled="true" name="attr_toughness" value="@{body} + @{mind} + @{soul}">
+</div>
+<div>
+    <span>Wounds</span>
+    <input type="number" disabled="true" name="attr_wounds_max" value="ceil((@{body} + @{mind} + @{soul})/2)">
+    <span>Mortally Wounded</span>
+    <input type="checkbox" name="attr_mortally_wounded" value="1">
+</div>
+<div>
+    <span>Initiative</span>
+    <input type="number" disabled="true" name="attr_initiative"
+           value="@{mind} + @{awareness_1} + @{awareness_2} + @{awareness_3} + @{reflexes_1} + @{reflexes_2} + @{reflexes_3}">
+</div>
+<div>
+    <span>Natural Awareness</span>
+    <input type="number" disabled="true" name="attr_nat_awareness"
+           value="ceil((@{mind} + @{awareness_1} + @{awareness_2} + @{awareness_3})/2)">
+</div>
+<div>
+    <span>Mettle</span>
+    <input type="number" disabled="true" name="attr_mettle_max" value="ceil(@{soul}/2)">
+</div>
+<div class="sheet-currency">
+    <div>
+        <span>Drops</span>
+        <input type="number" name="attr_drops" value="0">
+    </div>
+    <div>
+        <span>Phials</span>
+        <input type="number" name="attr_phials" value="0">
+    </div>
+    <div>
+        <span>Spheres</span>
+        <input type="number" name="attr_spheres" value="0">
+    </div>
+</div>
+<div class="sheet-weapons">
+    <div>weapon name</div>
+    <div>attack</div>
+    <div>pool</div>
+    <div>focus</div>
+    <div>damage</div>
+    <div>traits</div>
+</div>
+<div>Melee Weapons</div>
+<fieldset class="repeating_melee">
+    <div class="sheet-weapons">
+        <input type="text" name="attr_melee_name">
+        <button type="roll" name="roll_melee_attack"
+                value="@{character_name} uses their @{melee_name} against DN: ?{Target DN? |1|2|3|4|5|6}: [[(@{weapon_skill_attribute}+@{weapon_skill_1}+@{weapon_skill_2}+@{weapon_skill_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{weapon_skill_focus_1} + @{weapon_skill_focus_2} + @{weapon_skill_focus_3}]] focus points, and dealing @{melee_damage} extra damage"></button>
+        <input type="number" disabled="true" name="attr_melee_pool"
+               value="@{body} + @{weapon_skill_1} + @{weapon_skill_2} + @{weapon_skill_3}">
+        <input type="number" name="attr_melee_focus" disabled="true"
+               value="@{weapon_skill_focus_1} + @{weapon_skill_focus_2} + @{weapon_skill_focus_3}">
+        <input type="number" name="attr_melee_damage" value="0">
+        <input type="text" name="attr_traits">
+    </div>
+</fieldset>
+<div>Ranged Weapons</div>
+<fieldset class="repeating_ranged">
+    <div class="sheet-weapons">
+        <input type="text" name="attr_ranged_name"/>
+        <button type="roll" name="roll_ranged_attack"
+                value="@{character_name} uses their @{ranged_name} against DN: ?{Target DN? |1|2|3|4|5|6}: [[(@{ballistic_skill_attribute}+@{ballistic_skill_1}+@{ballistic_skill_2}+@{ballistic_skill_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{ballistic_skill_focus_1} + @{ballistic_skill_focus_2} + @{ballistic_skill_focus_3}]] focus points, and dealing @{ranged_damage} extra damage"></button>
+        <input type="number" disabled="true" name="attr_ranged_pool"
+               value="@{body} + @{ballistic_skill_1} + @{ballistic_skill_2} + @{ballistic_skill_3}"/>
+        <input type="number" name="attr_ranged_focus" disabled="true"
+               value="@{ballistic_skill_focus_1} + @{ballistic_skill_focus_2} + @{ballistic_skill_focus_3}"/>
+        <input type="number" name="attr_ranged_damage" value="0"/>
+        <input type="text" name="attr_traits"/>
+    </div>
+</fieldset>
