@@ -67,6 +67,7 @@
 
 
 
+
 </script>
 
 <div class="info">
@@ -713,6 +714,7 @@
 </div>
 <div>
     <span>Wounds</span>
+    <input type="number" name="attr_wounds">/
     <input type="number" disabled="true" name="attr_wounds_max" value="ceil((@{body} + @{mind} + @{soul})/2)">
     <span>Mortally Wounded</span>
     <input type="checkbox" name="attr_mortally_wounded" value="1">
@@ -786,7 +788,9 @@
 <div class="sheet-spells">
     <div>Name</div>
     <div>Cast</div>
-    <div>DN</div><div></div><div></div><!--reserved for dn-->
+    <div>DN</div>
+    <div></div>
+    <div></div><!--reserved for dn-->
     <div>Target</div>
     <div>Range</div>
     <div>Duration</div>
@@ -796,7 +800,8 @@
 <fieldset class="repeating_spells">
     <div class="sheet-spells">
         <input type="text" name="attr_spell_name"/>
-        <button type="roll" name="roll_spell" value="@{character_name} casts @{spell_name} against DN @{spell_dn_target}:@{spell_dn_successes} gaining [[(@{mind} + @{channelling_1} + @{channelling_2} + @{channelling_3})d6>@{spell_dn_target}]] success with [[@{channelling_focus_1} + @{channelling_focus_2} + @{channelling_focus_3}]] focus points, with the effect: @{spell_effect}"></button>
+        <button type="roll" name="roll_spell"
+                value="@{character_name} casts @{spell_name} against DN @{spell_dn_target}:@{spell_dn_successes} gaining [[(@{mind} + @{channelling_1} + @{channelling_2} + @{channelling_3})d6>@{spell_dn_target}]] success with [[@{channelling_focus_1} + @{channelling_focus_2} + @{channelling_focus_3}]] focus points, with the effect: @{spell_effect}"></button>
         <input type="number" name="attr_spell_dn_target" class="sheet-no-spin sheet-small-digit">
         :
         <input type="number" name="attr_spell_dn_successes" class="sheet-no-spin sheet-small-digit">
@@ -825,7 +830,8 @@
 </div>
 <fieldset class="repeating_miracles">
     <input type="text" name="attr_miracle_name"/>
-    <button type="roll" name="roll_spell" value="@{character_name} manifests @{miracle_name} with the effect: @{miracle_effect}"></button>
+    <button type="roll" name="roll_spell"
+            value="@{character_name} manifests @{miracle_name} with the effect: @{miracle_effect}"></button>
     <input type="text" name="attr_miracle_cost" class="sheet-miracle-cost"/>
     <input type="text" name="attr_miracle_target" class="sheet-miracle-target"/>
     <select name="attr_miracle_range" class="sheet-miracle-range">
@@ -838,3 +844,42 @@
     <input type="text" name="attr_miracle_duration" class="sheet-miracle-duration"/>
     <input type="text" name="attr_miracle_effect"/>
 </fieldset>
+
+<fieldset class="repeating_gear">
+    <input type="text" name="attr_gear"/>
+</fieldset>
+
+<div>Equipment</div>
+<div class="sheet-equipment">
+    <div>Head</div>
+    <input type="text" name="attr_equip_head"/>
+    <div>Cloak</div>
+    <input type="text" name="attr_equip_cloak"/>
+    <div>Armour</div>
+    <input type="text" name="attr_equip_armour"/>
+    <div>Right Hand</div>
+    <input type="text" name="attr_equip_r_hand"/>
+    <div>Left Hand</div>
+    <input type="text" name="attr_equip_l_hand"/>
+    <div>Arms</div>
+    <input type="text" name="attr_equip_arms"/>
+    <div>Boots</div>
+    <input type="text" name="attr_equip_boots"/>
+    <div>Jewelry</div>
+    <input type="text" name="attr_equip_jewelry"/>
+</div>
+<fieldset class="repeating_equipother">
+    <div class="sheet-equipment">
+        <div>Other</div>
+        <input type="text" name="attr_equip_other"/>
+    </div>
+</fieldset>
+
+<div>Background</div>
+<input type="text" name="attr_background"/>
+<div>Notes</div>
+<input type="text" name="attr_notes"/>
+<div>Goals</div>
+<input type="text" name="attr_goals"/>
+<div>Connections</div>
+<input type="text" name="attr_connections"/>

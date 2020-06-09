@@ -105,3 +105,8 @@ input[type=number]:disabled {
 .sheet-miracle-duration {
     width: 100px;
 }
+
+.sheet-equipment {
+    display: grid;
+    grid-template-columns: 75px auto;
+}
