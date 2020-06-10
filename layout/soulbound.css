@@ -77,7 +77,7 @@ button[type="roll"].sheet-text-big{
     height: 40px;
 }
 
-.sheet-attributes input{
+.sheet-attributes input[type="number"]{
     font-size: 30px;
     width: 1.75em;
     border: 0;
@@ -160,6 +160,10 @@ button[type="roll"].sheet-text-big{
     display: flex;
     justify-content: space-between;
     margin-right: 5px;
+}
+
+.sheet-desc button[type="roll"].sheet-text-button{
+    font-size: 13px;
 }
 
 .sheet-attribute-select {
