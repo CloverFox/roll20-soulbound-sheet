@@ -59,6 +59,7 @@
         });
     });
 
+
 </script>
 
 <input type="hidden" name="attr_melee"
@@ -787,7 +788,9 @@
         <option value="deadly">Deadly</option>
     </select>
 </div>
-
+<div class="sheet-header">Weapons</div>
+<div class="sheet-line"></div>
+<div class="sheet-header-minor">Melee Weapons</div>
 <div class="sheet-weapons">
     <div>weapon name</div>
     <div>attack</div>
@@ -796,7 +799,6 @@
     <div>damage</div>
     <div>traits</div>
 </div>
-<div>Melee Weapons</div>
 <fieldset class="repeating_melee">
     <div class="sheet-weapons">
         <input type="text" name="attr_melee_name">
@@ -810,7 +812,15 @@
         <input type="text" name="attr_traits">
     </div>
 </fieldset>
-<div>Ranged Weapons</div>
+<div class="sheet-header-minor">Ranged Weapons</div>
+<div class="sheet-weapons">
+    <div>weapon name</div>
+    <div>attack</div>
+    <div>pool</div>
+    <div>focus</div>
+    <div>damage</div>
+    <div>traits</div>
+</div>
 <fieldset class="repeating_ranged">
     <div class="sheet-weapons">
         <input type="text" name="attr_ranged_name"/>
@@ -824,8 +834,9 @@
         <input type="text" name="attr_traits"/>
     </div>
 </fieldset>
-<div>Spells & Miracles</div>
-<div>Spells</div>
+<div class="sheet-header">Spells and Miracles</div>
+<div class="sheet-line"></div>
+<div class="sheet-header-minor">Spells</div>
 <div class="sheet-spells">
     <div>Name</div>
     <div>Cast</div>
@@ -859,7 +870,7 @@
         <textarea type="text" name="attr_spell_effect" class="sheet-spells-effect"></textarea>
     </div>
 </fieldset>
-<div>miracles</div>
+<div class="sheet-header-minor">Miracles</div>
 <div class="sheet-miracles">
     <div>Name</div>
     <div>Manifest</div>
@@ -870,20 +881,22 @@
     <div>Effect</div>
 </div>
 <fieldset class="repeating_miracles">
-    <input type="text" name="attr_miracle_name"/>
-    <button type="roll" name="roll_spell"
-            value="@{character_name} manifests @{miracle_name} with the effect: @{miracle_effect}"></button>
-    <input type="text" name="attr_miracle_cost" class="sheet-miracle-cost"/>
-    <input type="text" name="attr_miracle_target" class="sheet-miracle-target"/>
-    <select name="attr_miracle_range" class="sheet-miracle-range">
-        <option value="self">self</option>
-        <option value="close">close</option>
-        <option value="short">short</option>
-        <option value="medium">medium</option>
-        <option value="long">long</option>
-    </select>
-    <input type="text" name="attr_miracle_duration" class="sheet-miracle-duration"/>
-    <textarea name="attr_miracle_effect" class="sheet-miracle-effect"></textarea>
+    <div class="sheet-miracles">
+        <input type="text" name="attr_miracle_name"/>
+        <button type="roll" name="roll_spell"
+                value="@{character_name} manifests @{miracle_name} with the effect: @{miracle_effect}"></button>
+        <input type="text" name="attr_miracle_cost" class="sheet-miracle-cost"/>
+        <input type="text" name="attr_miracle_target" class="sheet-miracle-target"/>
+        <select name="attr_miracle_range" class="sheet-miracle-range">
+            <option value="self">self</option>
+            <option value="close">close</option>
+            <option value="short">short</option>
+            <option value="medium">medium</option>
+            <option value="long">long</option>
+        </select>
+        <input type="text" name="attr_miracle_duration" class="sheet-miracle-duration"/>
+        <textarea name="attr_miracle_effect" class="sheet-miracle-effect"></textarea>
+    </div>
 </fieldset>
 
 <div class="sheet-section-gear">
