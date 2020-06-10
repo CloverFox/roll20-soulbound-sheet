@@ -70,76 +70,76 @@
 <input type="hidden" name="attr_defence" value="ceil((@{body}+@{reflexes_1}+@{reflexes_2}+@{reflexes_3})/2)"
        disabled="true">
 
-<div class="sheet-section-character">
-    <div class="sheet-img-name">
-        <img src="https://i.imgur.com/NMAlvGL.jpg" class="sheet-soulbound-img"/>
+<div class="section-character">
+    <div class="img-name">
+        <img src="https://i.imgur.com/NMAlvGL.jpg" class="soulbound-img"/>
         <div>
             <input type="text" name="attr_character_name">
             <span>Character Name</span>
         </div>
     </div>
     <div class="info">
-        <div class="sheet-archetype">
+        <div class="archetype">
             <input type="text" name="attr_archetype">
             <span>Archetype</span>
         </div>
-        <div class="sheet-species">
+        <div class="species">
             <input type="text" name="attr_species">
             <span>Species</span>
         </div>
-        <div class="sheet-age">
+        <div class="age">
             <input type="text" name="attr_age">
             <span>Age</span>
         </div>
-        <div class="sheet-eyes">
+        <div class="eyes">
             <input type="text" name="attr_eyes">
             <span>Eyes</span>
         </div>
-        <div class="sheet-hair">
+        <div class="hair">
             <input type="text" name="attr_hair">
             <span>Hair</span>
         </div>
-        <div class="sheet-height">
+        <div class="height">
             <input type="text" name="attr_height">
             <span>Height</span>
         </div>
-        <div class="sheet-weight">
+        <div class="weight">
             <input type="text" name="attr_weight">
             <span>Weight</span>
         </div>
-        <div class="sheet-dist-features">
+        <div class="dist-features">
             <input type="text" name="attr_dist_features">
             <span>Distinguishing Features</span>
         </div>
-        <div class="sheet-xp">
+        <div class="xp">
             <input type="text" name="attr_xp">
             <span>xp</span>
         </div>
     </div>
 </div>
-<div class="sheet-section-attributes-and-skills">
-    <div class="sheet-attributes-container">
-        <div class="sheet-header">Attributes</div>
-        <div class="sheet-line"></div>
+<div class="section-attributes-and-skills">
+    <div class="attributes-container">
+        <div class="header">Attributes</div>
+        <div class="line"></div>
 
-        <div class="sheet-attributes">
+        <div class="attributes">
             <div>
                 <input type="number" name="attr_body" value="1">
-                <button type="roll" class="sheet-text-button sheet-text-big"
+                <button type="roll" class="text-button text-big"
                         value="@{character_name} uses Body against DN ?{Target DN? |2|3|4|5|6}: [[@{body}d6>?{Target DN? |2|3|4|5|6}]] successes"
                         name="roll_might">Body
                 </button>
             </div>
             <div>
                 <input type="number" name="attr_mind" value="1">
-                <button type="roll" class="sheet-text-button sheet-text-big"
+                <button type="roll" class="text-button text-big"
                         value="@{character_name} uses Mind against DN ?{Target DN? |2|3|4|5|6}: [[@{mind}d6>?{Target DN? |2|3|4|5|6}]] successes"
                         name="roll_might">Mind
                 </button>
             </div>
             <div>
                 <input type="number" name="attr_soul" value="1">
-                <button type="roll" class="sheet-text-button sheet-text-big"
+                <button type="roll" class="text-button text-big"
                         value="@{character_name} uses Soul against DN ?{Target DN? |2|3|4|5|6}: [[@{soul}d6>?{Target DN? |2|3|4|5|6}]] successes"
                         name="roll_might">Soul
                 </button>
@@ -147,16 +147,16 @@
         </div>
     </div>
     <div>
-        <div class="sheet-header">Skills</div>
-        <div class="sheet-line"></div>
-        <div class="sheet-skills-list">
-            <div class="sheet-skills">
+        <div class="header">Skills</div>
+        <div class="line"></div>
+        <div class="skills-list">
+            <div class="skills">
                 <div></div>
                 <div>Training</div>
                 <div>Focus</div>
 
                 <div class="desc">
-                    <button type="roll" class="sheet-text-button"
+                    <button type="roll" class="text-button"
                             value="@{character_name} uses Arcana against DN ?{Target DN? |2|3|4|5|6}: [[(@{arcana_attribute}+@{arcana_1}+@{arcana_2}+@{arcana_3})d6>?{Target DN? |2|3|4|5|6}]] successes with [[@{arcana_focus_1} + @{arcana_focus_2} + @{arcana_focus_3}]] focus points"
                             name="roll_arcana">Arcana
                     </button>
@@ -178,7 +178,7 @@
                 </div>
 
                 <div class="desc">
-                    <button type="roll" class="sheet-text-button"
+                    <button type="roll" class="text-button"
                             value="@{character_name} uses Athletics against DN ?{Target DN? |2|3|4|5|6}: [[(@{athletics_attribute}+@{athletics_1}+@{athletics_2}+@{athletics_3})d6>?{Target DN? |2|3|4|5|6}]] successes with [[@{athletics_focus_1} + @{athletics_focus_2} + @{athletics_focus_3}]] focus points"
                             name="roll_athletics">Athletics
                     </button>
@@ -200,7 +200,7 @@
                 </div>
 
                 <div class="desc">
-                    <button type="roll" class="sheet-text-button"
+                    <button type="roll" class="text-button"
                             value="@{character_name} uses Awareness against DN ?{Target DN? |2|3|4|5|6}: [[(@{awareness_attribute}+@{awareness_1}+@{awareness_2}+@{awareness_3})d6>?{Target DN? |2|3|4|5|6}]] successes with [[@{awareness_focus_1} + @{awareness_focus_2} + @{awareness_focus_3}]] focus points"
                             name="roll_awareness">Awareness
                     </button>
@@ -222,7 +222,7 @@
                 </div>
 
                 <div class="desc">
-                    <button type="roll" class="sheet-text-button"
+                    <button type="roll" class="text-button"
                             value="@{character_name} uses Ballistic skill against DN ?{Target DN? |2|3|4|5|6}: [[(@{ballistic_skill_attribute}+@{ballistic_skill_1}+@{ballistic_skill_2}+@{ballistic_skill_3})d6>?{Target DN? |2|3|4|5|6}]] successes with [[@{ballistic_skill_focus_1} + @{ballistic_skill_focus_2} + @{ballistic_skill_focus_3}]] focus points"
                             name="roll_ballistic_skill">Ballistic skill
                     </button>
@@ -244,7 +244,7 @@
                 </div>
 
                 <div class="desc">
-                    <button type="roll" class="sheet-text-button"
+                    <button type="roll" class="text-button"
                             value="@{character_name} uses Beast Handling against DN ?{Target DN? |2|3|4|5|6}: [[(@{beast_handling_attribute}+@{beast_handling_1}+@{beast_handling_2}+@{beast_handling_3})d6>?{Target DN? |2|3|4|5|6}]] successes with [[@{beast_handling_focus_1} + @{beast_handling_focus_2} + @{beast_handling_focus_3}]] focus points"
                             name="roll_beast_handling">Beast Handling
                     </button>
@@ -266,7 +266,7 @@
                 </div>
 
                 <div class="desc">
-                    <button type="roll" class="sheet-text-button"
+                    <button type="roll" class="text-button"
                             value="@{character_name} uses Channelling against DN ?{Target DN? |2|3|4|5|6}: [[(@{channelling_attribute}+@{channelling_1}+@{channelling_2}+@{channelling_3})d6>?{Target DN? |2|3|4|5|6}]] successes with [[@{channelling_focus_1} + @{channelling_focus_2} + @{channelling_focus_3}]] focus points"
                             name="roll_channelling">Channelling
                     </button>
@@ -288,7 +288,7 @@
                 </div>
 
                 <div class="desc">
-                    <button type="roll" class="sheet-text-button"
+                    <button type="roll" class="text-button"
                             value="@{character_name} uses Crafting against DN ?{Target DN? |2|3|4|5|6}: [[(@{crafting_attribute}+@{crafting_1}+@{crafting_2}+@{crafting_3})d6>?{Target DN? |2|3|4|5|6}]] successes with [[@{crafting_focus_1} + @{crafting_focus_2} + @{crafting_focus_3}]] focus points"
                             name="roll_crafting">Crafting
                     </button>
@@ -310,7 +310,7 @@
                 </div>
 
                 <div class="desc">
-                    <button type="roll" class="sheet-text-button"
+                    <button type="roll" class="text-button"
                             value="@{character_name} uses Determination against DN ?{Target DN? |2|3|4|5|6}: [[(@{determination_attribute}+@{determination_1}+@{determination_2}+@{determination_3})d6>?{Target DN? |2|3|4|5|6}]] successes with [[@{determination_focus_1} + @{determination_focus_2} + @{determination_focus_3}]] focus points"
                             name="roll_determination">Determination
                     </button>
@@ -332,7 +332,7 @@
                 </div>
 
                 <div class="desc">
-                    <button type="roll" class="sheet-text-button"
+                    <button type="roll" class="text-button"
                             value="@{character_name} uses Devotion against DN ?{Target DN? |2|3|4|5|6}: [[(@{devotion_attribute}+@{devotion_1}+@{devotion_2}+@{devotion_3})d6>?{Target DN? |2|3|4|5|6}]] successes with [[@{devotion_focus_1} + @{devotion_focus_2} + @{devotion_focus_3}]] focus points"
                             name="roll_devotion">Devotion
                     </button>
@@ -354,7 +354,7 @@
                 </div>
 
                 <div class="desc">
-                    <button type="roll" class="sheet-text-button"
+                    <button type="roll" class="text-button"
                             value="@{character_name} uses Dexterity against DN ?{Target DN? |2|3|4|5|6}: [[(@{dexterity_attribute}+@{dexterity_1}+@{dexterity_2}+@{dexterity_3})d6>?{Target DN? |2|3|4|5|6}]] successes with [[@{dexterity_focus_1} + @{dexterity_focus_2} + @{dexterity_focus_3}]] focus points"
                             name="roll_dexterity">Dexterity
                     </button>
@@ -376,7 +376,7 @@
                 </div>
 
                 <div class="desc">
-                    <button type="roll" class="sheet-text-button"
+                    <button type="roll" class="text-button"
                             value="@{character_name} uses Entertain against DN ?{Target DN? |2|3|4|5|6}: [[(@{entertain_attribute}+@{entertain_1}+@{entertain_2}+@{entertain_3})d6>?{Target DN? |2|3|4|5|6}]] successes with [[@{entertain_focus_1} + @{entertain_focus_2} + @{entertain_focus_3}]] focus points"
                             name="roll_entertain">Entertain
                     </button>
@@ -398,7 +398,7 @@
                 </div>
 
                 <div class="desc">
-                    <button type="roll" class="sheet-text-button"
+                    <button type="roll" class="text-button"
                             value="@{character_name} uses Fortitude against DN ?{Target DN? |2|3|4|5|6}: [[(@{fortitude_attribute}+@{fortitude_1}+@{fortitude_2}+@{fortitude_3})d6>?{Target DN? |2|3|4|5|6}]] successes with [[@{fortitude_focus_1} + @{fortitude_focus_2} + @{fortitude_focus_3}]] focus points"
                             name="roll_fortitude">Fortitude
                     </button>
@@ -425,7 +425,7 @@
                 <div>Focus</div>
 
                 <div class="desc">
-                    <button type="roll" class="sheet-text-button"
+                    <button type="roll" class="text-button"
                             value="@{character_name} uses Guile against DN ?{Target DN? |2|3|4|5|6}: [[(@{guile_attribute}+@{guile_1}+@{guile_2}+@{guile_3})d6>?{Target DN? |2|3|4|5|6}]] successes with [[@{guile_focus_1} + @{guile_focus_2} + @{guile_focus_3}]] focus points"
                             name="roll_guile">Guile
                     </button>
@@ -447,7 +447,7 @@
                 </div>
 
                 <div class="desc">
-                    <button type="roll" class="sheet-text-button"
+                    <button type="roll" class="text-button"
                             value="@{character_name} uses Intimidation against DN ?{Target DN? |2|3|4|5|6}: [[(@{intimidation_attribute}+@{intimidation_1}+@{intimidation_2}+@{intimidation_3})d6>?{Target DN? |2|3|4|5|6}]] successes with [[@{intimidation_focus_1} + @{intimidation_focus_2} + @{intimidation_focus_3}]] focus points"
                             name="roll_intimidation">Intimidation
                     </button>
@@ -469,7 +469,7 @@
                 </div>
 
                 <div class="desc">
-                    <button type="roll" class="sheet-text-button"
+                    <button type="roll" class="text-button"
                             value="@{character_name} uses Intuition against DN ?{Target DN? |2|3|4|5|6}: [[(@{intuition_attribute}+@{intuition_1}+@{intuition_2}+@{intuition_3})d6>?{Target DN? |2|3|4|5|6}]] successes with [[@{intuition_focus_1} + @{intuition_focus_2} + @{intuition_focus_3}]] focus points"
                             name="roll_intuition">Intuition
                     </button>
@@ -491,7 +491,7 @@
                 </div>
 
                 <div class="desc">
-                    <button type="roll" class="sheet-text-button"
+                    <button type="roll" class="text-button"
                             value="@{character_name} uses Lore against DN ?{Target DN? |2|3|4|5|6}: [[(@{lore_attribute}+@{lore_1}+@{lore_2}+@{lore_3})d6>?{Target DN? |2|3|4|5|6}]] successes with [[@{lore_focus_1} + @{lore_focus_2} + @{lore_focus_3}]] focus points"
                             name="roll_lore">Lore
                     </button>
@@ -513,7 +513,7 @@
                 </div>
 
                 <div class="desc">
-                    <button type="roll" class="sheet-text-button"
+                    <button type="roll" class="text-button"
                             value="@{character_name} uses Medicine against DN ?{Target DN? |2|3|4|5|6}: [[(@{medicine_attribute}+@{medicine_1}+@{medicine_2}+@{medicine_3})d6>?{Target DN? |2|3|4|5|6}]] successes with [[@{medicine_focus_1} + @{medicine_focus_2} + @{medicine_focus_3}]] focus points"
                             name="roll_medicine">Medicine
                     </button>
@@ -535,7 +535,7 @@
                 </div>
 
                 <div class="desc">
-                    <button type="roll" class="sheet-text-button"
+                    <button type="roll" class="text-button"
                             value="@{character_name} uses Might against DN ?{Target DN? |2|3|4|5|6}: [[(@{might_attribute}+@{might_1}+@{might_2}+@{might_3})d6>?{Target DN? |2|3|4|5|6}]] successes with [[@{might_focus_1} + @{might_focus_2} + @{might_focus_3}]] focus points"
                             name="roll_might">Might
                     </button>
@@ -557,7 +557,7 @@
                 </div>
 
                 <div class="desc">
-                    <button type="roll" class="sheet-text-button"
+                    <button type="roll" class="text-button"
                             value="@{character_name} uses Nature against DN ?{Target DN? |2|3|4|5|6}: [[(@{nature_attribute}+@{nature_1}+@{nature_2}+@{nature_3})d6>?{Target DN? |2|3|4|5|6}]] successes with [[@{nature_focus_1} + @{nature_focus_2} + @{nature_focus_3}]] focus points"
                             name="roll_nature">Nature
                     </button>
@@ -579,7 +579,7 @@
                 </div>
 
                 <div class="desc">
-                    <button type="roll" class="sheet-text-button"
+                    <button type="roll" class="text-button"
                             value="@{character_name} uses Reflexes against DN ?{Target DN? |2|3|4|5|6}: [[(@{reflexes_attribute}+@{reflexes_1}+@{reflexes_2}+@{reflexes_3})d6>?{Target DN? |2|3|4|5|6}]] successes with [[@{reflexes_focus_1} + @{reflexes_focus_2} + @{reflexes_focus_3}]] focus points"
                             name="roll_reflexes">Reflexes
                     </button>
@@ -601,7 +601,7 @@
                 </div>
 
                 <div class="desc">
-                    <button type="roll" class="sheet-text-button"
+                    <button type="roll" class="text-button"
                             value="@{character_name} uses Stealth against DN ?{Target DN? |2|3|4|5|6}: [[(@{stealth_attribute}+@{stealth_1}+@{stealth_2}+@{stealth_3})d6>?{Target DN? |2|3|4|5|6}]] successes with [[@{stealth_focus_1} + @{stealth_focus_2} + @{stealth_focus_3}]] focus points"
                             name="roll_stealth">Stealth
                     </button>
@@ -623,7 +623,7 @@
                 </div>
 
                 <div class="desc">
-                    <button type="roll" class="sheet-text-button"
+                    <button type="roll" class="text-button"
                             value="@{character_name} uses Survival against DN ?{Target DN? |2|3|4|5|6}: [[(@{survival_attribute}+@{survival_1}+@{survival_2}+@{survival_3})d6>?{Target DN? |2|3|4|5|6}]] successes with [[@{survival_focus_1} + @{survival_focus_2} + @{survival_focus_3}]] focus points"
                             name="roll_survival">Survival
                     </button>
@@ -645,7 +645,7 @@
                 </div>
 
                 <div class="desc">
-                    <button type="roll" class="sheet-text-button"
+                    <button type="roll" class="text-button"
                             value="@{character_name} uses Theology against DN ?{Target DN? |2|3|4|5|6}: [[(@{theology_attribute}+@{theology_1}+@{theology_2}+@{theology_3})d6>?{Target DN? |2|3|4|5|6}]] successes with [[@{theology_focus_1} + @{theology_focus_2} + @{theology_focus_3}]] focus points"
                             name="roll_theology">Theology
                     </button>
@@ -667,7 +667,7 @@
                 </div>
 
                 <div class="desc">
-                    <button type="roll" class="sheet-text-button"
+                    <button type="roll" class="text-button"
                             value="@{character_name} uses Weapon Skill against DN ?{Target DN? |2|3|4|5|6}: [[(@{weapon_skill_attribute}+@{weapon_skill_1}+@{weapon_skill_2}+@{weapon_skill_3})d6>?{Target DN? |2|3|4|5|6}]] successes with [[@{weapon_skill_focus_1} + @{weapon_skill_focus_2} + @{weapon_skill_focus_3}]] focus points"
                             name="roll_weapon_skill">Weapon Skill
                     </button>
@@ -698,12 +698,12 @@
            value="ceil((@{mind} + @{awareness_1} + @{awareness_2} + @{awareness_3})/2)">
 </div>
 
-<div class="sheet-section-abilities">
+<div class="section-abilities">
     <div>
-        <div class="sheet-header">Combat Abilities</div>
-        <div class="sheet-line"></div>
-        <div class="sheet-combat-abilities">
-            <div class="sheet-combat-mel-acc-def">
+        <div class="header">Combat Abilities</div>
+        <div class="line"></div>
+        <div class="combat-abilities">
+            <div class="combat-mel-acc-def">
                 <div></div>
                 <div>mel</div>
                 <div>acc</div>
@@ -739,15 +739,15 @@
                 <input type="checkbox" name="attr_acc_poor" value="1">
                 <input type="checkbox" name="attr_def_poor" value="1">
             </div>
-            <div class="sheet-combat-misc">
-                <div class="sheet-combat-ability-entry">
+            <div class="combat-misc">
+                <div class="combat-ability-entry">
                     <span>Initiative</span>
                     <div>
                         <input type="number" disabled="true" name="attr_initiative"
                                value="@{mind} + @{awareness_1} + @{awareness_2} + @{awareness_3} + @{reflexes_1} + @{reflexes_2} + @{reflexes_3}">
                     </div>
                 </div>
-                <div class="sheet-combat-ability-entry">
+                <div class="combat-ability-entry">
                     <span>Mettle</span>
                     <div>
                         <input type="number" name="attr_mettle" value="">/
@@ -755,13 +755,13 @@
                                value="ceil(@{soul}/2)">
                     </div>
                 </div>
-                <div class="sheet-combat-ability-entry">
+                <div class="combat-ability-entry">
                     <span>Armour</span>
                     <div>
                         <input type="number" name="attr_armour">
                     </div>
                 </div>
-                <div class="sheet-combat-ability-entry">
+                <div class="combat-ability-entry">
                     <span>Toughness</span>
                     <div>
                         <input type="number" name="attr_toughness">/
@@ -773,15 +773,15 @@
         </div>
     </div>
     <div>
-        <div class="sheet-header">Talents</div>
-        <div class="sheet-line"></div>
+        <div class="header">Talents</div>
+        <div class="line"></div>
         <fieldset class="repeating_talents">
             <input type="text" name="attr_talents">
         </fieldset>
     </div>
 </div>
-<div class="sheet-header">Wounds</div>
-<div class="sheet-line"></div>
+<div class="header">Wounds</div>
+<div class="line"></div>
 <div>
     <span>Wounds</span>
     <input type="number" name="attr_wounds" value="0">/
@@ -789,16 +789,16 @@
     <span>Mortally Wounded</span>
     <input type="checkbox" name="attr_mortally_wounded" value="1">
     <span>Last Wound Taken</span>
-    <select name="attr_last_wound" class="sheet-wound-selection">
+    <select name="attr_last_wound" class="wound-selection">
         <option value="minor">Minor</option>
         <option value="serious">Serious</option>
         <option value="deadly">Deadly</option>
     </select>
 </div>
-<div class="sheet-header">Weapons</div>
-<div class="sheet-line"></div>
-<div class="sheet-header-minor">Melee Weapons</div>
-<div class="sheet-weapons">
+<div class="header">Weapons</div>
+<div class="line"></div>
+<div class="header-minor">Melee Weapons</div>
+<div class="weapons">
     <div>weapon name</div>
     <div>attack</div>
     <div>pool</div>
@@ -807,7 +807,7 @@
     <div>traits</div>
 </div>
 <fieldset class="repeating_melee">
-    <div class="sheet-weapons">
+    <div class="weapons">
         <input type="text" name="attr_melee_name">
         <button type="roll" name="roll_melee_attack"
                 value="@{character_name} uses their @{melee_name} against DN: ?{Target DN? |2|3|4|5|6}: [[(@{weapon_skill_attribute}+@{weapon_skill_1}+@{weapon_skill_2}+@{weapon_skill_3})d6>?{Target DN? |2|3|4|5|6}]] successes with [[@{weapon_skill_focus_1} + @{weapon_skill_focus_2} + @{weapon_skill_focus_3}]] focus points, and dealing @{melee_damage} extra damage"></button>
@@ -819,8 +819,8 @@
         <input type="text" name="attr_traits">
     </div>
 </fieldset>
-<div class="sheet-header-minor">Ranged Weapons</div>
-<div class="sheet-weapons">
+<div class="header-minor">Ranged Weapons</div>
+<div class="weapons">
     <div>weapon name</div>
     <div>attack</div>
     <div>pool</div>
@@ -829,7 +829,7 @@
     <div>traits</div>
 </div>
 <fieldset class="repeating_ranged">
-    <div class="sheet-weapons">
+    <div class="weapons">
         <input type="text" name="attr_ranged_name"/>
         <button type="roll" name="roll_ranged_attack"
                 value="@{character_name} uses their @{ranged_name} against DN: ?{Target DN? |2|3|4|5|6}: [[(@{ballistic_skill_attribute}+@{ballistic_skill_1}+@{ballistic_skill_2}+@{ballistic_skill_3})d6>?{Target DN? |2|3|4|5|6}]] successes with [[@{ballistic_skill_focus_1} + @{ballistic_skill_focus_2} + @{ballistic_skill_focus_3}]] focus points, and dealing @{ranged_damage} extra damage"></button>
@@ -841,10 +841,10 @@
         <input type="text" name="attr_traits"/>
     </div>
 </fieldset>
-<div class="sheet-header">Spells and Miracles</div>
-<div class="sheet-line"></div>
-<div class="sheet-header-minor">Spells</div>
-<div class="sheet-spells">
+<div class="header">Spells and Miracles</div>
+<div class="line"></div>
+<div class="header-minor">Spells</div>
+<div class="spells">
     <div>Name</div>
     <div>Cast</div>
     <div>DN</div>
@@ -857,28 +857,28 @@
     <div>Effect</div>
 </div>
 <fieldset class="repeating_spells">
-    <div class="sheet-spells">
+    <div class="spells">
         <input type="text" name="attr_spell_name"/>
         <button type="roll" name="roll_spell"
                 value="@{character_name} casts @{spell_name} against DN @{spell_dn_target}:@{spell_dn_successes} gaining [[(@{mind} + @{channelling_1} + @{channelling_2} + @{channelling_3})d6>@{spell_dn_target}]] success with [[@{channelling_focus_1} + @{channelling_focus_2} + @{channelling_focus_3}]] focus points, with the effect: @{spell_effect}"></button>
-        <input type="number" name="attr_spell_dn_target" class="sheet-no-spin sheet-small-digit">
+        <input type="number" name="attr_spell_dn_target" class="no-spin small-digit">
         :
-        <input type="number" name="attr_spell_dn_successes" class="sheet-no-spin sheet-small-digit">
-        <input type="text" name="attr_spell_target" class="sheet-spells-target"/>
-        <select name="attr_spell_range" class="sheet-spells-range">
+        <input type="number" name="attr_spell_dn_successes" class="no-spin small-digit">
+        <input type="text" name="attr_spell_target" class="spells-target"/>
+        <select name="attr_spell_range" class="spells-range">
             <option value="self">self</option>
             <option value="close">close</option>
             <option value="short">short</option>
             <option value="medium">medium</option>
             <option value="long">long</option>
         </select>
-        <input type="text" name="attr_spell_duration" class="sheet-spells-duration"/>
-        <input type="text" name="attr_spell_test" class="sheet-spells-test"/>
-        <textarea type="text" name="attr_spell_effect" class="sheet-spells-effect"></textarea>
+        <input type="text" name="attr_spell_duration" class="spells-duration"/>
+        <input type="text" name="attr_spell_test" class="spells-test"/>
+        <textarea type="text" name="attr_spell_effect" class="spells-effect"></textarea>
     </div>
 </fieldset>
-<div class="sheet-header-minor">Miracles</div>
-<div class="sheet-miracles">
+<div class="header-minor">Miracles</div>
+<div class="miracles">
     <div>Name</div>
     <div>Manifest</div>
     <div>Cost</div>
@@ -888,29 +888,29 @@
     <div>Effect</div>
 </div>
 <fieldset class="repeating_miracles">
-    <div class="sheet-miracles">
+    <div class="miracles">
         <input type="text" name="attr_miracle_name"/>
         <button type="roll" name="roll_spell"
                 value="@{character_name} manifests @{miracle_name} with the effect: @{miracle_effect}"></button>
-        <input type="text" name="attr_miracle_cost" class="sheet-miracle-cost"/>
-        <input type="text" name="attr_miracle_target" class="sheet-miracle-target"/>
-        <select name="attr_miracle_range" class="sheet-miracle-range">
+        <input type="text" name="attr_miracle_cost" class="miracle-cost"/>
+        <input type="text" name="attr_miracle_target" class="miracle-target"/>
+        <select name="attr_miracle_range" class="miracle-range">
             <option value="self">self</option>
             <option value="close">close</option>
             <option value="short">short</option>
             <option value="medium">medium</option>
             <option value="long">long</option>
         </select>
-        <input type="text" name="attr_miracle_duration" class="sheet-miracle-duration"/>
-        <textarea name="attr_miracle_effect" class="sheet-miracle-effect"></textarea>
+        <input type="text" name="attr_miracle_duration" class="miracle-duration"/>
+        <textarea name="attr_miracle_effect" class="miracle-effect"></textarea>
     </div>
 </fieldset>
 
-<div class="sheet-section-gear">
-    <div class="sheet-equip-and-currency">
-        <div class="sheet-header">Equipment</div>
-        <div class="sheet-line"></div>
-        <div class="sheet-equipment">
+<div class="section-gear">
+    <div class="equip-and-currency">
+        <div class="header">Equipment</div>
+        <div class="line"></div>
+        <div class="equipment">
             <div>Head</div>
             <input type="text" name="attr_equip_head"/>
             <div>Cloak</div>
@@ -930,15 +930,15 @@
         </div>
 
         <fieldset class="repeating_equipother">
-            <div class="sheet-equipment">
+            <div class="equipment">
                 <div>Other</div>
                 <input type="text" name="attr_equip_other"/>
             </div>
         </fieldset>
 
-        <div class="sheet-header">Currency</div>
-        <div class="sheet-line"></div>
-        <div class="sheet-currency">
+        <div class="header">Currency</div>
+        <div class="line"></div>
+        <div class="currency">
             <div>
                 <input type="number" name="attr_drops" value="0">
                 <span>Drops</span>
@@ -953,25 +953,25 @@
             </div>
         </div>
     </div>
-    <div class="sheet-gear">
-        <div class="sheet-header">Other Gear</div>
-        <div class="sheet-line"></div>
+    <div class="gear">
+        <div class="header">Other Gear</div>
+        <div class="line"></div>
         <fieldset class="repeating_other-gear">
-            <div class="sheet-gear">
+            <div class="gear">
                 <input type="text" name="attr_gear"/>
             </div>
         </fieldset>
     </div>
 </div>
-<div class="sheet-header">Background</div>
-<div class="sheet-line"></div>
-<textarea name="attr_background" class="sheet-fluff-info"></textarea>
-<div class="sheet-header">Notes</div>
-<div class="sheet-line"></div>
-<textarea name="attr_notes" class="sheet-fluff-info"></textarea>
-<div class="sheet-header">Goals</div>
-<div class="sheet-line"></div>
-<textarea name="attr_goals" class="sheet-fluff-info"></textarea>
-<div class="sheet-header">Connections</div>
-<div class="sheet-line"></div>
-<textarea name="attr_connections" class="sheet-fluff-info"></textarea>
+<div class="header">Background</div>
+<div class="line"></div>
+<textarea name="attr_background" class="fluff-info"></textarea>
+<div class="header">Notes</div>
+<div class="line"></div>
+<textarea name="attr_notes" class="fluff-info"></textarea>
+<div class="header">Goals</div>
+<div class="line"></div>
+<textarea name="attr_goals" class="fluff-info"></textarea>
+<div class="header">Connections</div>
+<div class="line"></div>
+<textarea name="attr_connections" class="fluff-info"></textarea>
