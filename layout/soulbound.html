@@ -59,7 +59,6 @@
         });
     });
 
-
 </script>
 <div class="sheet-section-character">
     <div class="sheet-img-name">
@@ -108,562 +107,571 @@
         </div>
     </div>
 </div>
-<div class="sheet-attributes">
-    <div>
-        <span>Body</span>
-        <input type="number" name="attr_body" value="1">
+<div class="sheet-section-attributes-and-skills">
+    <div class="sheet-attributes">
+        <div>
+            <input type="number" name="attr_body" value="1">
+            <button type="roll" class="sheet-text-button sheet-text-big"
+                    value="@{character_name} uses Body against DN ?{Target DN? |1|2|3|4|5|6}: [[@{body}d6>?{Target DN? |1|2|3|4|5|6}]] successes"
+                    name="roll_might">Body
+            </button>
+        </div>
+        <div>
+            <input type="number" name="attr_mind" value="1">
+            <button type="roll" class="sheet-text-button sheet-text-big"
+                    value="@{character_name} uses Mind against DN ?{Target DN? |1|2|3|4|5|6}: [[@{mind}d6>?{Target DN? |1|2|3|4|5|6}]] successes"
+                    name="roll_might">Mind
+            </button>
+        </div>
+        <div>
+            <input type="number" name="attr_soul" value="1">
+            <button type="roll" class="sheet-text-button sheet-text-big"
+                    value="@{character_name} uses Soul against DN ?{Target DN? |1|2|3|4|5|6}: [[@{soul}d6>?{Target DN? |1|2|3|4|5|6}]] successes"
+                    name="roll_might">Soul
+            </button>
+        </div>
     </div>
-    <div>
-        <span>Mind</span>
-        <input type="number" name="attr_mind" value="1">
-    </div>
-    <div>
-        <span>Soul</span>
-        <input type="number" name="attr_soul" value="1">
+    <div class="sheet-skills-list">
+        <div class="sheet-skills">
+            <div></div>
+            <div>Training</div>
+            <div>Focus</div>
+
+            <div class="desc">
+                <button type="roll" class="sheet-text-button"
+                        value="@{character_name} uses Arcana against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{arcana_attribute}+@{arcana_1}+@{arcana_2}+@{arcana_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{arcana_focus_1} + @{arcana_focus_2} + @{arcana_focus_3}]] focus points"
+                        name="roll_arcana">Arcana
+                </button>
+                <select class="attribute-select" name="attr_arcana_attribute">
+                    <option value="@{body}" selected="selected">body</option>
+                    <option value="@{mind}">mind</option>
+                    <option value="@{soul}">soul</option>
+                </select>
+            </div>
+            <div class="training">
+                <input type="checkbox" name="attr_arcana_1" value="1">
+                <input type="checkbox" name="attr_arcana_2" value="1">
+                <input type="checkbox" name="attr_arcana_3" value="1">
+            </div>
+            <div class="focus">
+                <input type="checkbox" name="attr_arcana_focus_1" value="1">
+                <input type="checkbox" name="attr_arcana_focus_2" value="1">
+                <input type="checkbox" name="attr_arcana_focus_3" value="1">
+            </div>
+
+            <div class="desc">
+                <button type="roll" class="sheet-text-button"
+                        value="@{character_name} uses Athletics against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{athletics_attribute}+@{athletics_1}+@{athletics_2}+@{athletics_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{athletics_focus_1} + @{athletics_focus_2} + @{athletics_focus_3}]] focus points"
+                        name="roll_athletics">Athletics
+                </button>
+                <select class="attribute-select" name="attr_athletics_attribute">
+                    <option value="@{body}" selected="selected">body</option>
+                    <option value="@{mind}">mind</option>
+                    <option value="@{soul}">soul</option>
+                </select>
+            </div>
+            <div class="training">
+                <input type="checkbox" name="attr_athletics_1" value="1">
+                <input type="checkbox" name="attr_athletics_2" value="1">
+                <input type="checkbox" name="attr_athletics_3" value="1">
+            </div>
+            <div class="focus">
+                <input type="checkbox" name="attr_athletics_focus_1" value="1">
+                <input type="checkbox" name="attr_athletics_focus_2" value="1">
+                <input type="checkbox" name="attr_athletics_focus_3" value="1">
+            </div>
+
+            <div class="desc">
+                <button type="roll" class="sheet-text-button"
+                        value="@{character_name} uses Awareness against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{awareness_attribute}+@{awareness_1}+@{awareness_2}+@{awareness_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{awareness_focus_1} + @{awareness_focus_2} + @{awareness_focus_3}]] focus points"
+                        name="roll_awareness">Awareness
+                </button>
+                <select class="attribute-select" name="attr_awareness_attribute">
+                    <option value="@{body}" selected="selected">body</option>
+                    <option value="@{mind}">mind</option>
+                    <option value="@{soul}">soul</option>
+                </select>
+            </div>
+            <div class="training">
+                <input type="checkbox" name="attr_awareness_1" value="1">
+                <input type="checkbox" name="attr_awareness_2" value="1">
+                <input type="checkbox" name="attr_awareness_3" value="1">
+            </div>
+            <div class="focus">
+                <input type="checkbox" name="attr_awareness_focus_1" value="1">
+                <input type="checkbox" name="attr_awareness_focus_2" value="1">
+                <input type="checkbox" name="attr_awareness_focus_3" value="1">
+            </div>
+
+            <div class="desc">
+                <button type="roll" class="sheet-text-button"
+                        value="@{character_name} uses Ballistic skill against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{ballistic_skill_attribute}+@{ballistic_skill_1}+@{ballistic_skill_2}+@{ballistic_skill_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{ballistic_skill_focus_1} + @{ballistic_skill_focus_2} + @{ballistic_skill_focus_3}]] focus points"
+                        name="roll_ballistic_skill">Ballistic skill
+                </button>
+                <select class="attribute-select" name="attr_ballistic_skill_attribute">
+                    <option value="@{body}" selected="selected">body</option>
+                    <option value="@{mind}">mind</option>
+                    <option value="@{soul}">soul</option>
+                </select>
+            </div>
+            <div class="training">
+                <input type="checkbox" name="attr_ballistic_skill_1" value="1">
+                <input type="checkbox" name="attr_ballistic_skill_2" value="1">
+                <input type="checkbox" name="attr_ballistic_skill_3" value="1">
+            </div>
+            <div class="focus">
+                <input type="checkbox" name="attr_ballistic_skill_focus_1" value="1">
+                <input type="checkbox" name="attr_ballistic_skill_focus_2" value="1">
+                <input type="checkbox" name="attr_ballistic_skill_focus_3" value="1">
+            </div>
+
+            <div class="desc">
+                <button type="roll" class="sheet-text-button"
+                        value="@{character_name} uses Beast Handling against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{beast_handling_attribute}+@{beast_handling_1}+@{beast_handling_2}+@{beast_handling_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{beast_handling_focus_1} + @{beast_handling_focus_2} + @{beast_handling_focus_3}]] focus points"
+                        name="roll_beast_handling">Beast Handling
+                </button>
+                <select class="attribute-select" name="attr_beast_handling_attribute">
+                    <option value="@{body}" selected="selected">body</option>
+                    <option value="@{mind}">mind</option>
+                    <option value="@{soul}">soul</option>
+                </select>
+            </div>
+            <div class="training">
+                <input type="checkbox" name="attr_beast_handling_1" value="1">
+                <input type="checkbox" name="attr_beast_handling_2" value="1">
+                <input type="checkbox" name="attr_beast_handling_3" value="1">
+            </div>
+            <div class="focus">
+                <input type="checkbox" name="attr_beast_handling_focus_1" value="1">
+                <input type="checkbox" name="attr_beast_handling_focus_2" value="1">
+                <input type="checkbox" name="attr_beast_handling_focus_3" value="1">
+            </div>
+
+            <div class="desc">
+                <button type="roll" class="sheet-text-button"
+                        value="@{character_name} uses Channelling against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{channelling_attribute}+@{channelling_1}+@{channelling_2}+@{channelling_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{channelling_focus_1} + @{channelling_focus_2} + @{channelling_focus_3}]] focus points"
+                        name="roll_channelling">Channelling
+                </button>
+                <select class="attribute-select" name="attr_channelling_attribute">
+                    <option value="@{body}" selected="selected">body</option>
+                    <option value="@{mind}">mind</option>
+                    <option value="@{soul}">soul</option>
+                </select>
+            </div>
+            <div class="training">
+                <input type="checkbox" name="attr_channelling_1" value="1">
+                <input type="checkbox" name="attr_channelling_2" value="1">
+                <input type="checkbox" name="attr_channelling_3" value="1">
+            </div>
+            <div class="focus">
+                <input type="checkbox" name="attr_channelling_focus_1" value="1">
+                <input type="checkbox" name="attr_channelling_focus_2" value="1">
+                <input type="checkbox" name="attr_channelling_focus_3" value="1">
+            </div>
+
+            <div class="desc">
+                <button type="roll" class="sheet-text-button"
+                        value="@{character_name} uses Crafting against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{crafting_attribute}+@{crafting_1}+@{crafting_2}+@{crafting_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{crafting_focus_1} + @{crafting_focus_2} + @{crafting_focus_3}]] focus points"
+                        name="roll_crafting">Crafting
+                </button>
+                <select class="attribute-select" name="attr_crafting_attribute">
+                    <option value="@{body}" selected="selected">body</option>
+                    <option value="@{mind}">mind</option>
+                    <option value="@{soul}">soul</option>
+                </select>
+            </div>
+            <div class="training">
+                <input type="checkbox" name="attr_crafting_1" value="1">
+                <input type="checkbox" name="attr_crafting_2" value="1">
+                <input type="checkbox" name="attr_crafting_3" value="1">
+            </div>
+            <div class="focus">
+                <input type="checkbox" name="attr_crafting_focus_1" value="1">
+                <input type="checkbox" name="attr_crafting_focus_2" value="1">
+                <input type="checkbox" name="attr_crafting_focus_3" value="1">
+            </div>
+
+            <div class="desc">
+                <button type="roll" class="sheet-text-button"
+                        value="@{character_name} uses Determination against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{determination_attribute}+@{determination_1}+@{determination_2}+@{determination_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{determination_focus_1} + @{determination_focus_2} + @{determination_focus_3}]] focus points"
+                        name="roll_determination">Determination
+                </button>
+                <select class="attribute-select" name="attr_determination_attribute">
+                    <option value="@{body}" selected="selected">body</option>
+                    <option value="@{mind}">mind</option>
+                    <option value="@{soul}">soul</option>
+                </select>
+            </div>
+            <div class="training">
+                <input type="checkbox" name="attr_determination_1" value="1">
+                <input type="checkbox" name="attr_determination_2" value="1">
+                <input type="checkbox" name="attr_determination_3" value="1">
+            </div>
+            <div class="focus">
+                <input type="checkbox" name="attr_determination_focus_1" value="1">
+                <input type="checkbox" name="attr_determination_focus_2" value="1">
+                <input type="checkbox" name="attr_determination_focus_3" value="1">
+            </div>
+
+            <div class="desc">
+                <button type="roll" class="sheet-text-button"
+                        value="@{character_name} uses Devotion against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{devotion_attribute}+@{devotion_1}+@{devotion_2}+@{devotion_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{devotion_focus_1} + @{devotion_focus_2} + @{devotion_focus_3}]] focus points"
+                        name="roll_devotion">Devotion
+                </button>
+                <select class="attribute-select" name="attr_devotion_attribute">
+                    <option value="@{body}" selected="selected">body</option>
+                    <option value="@{mind}">mind</option>
+                    <option value="@{soul}">soul</option>
+                </select>
+            </div>
+            <div class="training">
+                <input type="checkbox" name="attr_devotion_1" value="1">
+                <input type="checkbox" name="attr_devotion_2" value="1">
+                <input type="checkbox" name="attr_devotion_3" value="1">
+            </div>
+            <div class="focus">
+                <input type="checkbox" name="attr_devotion_focus_1" value="1">
+                <input type="checkbox" name="attr_devotion_focus_2" value="1">
+                <input type="checkbox" name="attr_devotion_focus_3" value="1">
+            </div>
+
+            <div class="desc">
+                <button type="roll" class="sheet-text-button"
+                        value="@{character_name} uses Dexterity against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{dexterity_attribute}+@{dexterity_1}+@{dexterity_2}+@{dexterity_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{dexterity_focus_1} + @{dexterity_focus_2} + @{dexterity_focus_3}]] focus points"
+                        name="roll_dexterity">Dexterity
+                </button>
+                <select class="attribute-select" name="attr_dexterity_attribute">
+                    <option value="@{body}" selected="selected">body</option>
+                    <option value="@{mind}">mind</option>
+                    <option value="@{soul}">soul</option>
+                </select>
+            </div>
+            <div class="training">
+                <input type="checkbox" name="attr_dexterity_1" value="1">
+                <input type="checkbox" name="attr_dexterity_2" value="1">
+                <input type="checkbox" name="attr_dexterity_3" value="1">
+            </div>
+            <div class="focus">
+                <input type="checkbox" name="attr_dexterity_focus_1" value="1">
+                <input type="checkbox" name="attr_dexterity_focus_2" value="1">
+                <input type="checkbox" name="attr_dexterity_focus_3" value="1">
+            </div>
+
+            <div class="desc">
+                <button type="roll" class="sheet-text-button"
+                        value="@{character_name} uses Entertain against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{entertain_attribute}+@{entertain_1}+@{entertain_2}+@{entertain_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{entertain_focus_1} + @{entertain_focus_2} + @{entertain_focus_3}]] focus points"
+                        name="roll_entertain">Entertain
+                </button>
+                <select class="attribute-select" name="attr_entertain_attribute">
+                    <option value="@{body}" selected="selected">body</option>
+                    <option value="@{mind}">mind</option>
+                    <option value="@{soul}">soul</option>
+                </select>
+            </div>
+            <div class="training">
+                <input type="checkbox" name="attr_entertain_1" value="1">
+                <input type="checkbox" name="attr_entertain_2" value="1">
+                <input type="checkbox" name="attr_entertain_3" value="1">
+            </div>
+            <div class="focus">
+                <input type="checkbox" name="attr_entertain_focus_1" value="1">
+                <input type="checkbox" name="attr_entertain_focus_2" value="1">
+                <input type="checkbox" name="attr_entertain_focus_3" value="1">
+            </div>
+
+            <div class="desc">
+                <button type="roll" class="sheet-text-button"
+                        value="@{character_name} uses Fortitude against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{fortitude_attribute}+@{fortitude_1}+@{fortitude_2}+@{fortitude_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{fortitude_focus_1} + @{fortitude_focus_2} + @{fortitude_focus_3}]] focus points"
+                        name="roll_fortitude">Fortitude
+                </button>
+                <select class="attribute-select" name="attr_fortitude_attribute">
+                    <option value="@{body}" selected="selected">body</option>
+                    <option value="@{mind}">mind</option>
+                    <option value="@{soul}">soul</option>
+                </select>
+            </div>
+            <div class="training">
+                <input type="checkbox" name="attr_fortitude_1" value="1">
+                <input type="checkbox" name="attr_fortitude_2" value="1">
+                <input type="checkbox" name="attr_fortitude_3" value="1">
+            </div>
+            <div class="focus">
+                <input type="checkbox" name="attr_fortitude_focus_1" value="1">
+                <input type="checkbox" name="attr_fortitude_focus_2" value="1">
+                <input type="checkbox" name="attr_fortitude_focus_3" value="1">
+            </div>
+        </div>
+        <div class="skills">
+            <div></div>
+            <div>Training</div>
+            <div>Focus</div>
+
+            <div class="desc">
+                <button type="roll" class="sheet-text-button"
+                        value="@{character_name} uses Guile against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{guile_attribute}+@{guile_1}+@{guile_2}+@{guile_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{guile_focus_1} + @{guile_focus_2} + @{guile_focus_3}]] focus points"
+                        name="roll_guile">Guile
+                </button>
+                <select class="attribute-select" name="attr_guile_attribute">
+                    <option value="@{body}" selected="selected">body</option>
+                    <option value="@{mind}">mind</option>
+                    <option value="@{soul}">soul</option>
+                </select>
+            </div>
+            <div class="training">
+                <input type="checkbox" name="attr_guile_1" value="1">
+                <input type="checkbox" name="attr_guile_2" value="1">
+                <input type="checkbox" name="attr_guile_3" value="1">
+            </div>
+            <div class="focus">
+                <input type="checkbox" name="attr_guile_focus_1" value="1">
+                <input type="checkbox" name="attr_guile_focus_2" value="1">
+                <input type="checkbox" name="attr_guile_focus_3" value="1">
+            </div>
+
+            <div class="desc">
+                <button type="roll" class="sheet-text-button"
+                        value="@{character_name} uses Intimidation against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{intimidation_attribute}+@{intimidation_1}+@{intimidation_2}+@{intimidation_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{intimidation_focus_1} + @{intimidation_focus_2} + @{intimidation_focus_3}]] focus points"
+                        name="roll_intimidation">Intimidation
+                </button>
+                <select class="attribute-select" name="attr_intimidation_attribute">
+                    <option value="@{body}" selected="selected">body</option>
+                    <option value="@{mind}">mind</option>
+                    <option value="@{soul}">soul</option>
+                </select>
+            </div>
+            <div class="training">
+                <input type="checkbox" name="attr_intimidation_1" value="1">
+                <input type="checkbox" name="attr_intimidation_2" value="1">
+                <input type="checkbox" name="attr_intimidation_3" value="1">
+            </div>
+            <div class="focus">
+                <input type="checkbox" name="attr_intimidation_focus_1" value="1">
+                <input type="checkbox" name="attr_intimidation_focus_2" value="1">
+                <input type="checkbox" name="attr_intimidation_focus_3" value="1">
+            </div>
+
+            <div class="desc">
+                <button type="roll" class="sheet-text-button"
+                        value="@{character_name} uses Intuition against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{intuition_attribute}+@{intuition_1}+@{intuition_2}+@{intuition_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{intuition_focus_1} + @{intuition_focus_2} + @{intuition_focus_3}]] focus points"
+                        name="roll_intuition">Intuition
+                </button>
+                <select class="attribute-select" name="attr_intuition_attribute">
+                    <option value="@{body}" selected="selected">body</option>
+                    <option value="@{mind}">mind</option>
+                    <option value="@{soul}">soul</option>
+                </select>
+            </div>
+            <div class="training">
+                <input type="checkbox" name="attr_intuition_1" value="1">
+                <input type="checkbox" name="attr_intuition_2" value="1">
+                <input type="checkbox" name="attr_intuition_3" value="1">
+            </div>
+            <div class="focus">
+                <input type="checkbox" name="attr_intuition_focus_1" value="1">
+                <input type="checkbox" name="attr_intuition_focus_2" value="1">
+                <input type="checkbox" name="attr_intuition_focus_3" value="1">
+            </div>
+
+            <div class="desc">
+                <button type="roll" class="sheet-text-button"
+                        value="@{character_name} uses Lore against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{lore_attribute}+@{lore_1}+@{lore_2}+@{lore_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{lore_focus_1} + @{lore_focus_2} + @{lore_focus_3}]] focus points"
+                        name="roll_lore">Lore
+                </button>
+                <select class="attribute-select" name="attr_lore_attribute">
+                    <option value="@{body}" selected="selected">body</option>
+                    <option value="@{mind}">mind</option>
+                    <option value="@{soul}">soul</option>
+                </select>
+            </div>
+            <div class="training">
+                <input type="checkbox" name="attr_lore_1" value="1">
+                <input type="checkbox" name="attr_lore_2" value="1">
+                <input type="checkbox" name="attr_lore_3" value="1">
+            </div>
+            <div class="focus">
+                <input type="checkbox" name="attr_lore_focus_1" value="1">
+                <input type="checkbox" name="attr_lore_focus_2" value="1">
+                <input type="checkbox" name="attr_lore_focus_3" value="1">
+            </div>
+
+            <div class="desc">
+                <button type="roll" class="sheet-text-button"
+                        value="@{character_name} uses Medicine against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{medicine_attribute}+@{medicine_1}+@{medicine_2}+@{medicine_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{medicine_focus_1} + @{medicine_focus_2} + @{medicine_focus_3}]] focus points"
+                        name="roll_medicine">Medicine
+                </button>
+                <select class="attribute-select" name="attr_medicine_attribute">
+                    <option value="@{body}" selected="selected">body</option>
+                    <option value="@{mind}">mind</option>
+                    <option value="@{soul}">soul</option>
+                </select>
+            </div>
+            <div class="training">
+                <input type="checkbox" name="attr_medicine_1" value="1">
+                <input type="checkbox" name="attr_medicine_2" value="1">
+                <input type="checkbox" name="attr_medicine_3" value="1">
+            </div>
+            <div class="focus">
+                <input type="checkbox" name="attr_medicine_focus_1" value="1">
+                <input type="checkbox" name="attr_medicine_focus_2" value="1">
+                <input type="checkbox" name="attr_medicine_focus_3" value="1">
+            </div>
+
+            <div class="desc">
+                <button type="roll" class="sheet-text-button"
+                        value="@{character_name} uses Might against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{might_attribute}+@{might_1}+@{might_2}+@{might_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{might_focus_1} + @{might_focus_2} + @{might_focus_3}]] focus points"
+                        name="roll_might">Might
+                </button>
+                <select class="attribute-select" name="attr_might_attribute">
+                    <option value="@{body}" selected="selected">body</option>
+                    <option value="@{mind}">mind</option>
+                    <option value="@{soul}">soul</option>
+                </select>
+            </div>
+            <div class="training">
+                <input type="checkbox" name="attr_might_1" value="1">
+                <input type="checkbox" name="attr_might_2" value="1">
+                <input type="checkbox" name="attr_might_3" value="1">
+            </div>
+            <div class="focus">
+                <input type="checkbox" name="attr_might_focus_1" value="1">
+                <input type="checkbox" name="attr_might_focus_2" value="1">
+                <input type="checkbox" name="attr_might_focus_3" value="1">
+            </div>
+
+            <div class="desc">
+                <button type="roll" class="sheet-text-button"
+                        value="@{character_name} uses Nature against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{nature_attribute}+@{nature_1}+@{nature_2}+@{nature_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{nature_focus_1} + @{nature_focus_2} + @{nature_focus_3}]] focus points"
+                        name="roll_nature">Nature
+                </button>
+                <select class="attribute-select" name="attr_nature_attribute">
+                    <option value="@{body}" selected="selected">body</option>
+                    <option value="@{mind}">mind</option>
+                    <option value="@{soul}">soul</option>
+                </select>
+            </div>
+            <div class="training">
+                <input type="checkbox" name="attr_nature_1" value="1">
+                <input type="checkbox" name="attr_nature_2" value="1">
+                <input type="checkbox" name="attr_nature_3" value="1">
+            </div>
+            <div class="focus">
+                <input type="checkbox" name="attr_nature_focus_1" value="1">
+                <input type="checkbox" name="attr_nature_focus_2" value="1">
+                <input type="checkbox" name="attr_nature_focus_3" value="1">
+            </div>
+
+            <div class="desc">
+                <button type="roll" class="sheet-text-button"
+                        value="@{character_name} uses Reflexes against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{reflexes_attribute}+@{reflexes_1}+@{reflexes_2}+@{reflexes_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{reflexes_focus_1} + @{reflexes_focus_2} + @{reflexes_focus_3}]] focus points"
+                        name="roll_reflexes">Reflexes
+                </button>
+                <select class="attribute-select" name="attr_reflexes_attribute">
+                    <option value="@{body}" selected="selected">body</option>
+                    <option value="@{mind}">mind</option>
+                    <option value="@{soul}">soul</option>
+                </select>
+            </div>
+            <div class="training">
+                <input type="checkbox" name="attr_reflexes_1" value="1">
+                <input type="checkbox" name="attr_reflexes_2" value="1">
+                <input type="checkbox" name="attr_reflexes_3" value="1">
+            </div>
+            <div class="focus">
+                <input type="checkbox" name="attr_reflexes_focus_1" value="1">
+                <input type="checkbox" name="attr_reflexes_focus_2" value="1">
+                <input type="checkbox" name="attr_reflexes_focus_3" value="1">
+            </div>
+
+            <div class="desc">
+                <button type="roll" class="sheet-text-button"
+                        value="@{character_name} uses Stealth against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{stealth_attribute}+@{stealth_1}+@{stealth_2}+@{stealth_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{stealth_focus_1} + @{stealth_focus_2} + @{stealth_focus_3}]] focus points"
+                        name="roll_stealth">Stealth
+                </button>
+                <select class="attribute-select" name="attr_stealth_attribute">
+                    <option value="@{body}" selected="selected">body</option>
+                    <option value="@{mind}">mind</option>
+                    <option value="@{soul}">soul</option>
+                </select>
+            </div>
+            <div class="training">
+                <input type="checkbox" name="attr_stealth_1" value="1">
+                <input type="checkbox" name="attr_stealth_2" value="1">
+                <input type="checkbox" name="attr_stealth_3" value="1">
+            </div>
+            <div class="focus">
+                <input type="checkbox" name="attr_stealth_focus_1" value="1">
+                <input type="checkbox" name="attr_stealth_focus_2" value="1">
+                <input type="checkbox" name="attr_stealth_focus_3" value="1">
+            </div>
+
+            <div class="desc">
+                <button type="roll" class="sheet-text-button"
+                        value="@{character_name} uses Survival against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{survival_attribute}+@{survival_1}+@{survival_2}+@{survival_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{survival_focus_1} + @{survival_focus_2} + @{survival_focus_3}]] focus points"
+                        name="roll_survival">Survival
+                </button>
+                <select class="attribute-select" name="attr_survival_attribute">
+                    <option value="@{body}" selected="selected">body</option>
+                    <option value="@{mind}">mind</option>
+                    <option value="@{soul}">soul</option>
+                </select>
+            </div>
+            <div class="training">
+                <input type="checkbox" name="attr_survival_1" value="1">
+                <input type="checkbox" name="attr_survival_2" value="1">
+                <input type="checkbox" name="attr_survival_3" value="1">
+            </div>
+            <div class="focus">
+                <input type="checkbox" name="attr_survival_focus_1" value="1">
+                <input type="checkbox" name="attr_survival_focus_2" value="1">
+                <input type="checkbox" name="attr_survival_focus_3" value="1">
+            </div>
+
+            <div class="desc">
+                <button type="roll" class="sheet-text-button"
+                        value="@{character_name} uses Theology against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{theology_attribute}+@{theology_1}+@{theology_2}+@{theology_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{theology_focus_1} + @{theology_focus_2} + @{theology_focus_3}]] focus points"
+                        name="roll_theology">Theology
+                </button>
+                <select class="attribute-select" name="attr_theology_attribute">
+                    <option value="@{body}" selected="selected">body</option>
+                    <option value="@{mind}">mind</option>
+                    <option value="@{soul}">soul</option>
+                </select>
+            </div>
+            <div class="training">
+                <input type="checkbox" name="attr_theology_1" value="1">
+                <input type="checkbox" name="attr_theology_2" value="1">
+                <input type="checkbox" name="attr_theology_3" value="1">
+            </div>
+            <div class="focus">
+                <input type="checkbox" name="attr_theology_focus_1" value="1">
+                <input type="checkbox" name="attr_theology_focus_2" value="1">
+                <input type="checkbox" name="attr_theology_focus_3" value="1">
+            </div>
+
+            <div class="desc">
+                <button type="roll" class="sheet-text-button"
+                        value="@{character_name} uses Weapon Skill against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{weapon_skill_attribute}+@{weapon_skill_1}+@{weapon_skill_2}+@{weapon_skill_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{weapon_skill_focus_1} + @{weapon_skill_focus_2} + @{weapon_skill_focus_3}]] focus points"
+                        name="roll_weapon_skill">Weapon Skill
+                </button>
+                <select class="attribute-select" name="attr_weapon_skill_attribute">
+                    <option value="@{body}" selected="selected">body</option>
+                    <option value="@{mind}">mind</option>
+                    <option value="@{soul}">soul</option>
+                </select>
+            </div>
+            <div class="training">
+                <input type="checkbox" name="attr_weapon_skill_1" value="1">
+                <input type="checkbox" name="attr_weapon_skill_2" value="1">
+                <input type="checkbox" name="attr_weapon_skill_3" value="1">
+            </div>
+            <div class="focus">
+                <input type="checkbox" name="attr_weapon_skill_focus_1" value="1">
+                <input type="checkbox" name="attr_weapon_skill_focus_2" value="1">
+                <input type="checkbox" name="attr_weapon_skill_focus_3" value="1">
+            </div>
+        </div>
     </div>
 </div>
-<div class="sheet-skills-list">
-    <div class="sheet-skills">
-        <div></div>
-        <div>Training</div>
-        <div>Focus</div>
-
-        <div class="desc">
-            <span>Arcana</span>
-            <select class="attribute-select" name="attr_arcana_attribute">
-                <option value="@{body}" selected="selected">body</option>
-                <option value="@{mind}">mind</option>
-                <option value="@{soul}">soul</option>
-            </select>
-            <button type="roll"
-                    value="@{character_name} uses Arcana against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{arcana_attribute}+@{arcana_1}+@{arcana_2}+@{arcana_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{arcana_focus_1} + @{arcana_focus_2} + @{arcana_focus_3}]] focus points"
-                    name="roll_arcana"></button>
-        </div>
-        <div class="training">
-            <input type="checkbox" name="attr_arcana_1" value="1">
-            <input type="checkbox" name="attr_arcana_2" value="1">
-            <input type="checkbox" name="attr_arcana_3" value="1">
-        </div>
-        <div class="focus">
-            <input type="checkbox" name="attr_arcana_focus_1" value="1">
-            <input type="checkbox" name="attr_arcana_focus_2" value="1">
-            <input type="checkbox" name="attr_arcana_focus_3" value="1">
-        </div>
-
-        <div class="desc">
-            <span>Athletics</span>
-            <select class="attribute-select" name="attr_athletics_attribute">
-                <option value="@{body}" selected="selected">body</option>
-                <option value="@{mind}">mind</option>
-                <option value="@{soul}">soul</option>
-            </select>
-            <button type="roll"
-                    value="@{character_name} uses Athletics against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{athletics_attribute}+@{athletics_1}+@{athletics_2}+@{athletics_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{athletics_focus_1} + @{athletics_focus_2} + @{athletics_focus_3}]] focus points"
-                    name="roll_athletics"></button>
-        </div>
-        <div class="training">
-            <input type="checkbox" name="attr_athletics_1" value="1">
-            <input type="checkbox" name="attr_athletics_2" value="1">
-            <input type="checkbox" name="attr_athletics_3" value="1">
-        </div>
-        <div class="focus">
-            <input type="checkbox" name="attr_athletics_focus_1" value="1">
-            <input type="checkbox" name="attr_athletics_focus_2" value="1">
-            <input type="checkbox" name="attr_athletics_focus_3" value="1">
-        </div>
-
-        <div class="desc">
-            <span>Awareness</span>
-            <select class="attribute-select" name="attr_awareness_attribute">
-                <option value="@{body}" selected="selected">body</option>
-                <option value="@{mind}">mind</option>
-                <option value="@{soul}">soul</option>
-            </select>
-            <button type="roll"
-                    value="@{character_name} uses Awareness against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{awareness_attribute}+@{awareness_1}+@{awareness_2}+@{awareness_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{awareness_focus_1} + @{awareness_focus_2} + @{awareness_focus_3}]] focus points"
-                    name="roll_awareness"></button>
-        </div>
-        <div class="training">
-            <input type="checkbox" name="attr_awareness_1" value="1">
-            <input type="checkbox" name="attr_awareness_2" value="1">
-            <input type="checkbox" name="attr_awareness_3" value="1">
-        </div>
-        <div class="focus">
-            <input type="checkbox" name="attr_awareness_focus_1" value="1">
-            <input type="checkbox" name="attr_awareness_focus_2" value="1">
-            <input type="checkbox" name="attr_awareness_focus_3" value="1">
-        </div>
-
-        <div class="desc">
-            <span>Ballistic skill</span>
-            <select class="attribute-select" name="attr_ballistic_skill_attribute">
-                <option value="@{body}" selected="selected">body</option>
-                <option value="@{mind}">mind</option>
-                <option value="@{soul}">soul</option>
-            </select>
-            <button type="roll"
-                    value="@{character_name} uses Ballistic skill against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{ballistic_skill_attribute}+@{ballistic_skill_1}+@{ballistic_skill_2}+@{ballistic_skill_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{ballistic_skill_focus_1} + @{ballistic_skill_focus_2} + @{ballistic_skill_focus_3}]] focus points"
-                    name="roll_ballistic_skill"></button>
-        </div>
-        <div class="training">
-            <input type="checkbox" name="attr_ballistic_skill_1" value="1">
-            <input type="checkbox" name="attr_ballistic_skill_2" value="1">
-            <input type="checkbox" name="attr_ballistic_skill_3" value="1">
-        </div>
-        <div class="focus">
-            <input type="checkbox" name="attr_ballistic_skill_focus_1" value="1">
-            <input type="checkbox" name="attr_ballistic_skill_focus_2" value="1">
-            <input type="checkbox" name="attr_ballistic_skill_focus_3" value="1">
-        </div>
-
-        <div class="desc">
-            <span>Beast Handling</span>
-            <select class="attribute-select" name="attr_beast_handling_attribute">
-                <option value="@{body}" selected="selected">body</option>
-                <option value="@{mind}">mind</option>
-                <option value="@{soul}">soul</option>
-            </select>
-            <button type="roll"
-                    value="@{character_name} uses Beast Handling against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{beast_handling_attribute}+@{beast_handling_1}+@{beast_handling_2}+@{beast_handling_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{beast_handling_focus_1} + @{beast_handling_focus_2} + @{beast_handling_focus_3}]] focus points"
-                    name="roll_beast_handling"></button>
-        </div>
-        <div class="training">
-            <input type="checkbox" name="attr_beast_handling_1" value="1">
-            <input type="checkbox" name="attr_beast_handling_2" value="1">
-            <input type="checkbox" name="attr_beast_handling_3" value="1">
-        </div>
-        <div class="focus">
-            <input type="checkbox" name="attr_beast_handling_focus_1" value="1">
-            <input type="checkbox" name="attr_beast_handling_focus_2" value="1">
-            <input type="checkbox" name="attr_beast_handling_focus_3" value="1">
-        </div>
-
-        <div class="desc">
-            <span>Channelling</span>
-            <select class="attribute-select" name="attr_channelling_attribute">
-                <option value="@{body}" selected="selected">body</option>
-                <option value="@{mind}">mind</option>
-                <option value="@{soul}">soul</option>
-            </select>
-            <button type="roll"
-                    value="@{character_name} uses Channelling against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{channelling_attribute}+@{channelling_1}+@{channelling_2}+@{channelling_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{channelling_focus_1} + @{channelling_focus_2} + @{channelling_focus_3}]] focus points"
-                    name="roll_channelling"></button>
-        </div>
-        <div class="training">
-            <input type="checkbox" name="attr_channelling_1" value="1">
-            <input type="checkbox" name="attr_channelling_2" value="1">
-            <input type="checkbox" name="attr_channelling_3" value="1">
-        </div>
-        <div class="focus">
-            <input type="checkbox" name="attr_channelling_focus_1" value="1">
-            <input type="checkbox" name="attr_channelling_focus_2" value="1">
-            <input type="checkbox" name="attr_channelling_focus_3" value="1">
-        </div>
-
-        <div class="desc">
-            <span>Crafting</span>
-            <select class="attribute-select" name="attr_crafting_attribute">
-                <option value="@{body}" selected="selected">body</option>
-                <option value="@{mind}">mind</option>
-                <option value="@{soul}">soul</option>
-            </select>
-            <button type="roll"
-                    value="@{character_name} uses Crafting against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{crafting_attribute}+@{crafting_1}+@{crafting_2}+@{crafting_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{crafting_focus_1} + @{crafting_focus_2} + @{crafting_focus_3}]] focus points"
-                    name="roll_crafting"></button>
-        </div>
-        <div class="training">
-            <input type="checkbox" name="attr_crafting_1" value="1">
-            <input type="checkbox" name="attr_crafting_2" value="1">
-            <input type="checkbox" name="attr_crafting_3" value="1">
-        </div>
-        <div class="focus">
-            <input type="checkbox" name="attr_crafting_focus_1" value="1">
-            <input type="checkbox" name="attr_crafting_focus_2" value="1">
-            <input type="checkbox" name="attr_crafting_focus_3" value="1">
-        </div>
-
-        <div class="desc">
-            <span>Determination</span>
-            <select class="attribute-select" name="attr_determination_attribute">
-                <option value="@{body}" selected="selected">body</option>
-                <option value="@{mind}">mind</option>
-                <option value="@{soul}">soul</option>
-            </select>
-            <button type="roll"
-                    value="@{character_name} uses Determination against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{determination_attribute}+@{determination_1}+@{determination_2}+@{determination_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{determination_focus_1} + @{determination_focus_2} + @{determination_focus_3}]] focus points"
-                    name="roll_determination"></button>
-        </div>
-        <div class="training">
-            <input type="checkbox" name="attr_determination_1" value="1">
-            <input type="checkbox" name="attr_determination_2" value="1">
-            <input type="checkbox" name="attr_determination_3" value="1">
-        </div>
-        <div class="focus">
-            <input type="checkbox" name="attr_determination_focus_1" value="1">
-            <input type="checkbox" name="attr_determination_focus_2" value="1">
-            <input type="checkbox" name="attr_determination_focus_3" value="1">
-        </div>
-
-        <div class="desc">
-            <span>Devotion</span>
-            <select class="attribute-select" name="attr_devotion_attribute">
-                <option value="@{body}" selected="selected">body</option>
-                <option value="@{mind}">mind</option>
-                <option value="@{soul}">soul</option>
-            </select>
-            <button type="roll"
-                    value="@{character_name} uses Devotion against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{devotion_attribute}+@{devotion_1}+@{devotion_2}+@{devotion_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{devotion_focus_1} + @{devotion_focus_2} + @{devotion_focus_3}]] focus points"
-                    name="roll_devotion"></button>
-        </div>
-        <div class="training">
-            <input type="checkbox" name="attr_devotion_1" value="1">
-            <input type="checkbox" name="attr_devotion_2" value="1">
-            <input type="checkbox" name="attr_devotion_3" value="1">
-        </div>
-        <div class="focus">
-            <input type="checkbox" name="attr_devotion_focus_1" value="1">
-            <input type="checkbox" name="attr_devotion_focus_2" value="1">
-            <input type="checkbox" name="attr_devotion_focus_3" value="1">
-        </div>
-
-        <div class="desc">
-            <span>Dexterity</span>
-            <select class="attribute-select" name="attr_dexterity_attribute">
-                <option value="@{body}" selected="selected">body</option>
-                <option value="@{mind}">mind</option>
-                <option value="@{soul}">soul</option>
-            </select>
-            <button type="roll"
-                    value="@{character_name} uses Dexterity against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{dexterity_attribute}+@{dexterity_1}+@{dexterity_2}+@{dexterity_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{dexterity_focus_1} + @{dexterity_focus_2} + @{dexterity_focus_3}]] focus points"
-                    name="roll_dexterity"></button>
-        </div>
-        <div class="training">
-            <input type="checkbox" name="attr_dexterity_1" value="1">
-            <input type="checkbox" name="attr_dexterity_2" value="1">
-            <input type="checkbox" name="attr_dexterity_3" value="1">
-        </div>
-        <div class="focus">
-            <input type="checkbox" name="attr_dexterity_focus_1" value="1">
-            <input type="checkbox" name="attr_dexterity_focus_2" value="1">
-            <input type="checkbox" name="attr_dexterity_focus_3" value="1">
-        </div>
-
-        <div class="desc">
-            <span>Entertain</span>
-            <select class="attribute-select" name="attr_entertain_attribute">
-                <option value="@{body}" selected="selected">body</option>
-                <option value="@{mind}">mind</option>
-                <option value="@{soul}">soul</option>
-            </select>
-            <button type="roll"
-                    value="@{character_name} uses Entertain against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{entertain_attribute}+@{entertain_1}+@{entertain_2}+@{entertain_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{entertain_focus_1} + @{entertain_focus_2} + @{entertain_focus_3}]] focus points"
-                    name="roll_entertain"></button>
-        </div>
-        <div class="training">
-            <input type="checkbox" name="attr_entertain_1" value="1">
-            <input type="checkbox" name="attr_entertain_2" value="1">
-            <input type="checkbox" name="attr_entertain_3" value="1">
-        </div>
-        <div class="focus">
-            <input type="checkbox" name="attr_entertain_focus_1" value="1">
-            <input type="checkbox" name="attr_entertain_focus_2" value="1">
-            <input type="checkbox" name="attr_entertain_focus_3" value="1">
-        </div>
-
-        <div class="desc">
-            <span>Fortitude</span>
-            <select class="attribute-select" name="attr_fortitude_attribute">
-                <option value="@{body}" selected="selected">body</option>
-                <option value="@{mind}">mind</option>
-                <option value="@{soul}">soul</option>
-            </select>
-            <button type="roll"
-                    value="@{character_name} uses Fortitude against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{fortitude_attribute}+@{fortitude_1}+@{fortitude_2}+@{fortitude_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{fortitude_focus_1} + @{fortitude_focus_2} + @{fortitude_focus_3}]] focus points"
-                    name="roll_fortitude"></button>
-        </div>
-        <div class="training">
-            <input type="checkbox" name="attr_fortitude_1" value="1">
-            <input type="checkbox" name="attr_fortitude_2" value="1">
-            <input type="checkbox" name="attr_fortitude_3" value="1">
-        </div>
-        <div class="focus">
-            <input type="checkbox" name="attr_fortitude_focus_1" value="1">
-            <input type="checkbox" name="attr_fortitude_focus_2" value="1">
-            <input type="checkbox" name="attr_fortitude_focus_3" value="1">
-        </div>
-
-    </div>
-    <div class="skills">
-        <div></div>
-        <div>Training</div>
-        <div>Focus</div>
-
-        <div class="desc">
-            <span>Guile</span>
-            <select class="attribute-select" name="attr_guile_attribute">
-                <option value="@{body}" selected="selected">body</option>
-                <option value="@{mind}">mind</option>
-                <option value="@{soul}">soul</option>
-            </select>
-            <button type="roll"
-                    value="@{character_name} uses Guile against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{guile_attribute}+@{guile_1}+@{guile_2}+@{guile_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{guile_focus_1} + @{guile_focus_2} + @{guile_focus_3}]] focus points"
-                    name="roll_guile"></button>
-        </div>
-        <div class="training">
-            <input type="checkbox" name="attr_guile_1" value="1">
-            <input type="checkbox" name="attr_guile_2" value="1">
-            <input type="checkbox" name="attr_guile_3" value="1">
-        </div>
-        <div class="focus">
-            <input type="checkbox" name="attr_guile_focus_1" value="1">
-            <input type="checkbox" name="attr_guile_focus_2" value="1">
-            <input type="checkbox" name="attr_guile_focus_3" value="1">
-        </div>
-
-        <div class="desc">
-            <span>Intimidation</span>
-            <select class="attribute-select" name="attr_intimidation_attribute">
-                <option value="@{body}" selected="selected">body</option>
-                <option value="@{mind}">mind</option>
-                <option value="@{soul}">soul</option>
-            </select>
-            <button type="roll"
-                    value="@{character_name} uses Intimidation against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{intimidation_attribute}+@{intimidation_1}+@{intimidation_2}+@{intimidation_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{intimidation_focus_1} + @{intimidation_focus_2} + @{intimidation_focus_3}]] focus points"
-                    name="roll_intimidation"></button>
-        </div>
-        <div class="training">
-            <input type="checkbox" name="attr_intimidation_1" value="1">
-            <input type="checkbox" name="attr_intimidation_2" value="1">
-            <input type="checkbox" name="attr_intimidation_3" value="1">
-        </div>
-        <div class="focus">
-            <input type="checkbox" name="attr_intimidation_focus_1" value="1">
-            <input type="checkbox" name="attr_intimidation_focus_2" value="1">
-            <input type="checkbox" name="attr_intimidation_focus_3" value="1">
-        </div>
-
-        <div class="desc">
-            <span>Intuition</span>
-            <select class="attribute-select" name="attr_intuition_attribute">
-                <option value="@{body}" selected="selected">body</option>
-                <option value="@{mind}">mind</option>
-                <option value="@{soul}">soul</option>
-            </select>
-            <button type="roll"
-                    value="@{character_name} uses Intuition against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{intuition_attribute}+@{intuition_1}+@{intuition_2}+@{intuition_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{intuition_focus_1} + @{intuition_focus_2} + @{intuition_focus_3}]] focus points"
-                    name="roll_intuition"></button>
-        </div>
-        <div class="training">
-            <input type="checkbox" name="attr_intuition_1" value="1">
-            <input type="checkbox" name="attr_intuition_2" value="1">
-            <input type="checkbox" name="attr_intuition_3" value="1">
-        </div>
-        <div class="focus">
-            <input type="checkbox" name="attr_intuition_focus_1" value="1">
-            <input type="checkbox" name="attr_intuition_focus_2" value="1">
-            <input type="checkbox" name="attr_intuition_focus_3" value="1">
-        </div>
-
-        <div class="desc">
-            <span>Lore</span>
-            <select class="attribute-select" name="attr_lore_attribute">
-                <option value="@{body}" selected="selected">body</option>
-                <option value="@{mind}">mind</option>
-                <option value="@{soul}">soul</option>
-            </select>
-            <button type="roll"
-                    value="@{character_name} uses Lore against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{lore_attribute}+@{lore_1}+@{lore_2}+@{lore_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{lore_focus_1} + @{lore_focus_2} + @{lore_focus_3}]] focus points"
-                    name="roll_lore"></button>
-        </div>
-        <div class="training">
-            <input type="checkbox" name="attr_lore_1" value="1">
-            <input type="checkbox" name="attr_lore_2" value="1">
-            <input type="checkbox" name="attr_lore_3" value="1">
-        </div>
-        <div class="focus">
-            <input type="checkbox" name="attr_lore_focus_1" value="1">
-            <input type="checkbox" name="attr_lore_focus_2" value="1">
-            <input type="checkbox" name="attr_lore_focus_3" value="1">
-        </div>
-
-        <div class="desc">
-            <span>Medicine</span>
-            <select class="attribute-select" name="attr_medicine_attribute">
-                <option value="@{body}" selected="selected">body</option>
-                <option value="@{mind}">mind</option>
-                <option value="@{soul}">soul</option>
-            </select>
-            <button type="roll"
-                    value="@{character_name} uses Medicine against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{medicine_attribute}+@{medicine_1}+@{medicine_2}+@{medicine_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{medicine_focus_1} + @{medicine_focus_2} + @{medicine_focus_3}]] focus points"
-                    name="roll_medicine"></button>
-        </div>
-        <div class="training">
-            <input type="checkbox" name="attr_medicine_1" value="1">
-            <input type="checkbox" name="attr_medicine_2" value="1">
-            <input type="checkbox" name="attr_medicine_3" value="1">
-        </div>
-        <div class="focus">
-            <input type="checkbox" name="attr_medicine_focus_1" value="1">
-            <input type="checkbox" name="attr_medicine_focus_2" value="1">
-            <input type="checkbox" name="attr_medicine_focus_3" value="1">
-        </div>
-
-        <div class="desc">
-            <span>Might</span>
-            <select class="attribute-select" name="attr_might_attribute">
-                <option value="@{body}" selected="selected">body</option>
-                <option value="@{mind}">mind</option>
-                <option value="@{soul}">soul</option>
-            </select>
-            <button type="roll"
-                    value="@{character_name} uses Might against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{might_attribute}+@{might_1}+@{might_2}+@{might_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{might_focus_1} + @{might_focus_2} + @{might_focus_3}]] focus points"
-                    name="roll_might"></button>
-        </div>
-        <div class="training">
-            <input type="checkbox" name="attr_might_1" value="1">
-            <input type="checkbox" name="attr_might_2" value="1">
-            <input type="checkbox" name="attr_might_3" value="1">
-        </div>
-        <div class="focus">
-            <input type="checkbox" name="attr_might_focus_1" value="1">
-            <input type="checkbox" name="attr_might_focus_2" value="1">
-            <input type="checkbox" name="attr_might_focus_3" value="1">
-        </div>
-
-        <div class="desc">
-            <span>Nature</span>
-            <select class="attribute-select" name="attr_nature_attribute">
-                <option value="@{body}" selected="selected">body</option>
-                <option value="@{mind}">mind</option>
-                <option value="@{soul}">soul</option>
-            </select>
-            <button type="roll"
-                    value="@{character_name} uses Nature against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{nature_attribute}+@{nature_1}+@{nature_2}+@{nature_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{nature_focus_1} + @{nature_focus_2} + @{nature_focus_3}]] focus points"
-                    name="roll_nature"></button>
-        </div>
-        <div class="training">
-            <input type="checkbox" name="attr_nature_1" value="1">
-            <input type="checkbox" name="attr_nature_2" value="1">
-            <input type="checkbox" name="attr_nature_3" value="1">
-        </div>
-        <div class="focus">
-            <input type="checkbox" name="attr_nature_focus_1" value="1">
-            <input type="checkbox" name="attr_nature_focus_2" value="1">
-            <input type="checkbox" name="attr_nature_focus_3" value="1">
-        </div>
-
-        <div class="desc">
-            <span>Reflexes</span>
-            <select class="attribute-select" name="attr_reflexes_attribute">
-                <option value="@{body}" selected="selected">body</option>
-                <option value="@{mind}">mind</option>
-                <option value="@{soul}">soul</option>
-            </select>
-            <button type="roll"
-                    value="@{character_name} uses Reflexes against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{reflexes_attribute}+@{reflexes_1}+@{reflexes_2}+@{reflexes_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{reflexes_focus_1} + @{reflexes_focus_2} + @{reflexes_focus_3}]] focus points"
-                    name="roll_reflexes"></button>
-        </div>
-        <div class="training">
-            <input type="checkbox" name="attr_reflexes_1" value="1">
-            <input type="checkbox" name="attr_reflexes_2" value="1">
-            <input type="checkbox" name="attr_reflexes_3" value="1">
-        </div>
-        <div class="focus">
-            <input type="checkbox" name="attr_reflexes_focus_1" value="1">
-            <input type="checkbox" name="attr_reflexes_focus_2" value="1">
-            <input type="checkbox" name="attr_reflexes_focus_3" value="1">
-        </div>
-
-        <div class="desc">
-            <span>Stealth</span>
-            <select class="attribute-select" name="attr_stealth_attribute">
-                <option value="@{body}" selected="selected">body</option>
-                <option value="@{mind}">mind</option>
-                <option value="@{soul}">soul</option>
-            </select>
-            <button type="roll"
-                    value="@{character_name} uses Stealth against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{stealth_attribute}+@{stealth_1}+@{stealth_2}+@{stealth_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{stealth_focus_1} + @{stealth_focus_2} + @{stealth_focus_3}]] focus points"
-                    name="roll_stealth"></button>
-        </div>
-        <div class="training">
-            <input type="checkbox" name="attr_stealth_1" value="1">
-            <input type="checkbox" name="attr_stealth_2" value="1">
-            <input type="checkbox" name="attr_stealth_3" value="1">
-        </div>
-        <div class="focus">
-            <input type="checkbox" name="attr_stealth_focus_1" value="1">
-            <input type="checkbox" name="attr_stealth_focus_2" value="1">
-            <input type="checkbox" name="attr_stealth_focus_3" value="1">
-        </div>
-
-        <div class="desc">
-            <span>Survival</span>
-            <select class="attribute-select" name="attr_survival_attribute">
-                <option value="@{body}" selected="selected">body</option>
-                <option value="@{mind}">mind</option>
-                <option value="@{soul}">soul</option>
-            </select>
-            <button type="roll"
-                    value="@{character_name} uses Survival against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{survival_attribute}+@{survival_1}+@{survival_2}+@{survival_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{survival_focus_1} + @{survival_focus_2} + @{survival_focus_3}]] focus points"
-                    name="roll_survival"></button>
-        </div>
-        <div class="training">
-            <input type="checkbox" name="attr_survival_1" value="1">
-            <input type="checkbox" name="attr_survival_2" value="1">
-            <input type="checkbox" name="attr_survival_3" value="1">
-        </div>
-        <div class="focus">
-            <input type="checkbox" name="attr_survival_focus_1" value="1">
-            <input type="checkbox" name="attr_survival_focus_2" value="1">
-            <input type="checkbox" name="attr_survival_focus_3" value="1">
-        </div>
-
-        <div class="desc">
-            <span>Theology</span>
-            <select class="attribute-select" name="attr_theology_attribute">
-                <option value="@{body}" selected="selected">body</option>
-                <option value="@{mind}">mind</option>
-                <option value="@{soul}">soul</option>
-            </select>
-            <button type="roll"
-                    value="@{character_name} uses Theology against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{theology_attribute}+@{theology_1}+@{theology_2}+@{theology_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{theology_focus_1} + @{theology_focus_2} + @{theology_focus_3}]] focus points"
-                    name="roll_theology"></button>
-        </div>
-        <div class="training">
-            <input type="checkbox" name="attr_theology_1" value="1">
-            <input type="checkbox" name="attr_theology_2" value="1">
-            <input type="checkbox" name="attr_theology_3" value="1">
-        </div>
-        <div class="focus">
-            <input type="checkbox" name="attr_theology_focus_1" value="1">
-            <input type="checkbox" name="attr_theology_focus_2" value="1">
-            <input type="checkbox" name="attr_theology_focus_3" value="1">
-        </div>
-
-        <div class="desc">
-            <span>Weapon Skill</span>
-            <select class="attribute-select" name="attr_weapon_skill_attribute">
-                <option value="@{body}" selected="selected">body</option>
-                <option value="@{mind}">mind</option>
-                <option value="@{soul}">soul</option>
-            </select>
-            <button type="roll"
-                    value="@{character_name} uses Weapon Skill against DN ?{Target DN? |1|2|3|4|5|6}: [[(@{weapon_skill_attribute}+@{weapon_skill_1}+@{weapon_skill_2}+@{weapon_skill_3})d6>?{Target DN? |1|2|3|4|5|6}]] successes with [[@{weapon_skill_focus_1} + @{weapon_skill_focus_2} + @{weapon_skill_focus_3}]] focus points"
-                    name="roll_weapon_skill"></button>
-        </div>
-        <div class="training">
-            <input type="checkbox" name="attr_weapon_skill_1" value="1">
-            <input type="checkbox" name="attr_weapon_skill_2" value="1">
-            <input type="checkbox" name="attr_weapon_skill_3" value="1">
-        </div>
-        <div class="focus">
-            <input type="checkbox" name="attr_weapon_skill_focus_1" value="1">
-            <input type="checkbox" name="attr_weapon_skill_focus_2" value="1">
-            <input type="checkbox" name="attr_weapon_skill_focus_3" value="1">
-        </div>
-    </div>
-</div>
-
 <input type="hidden" name="attr_melee"
        value="ceil((@{body}+@{weapon_skill_1}+@{weapon_skill_2}+@{weapon_skill_3})/2)" disabled="true">
 <input type="hidden" name="attr_accuracy"
