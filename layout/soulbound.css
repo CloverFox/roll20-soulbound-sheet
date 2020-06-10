@@ -1,12 +1,64 @@
 .sheet-info {
     width: 500px;
+    display:grid;
+    grid-template-columns: [col] 100px [col] 100px [col] 100px [col] 100px [col] 100px;
+}
+.sheet-img-name {
+    width: 300px;
+}
+.sheet-img-name div {
     display:flex;
-    flex-direction:column;
+    flex-direction: column;
+}
+
+.sheet-img-name div span {
+    align-self: center;
+}
+
+.sheet-img-name div input {
+    width: 100%;
 }
 
 .sheet-info div {
     display:flex;
-    justify-content: space-between;
+    flex-direction: column;
+}
+
+.sheet-info div input {
+    width: 100%;
+}
+
+.sheet-archetype {
+    grid-column: col / span 3;
+}
+.sheet-species {
+    grid-column: col 4 / span 2;
+}
+.sheet-age {
+    grid-column: col / span 1;
+}
+.sheet-eyes {
+    grid-column: col 2 / span 1;
+}
+.sheet-hair {
+    grid-column: col 3 / span 1;
+}
+.sheet-height {
+    grid-column: col 4 / span 1;
+}
+.sheet-weight {
+    grid-column: col 5 / span 1;
+}
+.sheet-dist-features {
+    grid-column: col / span 4;
+}
+.sheet-xp {
+    grid-column: col 5/ span 1;
+}
+
+.sheet-section-character {
+    display: flex;
+    flex-direction: row;
 }
 
 .sheet-skills {
@@ -109,4 +161,18 @@ input[type=number]:disabled {
 .sheet-equipment {
     display: grid;
     grid-template-columns: 75px auto;
+}
+
+.sheet-fluff-info {
+    height: 60px;
+}
+
+.sheet-miracle-effect {
+    width: 210px;
+    height: 40px;
+}
+
+.sheet-spells-effect {
+    width: 210px;
+    height: 40px;
 }

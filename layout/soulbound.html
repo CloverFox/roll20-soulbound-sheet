@@ -60,52 +60,52 @@
     });
 
 
-
-
-
-
-
-
-
-
 </script>
-
-<div class="info">
-    <div>
-        <span>Character Name</span>
-        <input type="text" name="attr_character_name">
+<div class="sheet-section-character">
+    <div class="sheet-img-name">
+        <img src="https://i.imgur.com/NMAlvGL.jpg" class="sheet-soulbound-img"/>
+        <div>
+            <input type="text" name="attr_character_name">
+            <span>Character Name</span>
+        </div>
     </div>
-    <div>
-        <span>Archetype</span>
-        <input type="text" name="attr_archetype">
-    </div>
-    <div>
-        <span>Species</span>
-        <input type="text" name="attr_species">
-    </div>
-    <div>
-        <span>Age</span>
-        <input type="text" name="attr_age">
-    </div>
-    <div>
-        <span>Eyes</span>
-        <input type="text" name="attr_eyes">
-    </div>
-    <div>
-        <span>Hair</span>
-        <input type="text" name="attr_hair">
-    </div>
-    <div>
-        <span>Height</span>
-        <input type="text" name="attr_height">
-    </div>
-    <div>
-        <span>Weight</span>
-        <input type="text" name="attr_weight">
-    </div>
-    <div>
-        <span>Distinguishing Features</span>
-        <input type="text" name="attr_dist_features">
+    <div class="info">
+        <div class="sheet-archetype">
+            <input type="text" name="attr_archetype">
+            <span>Archetype</span>
+        </div>
+        <div class="sheet-species">
+            <input type="text" name="attr_species">
+            <span>Species</span>
+        </div>
+        <div class="sheet-age">
+            <input type="text" name="attr_age">
+            <span>Age</span>
+        </div>
+        <div class="sheet-eyes">
+            <input type="text" name="attr_eyes">
+            <span>Eyes</span>
+        </div>
+        <div class="sheet-hair">
+            <input type="text" name="attr_hair">
+            <span>Hair</span>
+        </div>
+        <div class="sheet-height">
+            <input type="text" name="attr_height">
+            <span>Height</span>
+        </div>
+        <div class="sheet-weight">
+            <input type="text" name="attr_weight">
+            <span>Weight</span>
+        </div>
+        <div class="sheet-dist-features">
+            <input type="text" name="attr_dist_features">
+            <span>Distinguishing Features</span>
+        </div>
+        <div class="sheet-xp">
+            <input type="text" name="attr_xp">
+            <span>xp</span>
+        </div>
     </div>
 </div>
 <div class="sheet-attributes">
@@ -815,7 +815,7 @@
         </select>
         <input type="text" name="attr_spell_duration" class="sheet-spells-duration"/>
         <input type="text" name="attr_spell_test" class="sheet-spells-test"/>
-        <input type="text" name="attr_spell_effect"/>
+        <textarea type="text" name="attr_spell_effect" class="sheet-spells-effect"></textarea>
     </div>
 </fieldset>
 <div>miracles</div>
@@ -842,7 +842,7 @@
         <option value="long">long</option>
     </select>
     <input type="text" name="attr_miracle_duration" class="sheet-miracle-duration"/>
-    <input type="text" name="attr_miracle_effect"/>
+    <textarea name="attr_miracle_effect" class="sheet-miracle-effect"></textarea>
 </fieldset>
 
 <fieldset class="repeating_gear">
@@ -876,10 +876,10 @@
 </fieldset>
 
 <div>Background</div>
-<input type="text" name="attr_background"/>
+<textarea name="attr_background" class="sheet-fluff-info"></textarea>
 <div>Notes</div>
-<input type="text" name="attr_notes"/>
+<textarea name="attr_notes" class="sheet-fluff-info"></textarea>
 <div>Goals</div>
-<input type="text" name="attr_goals"/>
+<textarea name="attr_goals" class="sheet-fluff-info"></textarea>
 <div>Connections</div>
-<input type="text" name="attr_connections"/>
+<textarea name="attr_connections" class="sheet-fluff-info"></textarea>
