@@ -76,6 +76,11 @@ button[type="roll"].sheet-text-big{
     width: 100%;
 }
 
+.sheet-attributes-container {
+    width: 100%;
+    margin-right: 10px;
+}
+
 .sheet-attributes div {
     display: flex;
     height: 40px;
@@ -115,7 +120,7 @@ button[type="roll"].sheet-text-big{
     display: flex;
 }
 .sheet-section-abilities div {
-    margin: 10px;
+    margin-right: 10px;
 }
 
 .sheet-wound-selection {
@@ -240,8 +245,8 @@ input[type=number]:disabled {
     -moz-appearance:textfield;
 }
 
-.sheet-small-digit {
-    width: 2em !important;
+input[type="number"].sheet-small-digit {
+    width: 2em;
 }
 
 .sheet-spells-target {

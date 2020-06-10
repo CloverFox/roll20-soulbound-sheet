@@ -60,6 +60,7 @@
     });
 
 
+
 </script>
 
 <input type="hidden" name="attr_melee"
@@ -117,27 +118,32 @@
     </div>
 </div>
 <div class="sheet-section-attributes-and-skills">
-    <div class="sheet-attributes">
-        <div>
-            <input type="number" name="attr_body" value="1">
-            <button type="roll" class="sheet-text-button sheet-text-big"
-                    value="@{character_name} uses Body against DN ?{Target DN? |1|2|3|4|5|6}: [[@{body}d6>?{Target DN? |1|2|3|4|5|6}]] successes"
-                    name="roll_might">Body
-            </button>
-        </div>
-        <div>
-            <input type="number" name="attr_mind" value="1">
-            <button type="roll" class="sheet-text-button sheet-text-big"
-                    value="@{character_name} uses Mind against DN ?{Target DN? |1|2|3|4|5|6}: [[@{mind}d6>?{Target DN? |1|2|3|4|5|6}]] successes"
-                    name="roll_might">Mind
-            </button>
-        </div>
-        <div>
-            <input type="number" name="attr_soul" value="1">
-            <button type="roll" class="sheet-text-button sheet-text-big"
-                    value="@{character_name} uses Soul against DN ?{Target DN? |1|2|3|4|5|6}: [[@{soul}d6>?{Target DN? |1|2|3|4|5|6}]] successes"
-                    name="roll_might">Soul
-            </button>
+    <div class="sheet-attributes-container">
+        <div class="sheet-header">Attributes</div>
+        <div class="sheet-line"></div>
+
+        <div class="sheet-attributes">
+            <div>
+                <input type="number" name="attr_body" value="1">
+                <button type="roll" class="sheet-text-button sheet-text-big"
+                        value="@{character_name} uses Body against DN ?{Target DN? |1|2|3|4|5|6}: [[@{body}d6>?{Target DN? |1|2|3|4|5|6}]] successes"
+                        name="roll_might">Body
+                </button>
+            </div>
+            <div>
+                <input type="number" name="attr_mind" value="1">
+                <button type="roll" class="sheet-text-button sheet-text-big"
+                        value="@{character_name} uses Mind against DN ?{Target DN? |1|2|3|4|5|6}: [[@{mind}d6>?{Target DN? |1|2|3|4|5|6}]] successes"
+                        name="roll_might">Mind
+                </button>
+            </div>
+            <div>
+                <input type="number" name="attr_soul" value="1">
+                <button type="roll" class="sheet-text-button sheet-text-big"
+                        value="@{character_name} uses Soul against DN ?{Target DN? |1|2|3|4|5|6}: [[@{soul}d6>?{Target DN? |1|2|3|4|5|6}]] successes"
+                        name="roll_might">Soul
+                </button>
+            </div>
         </div>
     </div>
     <div>
@@ -774,10 +780,11 @@
         </fieldset>
     </div>
 </div>
-
+<div class="sheet-header">Wounds</div>
+<div class="sheet-line"></div>
 <div>
     <span>Wounds</span>
-    <input type="number" name="attr_wounds">/
+    <input type="number" name="attr_wounds" value="0">/
     <input type="number" disabled="true" name="attr_wounds_max" value="ceil((@{body} + @{mind} + @{soul})/2)">
     <span>Mortally Wounded</span>
     <input type="checkbox" name="attr_mortally_wounded" value="1">
@@ -956,12 +963,15 @@
         </fieldset>
     </div>
 </div>
-
-<div>Background</div>
+<div class="sheet-header">Background</div>
+<div class="sheet-line"></div>
 <textarea name="attr_background" class="sheet-fluff-info"></textarea>
-<div>Notes</div>
+<div class="sheet-header">Notes</div>
+<div class="sheet-line"></div>
 <textarea name="attr_notes" class="sheet-fluff-info"></textarea>
-<div>Goals</div>
+<div class="sheet-header">Goals</div>
+<div class="sheet-line"></div>
 <textarea name="attr_goals" class="sheet-fluff-info"></textarea>
-<div>Connections</div>
+<div class="sheet-header">Connections</div>
+<div class="sheet-line"></div>
 <textarea name="attr_connections" class="sheet-fluff-info"></textarea>
