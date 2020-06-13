@@ -123,21 +123,21 @@
             <div>
                 <input type="number" name="attr_body" value="1">
                 <button type="roll" class="text-button text-big"
-                        value="@{character_name} uses Body against DN ?{Target DN? |2|3|4|5|6}: [[@{body}d6s>?{Target DN? |2|3|4|5|6}]] successes"
+                        value="&{template:default} {{name=Body}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[@{body}d6s>?{Target DN? |2|3|4|5|6}]] successes}}"
                         name="roll_might">Body
                 </button>
             </div>
             <div>
                 <input type="number" name="attr_mind" value="1">
                 <button type="roll" class="text-button text-big"
-                        value="@{character_name} uses Mind against DN ?{Target DN? |2|3|4|5|6}: [[@{mind}d6s>?{Target DN? |2|3|4|5|6}]] successes"
+                        value="&{template:default} {{name=Mind}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[@{mind}d6s>?{Target DN? |2|3|4|5|6}]] successes}}"
                         name="roll_might">Mind
                 </button>
             </div>
             <div>
                 <input type="number" name="attr_soul" value="1">
                 <button type="roll" class="text-button text-big"
-                        value="@{character_name} uses Soul against DN ?{Target DN? |2|3|4|5|6}: [[@{soul}d6s>?{Target DN? |2|3|4|5|6}]] successes"
+                        value="&{template:default} {{name=Soul}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[@{soul}d6s>?{Target DN? |2|3|4|5|6}]] successes}}"
                         name="roll_might">Soul
                 </button>
             </div>
@@ -807,13 +807,13 @@
     <div class="weapons">
         <input type="text" name="attr_melee_name">
         <button type="roll" name="roll_melee_attack"
-                value="@{character_name} uses their @{melee_name} against DN: ?{Target DN? |2|3|4|5|6}: \n/roll (@{weapon_skill_attribute}+@{weapon_skill_1}+@{weapon_skill_2}+@{weapon_skill_3})d6s>?{Target DN? |2|3|4|5|6}\nwith [[@{weapon_skill_focus_1} + @{weapon_skill_focus_2} + @{weapon_skill_focus_3}]] focus points, and dealing @{melee_damage} extra damage"></button>
+                value="&{template:default} {{name=@{melee_name}}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{weapon_skill_attribute}+@{weapon_skill_1}+@{weapon_skill_2}+@{weapon_skill_3})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{Focus=[[@{weapon_skill_focus_1} + @{weapon_skill_focus_2} + @{weapon_skill_focus_3}]] focus points}} {{Extra Damage=@{melee_damage}}} {{Traits=@{melee_traits}}}"></button>
         <input type="number" disabled="true" name="attr_melee_pool"
                value="@{body} + @{weapon_skill_1} + @{weapon_skill_2} + @{weapon_skill_3}">
         <input type="number" name="attr_melee_focus" disabled="true"
                value="@{weapon_skill_focus_1} + @{weapon_skill_focus_2} + @{weapon_skill_focus_3}">
         <input type="number" name="attr_melee_damage" value="0">
-        <input type="text" name="attr_traits">
+        <input type="text" name="attr_melee_traits">
     </div>
 </fieldset>
 <div class="header-minor">Ranged Weapons</div>
@@ -829,13 +829,13 @@
     <div class="weapons">
         <input type="text" name="attr_ranged_name"/>
         <button type="roll" name="roll_ranged_attack"
-                value="@{character_name} uses their @{ranged_name} against DN: ?{Target DN? |2|3|4|5|6}: [[(@{ballistic_skill_attribute}+@{ballistic_skill_1}+@{ballistic_skill_2}+@{ballistic_skill_3})d6s>?{Target DN? |2|3|4|5|6}]] successes with [[@{ballistic_skill_focus_1} + @{ballistic_skill_focus_2} + @{ballistic_skill_focus_3}]] focus points, and dealing @{ranged_damage} extra damage"></button>
+                value="&{template:default} {{name=@{ranged_name}}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{ballistic_skill_attribute}+@{ballistic_skill_1}+@{ballistic_skill_2}+@{ballistic_skill_3})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{Focus=[[@{ballistic_skill_focus_1} + @{ballistic_skill_focus_2} + @{ballistic_skill_focus_3}]] focus points}} {{Extra Damage=@{ranged_damage}}} {{Traits=@{ranged_traits}}}"></button>
         <input type="number" disabled="true" name="attr_ranged_pool"
                value="@{body} + @{ballistic_skill_1} + @{ballistic_skill_2} + @{ballistic_skill_3}"/>
         <input type="number" name="attr_ranged_focus" disabled="true"
                value="@{ballistic_skill_focus_1} + @{ballistic_skill_focus_2} + @{ballistic_skill_focus_3}"/>
         <input type="number" name="attr_ranged_damage" value="0"/>
-        <input type="text" name="attr_traits"/>
+        <input type="text" name="attr_ranged_traits"/>
     </div>
 </fieldset>
 <div class="header">Spells and Miracles</div>
@@ -857,7 +857,7 @@
     <div class="spells">
         <input type="text" name="attr_spell_name"/>
         <button type="roll" name="roll_spell"
-                value="@{character_name} casts @{spell_name} against DN @{spell_dn_target}:@{spell_dn_successes} gaining [[(@{mind} + @{channelling_1} + @{channelling_2} + @{channelling_3} + @{spell_modifier})d6s>@{spell_dn_target}]] success with [[@{channelling_focus_1} + @{channelling_focus_2} + @{channelling_focus_3}]] focus points, with the effect: @{spell_effect}"></button>
+                value="&{template:default} {{name=@{spell_name}}} {{DN=@{spell_dn_target}:@{spell_dn_successes}}} {{Result=[[(@{mind} + @{channelling_1} + @{channelling_2} + @{channelling_3} + @{spell_modifier})d6s>@{spell_dn_target}]] success}} {{Focus=[[@{channelling_focus_1} + @{channelling_focus_2} + @{channelling_focus_3}]] focus points}}} {{Effect=@{spell_effect}}}"></button>
         <input type="number" name="attr_spell_dn_target" class="no-spin small-digit">
         :
         <input type="number" name="attr_spell_dn_successes" class="no-spin small-digit">
@@ -888,7 +888,7 @@
     <div class="miracles">
         <input type="text" name="attr_miracle_name"/>
         <button type="roll" name="roll_spell"
-                value="@{character_name} manifests @{miracle_name} with the effect: @{miracle_effect}"></button>
+                value="&{template:default} {{name=@{miracle_name}}} {{Effect=@{miracle_effect}}}"></button>
         <input type="text" name="attr_miracle_cost" class="miracle-cost"/>
         <input type="text" name="attr_miracle_target" class="miracle-target"/>
         <select name="attr_miracle_range" class="miracle-range">
