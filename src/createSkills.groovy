@@ -1,9 +1,9 @@
 def template = """<div class="desc">
             <button type="roll" class="sheet-text-button"
-                    value="@{character_name} uses Athletics against DN ?{Target DN? |2|3|4|5|6}: [[(@{athletics_attribute}+@{athletics_1}+@{athletics_2}+@{athletics_3})d6>?{Target DN? |2|3|4|5|6}]] successes with [[@{athletics_focus_1} + @{athletics_focus_2} + @{athletics_focus_3}]] focus points"
+                    value="&{template:default} {{name=Athletics}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{athletics_attribute}+@{athletics_1}+@{athletics_2}+@{athletics_3})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{athletics_focus_1} + @{athletics_focus_2} + @{athletics_focus_3}]] focus points}}"
                     name="roll_athletics">Athletics</button>
             <select class="attribute-select" name="attr_athletics_attribute">
-                <option value="@{body}" selected="selected">body</option>
+                <option value="@{body}">body</option>
                 <option value="@{mind}">mind</option>
                 <option value="@{soul}">soul</option>
             </select>
@@ -20,39 +20,69 @@ def template = """<div class="desc">
         </div>
         """
 
-def list = ["Arcana",
-            "Athletics",
-            "Awareness",
-            "Ballistic skill",
-            "Beast Handling",
-            "Channelling",
-            "Crafting",
-            "Determination",
-            "Devotion",
-            "Dexterity",
-            "Entertain",
-            "Fortitude",
-            "Guile",
-            "Intimidation",
-            "Intuition",
-            "Lore",
-            "Medicine",
-            "Might",
-            "Nature",
-            "Reflexes",
-            "Stealth",
-            "Survival",
-            "Theology",
-            "Weapon Skill"]
+def skillsList = ["Arcana",
+                  "Athletics",
+                  "Awareness",
+                  "Ballistic skill",
+                  "Beast Handling",
+                  "Channelling",
+                  "Crafting",
+                  "Determination",
+                  "Devotion",
+                  "Dexterity",
+                  "Entertain",
+                  "Fortitude",
+                  "Guile",
+                  "Intimidation",
+                  "Intuition",
+                  "Lore",
+                  "Medicine",
+                  "Might",
+                  "Nature",
+                  "Reflexes",
+                  "Stealth",
+                  "Survival",
+                  "Theology",
+                  "Weapon Skill"]
 
-list.each {
-    def temp = template.replace("athletics", "$it".toLowerCase().replace(" ", "_"))
-    println(temp.replace("Athletics", "$it"))
+def attributesList = ["soul",
+                      "body",
+                      "mind",
+                      "body",
+                      "soul",
+                      "mind",
+                      "mind",
+                      "soul",
+                      "soul",
+                      "body",
+                      "soul",
+                      "body",
+                      "mind",
+                      "soul",
+                      "mind",
+                      "mind",
+                      "mind",
+                      "body",
+                      "mind",
+                      "body",
+                      "body",
+                      "mind",
+                      "mind",
+                      "body"]
+
+skillsList.eachWithIndex { it, index ->
+    def temp = template
+            .replace("athletics", it.toLowerCase().replace(" ", "_"))
+            .replace("Athletics", it)
+            .replace("<option value=\"@{" + attributesList.get(index) + "}\">" + attributesList.get(index) + "</option>",
+                    "<option value=\"@{" + attributesList.get(index) + "}\" selected=\"selected\">" + attributesList.get(index) + "</option>")
+    println(temp)
+    if (it == "Fortitude") {
+        println("""        </div>
+        <div class="skills">
+            <div></div>
+            <div>Training</div>
+            <div>Focus</div>
+            """)
+    }
 }
-
-//note, add this in the middle to create a new block
-//        </div>
-//        <div class="skills">
-//            <div></div>
-//            <div>Training</div>
-//            <div>Focus</div>
