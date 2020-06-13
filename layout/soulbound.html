@@ -1,7 +1,7 @@
 <script type="text/worker">
-    on("change:body change:reflexes_1 change:reflexes_2 change:reflexes_3", function() {
-        getAttrs(["body", "reflexes_1", "reflexes_2", "reflexes_3"], function(values) {
-            let defence = parseInt(values.body) + parseInt(values.reflexes_1) + parseInt(values.reflexes_2) + parseInt(values.reflexes_3);
+    on("change:body change:reflexes_1 change:reflexes_2 change:reflexes_3 change:defence_bonus", function() {
+        getAttrs(["body", "reflexes_1", "reflexes_2", "reflexes_3", "defence_bonus"], function(values) {
+            let defence = parseInt(values.body) + parseInt(values.reflexes_1) + parseInt(values.reflexes_2) + parseInt(values.reflexes_3) + (2 * parseInt(values.defence_bonus));
             setAttrs({def_poor:0, def_average:0, def_good:0 , def_great:0, def_superb:0, def_extraordinary:0}, {silent:true});
             if (defence === 1 || defence === 2){
                 setAttrs({ def_poor:1 }, {silent:true});
@@ -19,9 +19,9 @@
         });
     });
     
-        on("change:body change:weapon_skill_1 change:weapon_skill_2 change:weapon_skill_3", function() {
-        getAttrs(["body", "weapon_skill_1", "weapon_skill_2", "weapon_skill_3"], function(values) {
-            let melee = parseInt(values.body) + parseInt(values.weapon_skill_1) + parseInt(values.weapon_skill_2) + parseInt(values.weapon_skill_3);
+        on("change:body change:weapon_skill_1 change:weapon_skill_2 change:weapon_skill_3 change:melee_bonus", function() {
+        getAttrs(["body", "weapon_skill_1", "weapon_skill_2", "weapon_skill_3", "melee_bonus"], function(values) {
+            let melee = parseInt(values.body) + parseInt(values.weapon_skill_1) + parseInt(values.weapon_skill_2) + parseInt(values.weapon_skill_3) + (2 * parseInt(values.melee_bonus));
             setAttrs({mel_poor:0, mel_average:0, mel_good:0 , mel_great:0, mel_superb:0, mel_extraordinary:0}, {silent:true});
             if (melee === 1 || melee === 2){
                 setAttrs({ mel_poor:1 }, {silent:true});
@@ -39,9 +39,9 @@
         });
     });
 
-        on("change:mind change:ballistic_skill_1 change:ballistic_skill_2 change:ballistic_skill_3", function() {
-        getAttrs(["mind", "ballistic_skill_1", "ballistic_skill_2", "ballistic_skill_3"], function(values) {
-            let accuracy = parseInt(values.mind) + parseInt(values.ballistic_skill_1) + parseInt(values.ballistic_skill_2) + parseInt(values.ballistic_skill_3);
+        on("change:mind change:ballistic_skill_1 change:ballistic_skill_2 change:ballistic_skill_3 change:accuracy_bonus", function() {
+        getAttrs(["mind", "ballistic_skill_1", "ballistic_skill_2", "ballistic_skill_3", "accuracy_bonus"], function(values) {
+            let accuracy = parseInt(values.mind) + parseInt(values.ballistic_skill_1) + parseInt(values.ballistic_skill_2) + parseInt(values.ballistic_skill_3) + (2 * parseInt(values.accuracy_bonus));
             setAttrs({acc_poor:0, acc_average:0, acc_good:0 , acc_great:0, acc_superb:0, acc_extraordinary:0}, {silent:true});
             if (accuracy === 1 || accuracy === 2){
                 setAttrs({ acc_poor:1 }, {silent:true});
@@ -58,6 +58,7 @@
             }
         });
     });
+
 </script>
 
 <input type="hidden" name="attr_melee"
@@ -689,10 +690,10 @@
     </div>
 
 </div>
-<div>
+<div class="natural-awareness">
     <span>Natural Awareness</span>
     <input type="number" disabled="true" name="attr_nat_awareness"
-           value="ceil((@{mind} + @{awareness_1} + @{awareness_2} + @{awareness_3})/2)">
+           value="ceil((@{mind} + @{awareness_1} + @{awareness_2} + @{awareness_3})/2) + @{natural_awareness_bonus}">
 </div>
 
 <div class="section-abilities">
@@ -741,7 +742,7 @@
                     <span>Initiative</span>
                     <div>
                         <input type="number" disabled="true" name="attr_initiative"
-                               value="@{mind} + @{awareness_1} + @{awareness_2} + @{awareness_3} + @{reflexes_1} + @{reflexes_2} + @{reflexes_3}">
+                               value="@{mind} + @{awareness_1} + @{awareness_2} + @{awareness_3} + @{reflexes_1} + @{reflexes_2} + @{reflexes_3} + @{initiative_bonus}">
                     </div>
                 </div>
                 <div class="combat-ability-entry">
@@ -749,7 +750,7 @@
                     <div>
                         <input type="number" name="attr_mettle" value="">/
                         <input type="number" disabled="true" name="attr_mettle_max"
-                               value="ceil(@{soul}/2)">
+                               value="ceil(@{soul}/2)+@{mettle_max_bonus}">
                     </div>
                 </div>
                 <div class="combat-ability-entry">
@@ -763,8 +764,70 @@
                     <div>
                         <input type="number" name="attr_toughness">/
                         <input type="number" disabled="true" name="attr_toughness_max"
-                               value="@{body} + @{mind} + @{soul}">
+                               value="@{body} + @{mind} + @{soul} + @{toughness_bonus}">
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="header">Bonuses</div>
+        <div class="line"></div>
+        <div class="combat-misc">
+            <div class="combat-ability-entry">
+                <span>Accuracy</span>
+                <div>
+                    <input type="number" name="attr_accuracy_bonus"
+                           value="0">
+                </div>
+            </div>
+            <div class="combat-ability-entry">
+                <span>Defence</span>
+                <div>
+                    <input type="number" name="attr_defence_bonus"
+                           value="0">
+                </div>
+            </div>
+            <div class="combat-ability-entry">
+                <span>Melee</span>
+                <div>
+                    <input type="number" name="attr_melee_bonus"
+                           value="0">
+                </div>
+            </div>
+            <div class="combat-ability-entry">
+                <span>Mettle</span>
+                <div>
+                    <input type="number" name="attr_mettle_max_bonus"
+                           value="0">
+                </div>
+            </div>
+            <div class="combat-ability-entry">
+                <span>Initiative</span>
+                <div>
+                    <input type="number" name="attr_initiative_bonus"
+                           value="0">
+                </div>
+            </div>
+            <div class="combat-ability-entry">
+                <span>Toughness</span>
+                <div>
+                    <input type="number" name="attr_toughness_bonus"
+                           value="0">
+                </div>
+            </div>
+            <div class="combat-ability-entry">
+                <span>Max Wounds</span>
+                <div>
+                    <input type="number" name="attr_wounds_max_bonus"
+                           value="0">
+                </div>
+            </div>
+            <div class="combat-ability-entry">
+                <span>Nat Awareness</span>
+                <div>
+                    <input type="number" name="attr_natural_awareness_bonus"
+                           value="0">
                 </div>
             </div>
         </div>
@@ -782,7 +845,7 @@
 <div>
     <span>Wounds</span>
     <input type="number" name="attr_wounds" value="0">/
-    <input type="number" disabled="true" name="attr_wounds_max" value="ceil((@{body} + @{mind} + @{soul})/2)">
+    <input type="number" disabled="true" name="attr_wounds_max" value="ceil((@{body} + @{mind} + @{soul})/2)+@{wounds_max_bonus}">
     <span>Mortally Wounded</span>
     <input type="checkbox" name="attr_mortally_wounded" value="1">
     <span>Last Wound Taken</span>
@@ -850,7 +913,7 @@
     <div>Target</div>
     <div>Range</div>
     <div>Duration</div>
-    <div>Modifier</div>
+    <div>Mod</div>
     <div>Effect</div>
 </div>
 <fieldset class="repeating_spells">
