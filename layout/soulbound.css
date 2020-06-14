@@ -108,8 +108,13 @@ button[type="roll"].sheet-text-big{
     display: flex;
 }
 
+.sheet-talents {
+    width: 210px;
+}
+
 .sheet-currency {
     display: flex;
+    justify-content: space-around;
 }
 
 .sheet-currency div {
@@ -124,8 +129,9 @@ button[type="roll"].sheet-text-big{
 .sheet-section-abilities {
     display: flex;
 }
-.sheet-section-abilities div {
+.sheet-section-abilities > div {
     margin-right: 10px;
+    flex-grow: 1;
 }
 
 .sheet-wound-selection {
@@ -206,8 +212,12 @@ button[type="roll"].sheet-text-big{
     display: flex;
 }
 
-.sheet-section-gear div{
+.sheet-section-gear > div{
     margin-right: 10px;
+}
+
+.sheet-gear {
+    width: 210px;
 }
 
 .sheet-weapons {
@@ -325,4 +335,9 @@ input[type="number"].sheet-small-digit {
 .sheet-spells-effect {
     width: 210px;
     height: 40px;
+}
+
+
+.sheet-text-area {
+    padding: 0;
 }
