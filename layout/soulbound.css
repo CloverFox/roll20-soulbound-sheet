@@ -203,6 +203,10 @@ button[type="roll"].sheet-text-big{
     display: flex;
 }
 
+.sheet-combat-misc button[type="roll"]{
+    text-align: center;
+    font-size: 13px;
+}
 .sheet-combat-misc {
     display: grid;
     grid-template-columns: 100px 100px;

@@ -19,7 +19,7 @@
         });
     });
     
-        on("change:body change:weapon_skill_1 change:weapon_skill_2 change:weapon_skill_3 change:melee_bonus", function() {
+    on("change:body change:weapon_skill_1 change:weapon_skill_2 change:weapon_skill_3 change:melee_bonus", function() {
         getAttrs(["body", "weapon_skill_1", "weapon_skill_2", "weapon_skill_3", "melee_bonus"], function(values) {
             let melee = parseInt(values.body) + parseInt(values.weapon_skill_1) + parseInt(values.weapon_skill_2) + parseInt(values.weapon_skill_3) + (2 * parseInt(values.melee_bonus));
             setAttrs({mel_poor:0, mel_average:0, mel_good:0 , mel_great:0, mel_superb:0, mel_extraordinary:0}, {silent:true});
@@ -39,7 +39,7 @@
         });
     });
 
-        on("change:mind change:ballistic_skill_1 change:ballistic_skill_2 change:ballistic_skill_3 change:accuracy_bonus", function() {
+    on("change:mind change:ballistic_skill_1 change:ballistic_skill_2 change:ballistic_skill_3 change:accuracy_bonus", function() {
         getAttrs(["mind", "ballistic_skill_1", "ballistic_skill_2", "ballistic_skill_3", "accuracy_bonus"], function(values) {
             let accuracy = parseInt(values.mind) + parseInt(values.ballistic_skill_1) + parseInt(values.ballistic_skill_2) + parseInt(values.ballistic_skill_3) + (2 * parseInt(values.accuracy_bonus));
             setAttrs({acc_poor:0, acc_average:0, acc_good:0 , acc_great:0, acc_superb:0, acc_extraordinary:0}, {silent:true});
@@ -56,6 +56,17 @@
             } else if (accuracy === 11 || accuracy === 12){
                 setAttrs({ acc_extraordinary:1 }, {silent:true});
             }
+        });
+    });
+
+    on("change:mind change:awareness_1 change:awareness_2 change:awareness_3 change:reflexes_1 change:reflexes_2 change:reflexes_3 change:initiative_bonus", function() {
+        getAttrs(["mind", "awareness_1", "awareness_2", "awareness_3", "reflexes_1", "reflexes_2", "reflexes_3", "initiative_bonus"], function(values) {
+            let mind = parseInt(values.mind);
+            let awareness = (parseInt(values.awareness_1) + parseInt(values.awareness_2) + parseInt(values.awareness_3));
+            let reflexes = (parseInt(values.reflexes_1) + parseInt(values.reflexes_2) + parseInt(values.reflexes_3));
+            let initiativeBonus = parseInt(values.initiative_bonus);
+            let initiative = mind + awareness + reflexes + initiativeBonus;
+            setAttrs({ initiative:initiative });
         });
     });
 </script>
@@ -738,10 +749,10 @@
             </div>
             <div class="combat-misc">
                 <div class="combat-ability-entry">
-                    <span>Initiative</span>
+                    <button type="roll" class="sheet-text-button" value="&{template:default} {{name=Initiative}} {{Result=[[@{initiative} &{tracker}]]}}">Initiative</button>
                     <div>
-                        <input type="number" disabled="true" name="attr_initiative"
-                               value="@{mind} + @{awareness_1} + @{awareness_2} + @{awareness_3} + @{reflexes_1} + @{reflexes_2} + @{reflexes_3} + @{initiative_bonus}">
+                        <input type="number" disabled="true" name="attr_initiative_display"
+                               value="@{initiative}">
                     </div>
                 </div>
                 <div class="combat-ability-entry">
