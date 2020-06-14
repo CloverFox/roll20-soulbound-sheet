@@ -226,7 +226,7 @@ button[type="roll"].sheet-text-big{
 
 .sheet-spells {
     display: grid;
-    grid-template-columns: 210px 40px 30px 10px 30px 100px 80px 80px 40px auto
+    grid-template-columns: 210px 55px 75px 100px 75px 100px auto
 }
 
 .sheet-spells input {
@@ -235,6 +235,14 @@ button[type="roll"].sheet-text-big{
 
 .sheet-spells button[type="roll"] {
     height: 22px;
+}
+
+.sheet-colon-separator {
+    text-align: center;
+}
+
+.sheet-colon-separator-left {
+    margin-left: auto;
 }
 
 input[type=number]:disabled {
@@ -263,7 +271,7 @@ input[type="number"].sheet-small-digit {
 }
 
 .sheet-spells-duration {
-    width: 75px;
+    width: 100px;
 }
 
 .sheet-spells-modifier {
