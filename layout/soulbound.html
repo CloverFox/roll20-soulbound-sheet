@@ -69,6 +69,36 @@
             setAttrs({ initiative:initiative });
         });
     });
+
+    /* ===== PARAMETERS ==========
+    destination = the name of the attribute that stores the total quantity
+    section = name of repeating fieldset, without the repeating_
+    fields = the name of the attribute field to be summed
+          can be a single attribute: 'weight'
+          or an array of attributes: ['weight','number','equipped']
+    multiplier (optional) = a multiplier to the entire fieldset total. For instance, if summing coins of weight 0.02, might want to multiply the final total by 0.02.
+    */
+    const repeatingSum = (destination, section, fields, multiplier = 1) => {
+        if (!Array.isArray(fields)) fields = [fields];
+        getSectionIDs(`repeating_${section}`, idArray => {
+            const attrArray = idArray.reduce( (m,id) => [...m, ...(fields.map(field => `repeating_${section}_${id}_${field}`))],[]);
+            getAttrs(attrArray, v => {
+                console.log("===== values of v: "+ JSON.stringify(v) +" =====");
+                     // getValue: if not a number, returns 1 if it is 'on' (checkbox), otherwise returns 0..
+                const getValue = (section, id,field) => parseFloat(v[`repeating_${section}_${id}_${field}`]) || (v[`repeating_${section}_${id}_${field}`] === 'on' ? 1 : 0);
+                const sumTotal = idArray.reduce((total, id) => total + fields.reduce((subtotal,field) => subtotal * getValue(section, id,field),1),0);
+                setAttrs({[destination]: sumTotal * multiplier});
+            });
+        });
+    };
+
+    on('change:repeating_wounds-applied add:repeating_wounds-applied remove:repeating_wounds-applied', function() {
+        repeatingSum("w_total","wounds-applied","wound_taken");
+    });
+
+
+
+
 </script>
 
 <input type="hidden" name="attr_melee"
@@ -77,6 +107,17 @@
        value="ceil((@{mind}+@{ballistic_skill_1}+@{ballistic_skill_2}+@{ballistic_skill_3})/2)" disabled="true">
 <input type="hidden" name="attr_defence" value="ceil((@{body}+@{reflexes_1}+@{reflexes_2}+@{reflexes_3})/2)"
        disabled="true">
+
+<fieldset class="repeating_wounds-applied">
+    <div>
+        <select name="attr_wound_taken" class="wound-selection">
+            <option value="0" selected="selected">Select</option>
+            <option value="1">Minor</option>
+            <option value="2">Serious</option>
+            <option value="3">Deadly</option>
+        </select>
+    </div>
+</fieldset>
 
 <div class="section-character">
     <div class="img-name">
@@ -749,7 +790,10 @@
             </div>
             <div class="combat-misc">
                 <div class="combat-ability-entry">
-                    <button type="roll" class="sheet-text-button" value="&{template:default} {{name=Initiative}} {{Result=[[@{initiative} &{tracker}]]}}">Initiative</button>
+                    <button type="roll" class="sheet-text-button"
+                            value="&{template:default} {{name=Initiative}} {{Result=[[@{initiative} &{tracker}]]}}">
+                        Initiative
+                    </button>
                     <div>
                         <input type="number" disabled="true" name="attr_initiative_display"
                                value="@{initiative}">
@@ -854,7 +898,7 @@
 <div class="line"></div>
 <div>
     <span>Wounds</span>
-    <input type="number" name="attr_wounds" value="0">/
+    <input type="number" disabled="true" name="attr_wounds" value="@{w_total}">/
     <input type="number" disabled="true" name="attr_wounds_max"
            value="ceil((@{body} + @{mind} + @{soul})/2)+@{wounds_max_bonus}">
     <span>Mortally Wounded</span>

@@ -133,6 +133,10 @@ button[type="roll"].sheet-text-big{
     margin-right: 10px;
     flex-grow: 1;
 }
+.sheet-section-wounds {
+    display: flex;
+    flex-direction: column;
+}
 
 .sheet-wound-selection {
     width: 80px;
@@ -340,7 +344,6 @@ input[type="number"].sheet-small-digit {
     width: 210px;
     height: 40px;
 }
-
 
 .sheet-text-area {
     padding: 0;
