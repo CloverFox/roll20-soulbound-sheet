@@ -8,6 +8,34 @@
     display: none;
 }
 
+.sheet-talents-container input[type="checkbox"] {
+    opacity: 0;
+    width: 16px;
+    height: 16px;
+    position: relative;
+    top: 4px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.sheet-talents-container input[type="checkbox"] + span::before {
+    font-family: Pictos, serif;
+    margin-right: 4px;
+    line-height: 14px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    content: "(";
+    width: 14px;
+    height: 14px;
+    font-size: 12px;
+}
+
+.sheet-talents-container input[type="checkbox"]:checked + span::before {
+    content: ")";
+    font-family: Pictos, serif;
+}
+
 .sheet-header {
     font-size: 18px;
     text-align: center;
@@ -122,31 +150,49 @@ button[type="roll"].sheet-text-big {
 }
 
 .sheet-talents-container {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: [col] auto [col] 0 [col] 16px [col] 40px;
+    grid-auto-flow: dense;
+}
+
+.sheet-talents-block {
+    grid-column: col 1;
+}
+
+.sheet-talents-check {
+    grid-column: col 2;
+}
+
+.sheet-talents-check2 {
+    grid-column: col 3;
+}
+.sheet-talents-button {
+    grid-column: col 4;
 }
 
 .sheet-talents-container input[type="text"] {
-    width: 300px
+    width: 350px
 }
 
 .sheet-talents-container button {
+    font-family: 'Pictos', serif;
     height: 22px;
+    border: none;
+    background: none;
+    padding: 0;
 }
 
-.sheet-talents-container input[type="checkbox"] {
-    align-self: start;
-    margin-top: 10px;
+.sheet-talents-container button[type="roll"]::before {
+    content: "";
 }
 
 .sheet-talents-container div {
-    max-width: 300px;
+    max-width: 350px;
 }
 
 .sheet-talents-container textarea {
     height: 60px;
-    width: 458px;
+    width: 430px;
 }
 
 .sheet-talents {

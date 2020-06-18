@@ -95,10 +95,6 @@
     on('change:repeating_wounds-applied add:repeating_wounds-applied remove:repeating_wounds-applied', function() {
         repeatingSum("w_total","wounds-applied","wound_taken");
     });
-
-
-
-
 </script>
 
 <input type="hidden" name="attr_melee"
@@ -881,14 +877,17 @@
         <div class="header">Talents</div>
         <div class="line"></div>
         <fieldset class="repeating_talents">
-            <div class="talents-container"><!--due to css funkyness this is reversed to allow the checkbox to be at the back-->
-                <button type="roll" name="talent-description"
-                value="&{template:default} {{name=@{talents}}} {{@{talents_description}}}">Show</button>
-                <input type="checkbox" class="sheet-block-switch" name="attr_block_switch" value="1"/>
-                <div class="sheet-block-a">
+            <div class="talents-container">
+                <!--due to css funkyness this is reversed to allow the checkbox to be at the back-->
+                <button type="roll" name="talent-description" class="talents-button"
+                        value="&{template:default} {{name=@{talents}}} {{@{talents_description}}}">w
+                </button>
+                <input type="checkbox" class="sheet-block-switch talents-check" name="attr_block_switch" value="1"/>
+                <span class="talents-check2"></span>
+                <div class="sheet-block-a talents-block">
                     <input type="text" name="attr_talents">
                 </div>
-                <div class="sheet-block-b">
+                <div class="sheet-block-b talents-block">
                     <input type="text" name="attr_talents">
                     <textarea name="attr_talents_description"></textarea>
                 </div>
