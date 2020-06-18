@@ -1,8 +1,12 @@
-input.sheet-toggle-show:not(:checked) ~ div.sheet-body,
-input.sheet-toggle-hide:checked ~ div.sheet-body {
-    display: none;
+.sheet-block-a,
+.sheet-block-switch:checked ~ .sheet-block-b {
+    display: block;
 }
 
+.sheet-block-b,
+.sheet-block-switch:checked ~ .sheet-block-a {
+    display: none;
+}
 .sheet-header {
     font-size: 18px;
     text-align: center;
@@ -116,6 +120,11 @@ button[type="roll"].sheet-text-big {
     display: flex;
 }
 
+.sheet-talents-container {
+    display: flex;
+    flex-direction: column;
+}
+
 .sheet-talents {
     flex: 1;
     margin-right: 10px;
@@ -150,6 +159,15 @@ button[type="roll"].sheet-text-big {
 
 .sheet-section-talents-wounds {
     display: flex;
+}
+
+.sheet-wounds-tracker {
+    display: flex;
+    text-align: center;
+}
+
+.sheet-wounds-tracker *{
+    width: 90px;
 }
 
 .sheet-wounds-counter {
@@ -255,8 +273,14 @@ button[type="roll"].sheet-text-big {
 }
 
 .sheet-combat-misc {
+    flex: 1;
     display: grid;
-    grid-template-columns: 100px 100px;
+    grid-template-columns: auto auto;
+}
+
+.sheet-combat-misc-bonus {
+    display: grid;
+    grid-template-columns: auto auto auto;
 }
 
 .sheet-section-gear {

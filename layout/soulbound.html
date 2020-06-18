@@ -95,6 +95,10 @@
     on('change:repeating_wounds-applied add:repeating_wounds-applied remove:repeating_wounds-applied', function() {
         repeatingSum("w_total","wounds-applied","wound_taken");
     });
+
+
+
+
 </script>
 
 <input type="hidden" name="attr_melee"
@@ -812,7 +816,14 @@
     <div>
         <div class="header">Bonuses</div>
         <div class="line"></div>
-        <div class="combat-misc">
+        <div class="combat-misc-bonus">
+            <div class="combat-ability-entry">
+                <span>Melee</span>
+                <div>
+                    <input type="number" name="attr_melee_bonus"
+                           value="0">
+                </div>
+            </div>
             <div class="combat-ability-entry">
                 <span>Accuracy</span>
                 <div>
@@ -828,9 +839,9 @@
                 </div>
             </div>
             <div class="combat-ability-entry">
-                <span>Melee</span>
+                <span>Initiative</span>
                 <div>
-                    <input type="number" name="attr_melee_bonus"
+                    <input type="number" name="attr_initiative_bonus"
                            value="0">
                 </div>
             </div>
@@ -838,13 +849,6 @@
                 <span>Mettle</span>
                 <div>
                     <input type="number" name="attr_mettle_max_bonus"
-                           value="0">
-                </div>
-            </div>
-            <div class="combat-ability-entry">
-                <span>Initiative</span>
-                <div>
-                    <input type="number" name="attr_initiative_bonus"
                            value="0">
                 </div>
             </div>
@@ -863,7 +867,7 @@
                 </div>
             </div>
             <div class="combat-ability-entry">
-                <span>Nat Awareness</span>
+                <span>Natural Awareness</span>
                 <div>
                     <input type="number" name="attr_natural_awareness_bonus"
                            value="0">
@@ -877,7 +881,17 @@
         <div class="header">Talents</div>
         <div class="line"></div>
         <fieldset class="repeating_talents">
-            <input type="text" name="attr_talents">
+            <div class="talents-container">
+                <span>Show</span>
+                <input type="checkbox" class="sheet-block-switch" name="attr_block_switch" value="1"/>
+                <div class="sheet-block-a">
+                    <input type="text" name="attr_talents">
+                </div>
+                <div class="sheet-block-b">
+                    <input type="text" name="attr_talents">
+                    <input type="text" name="attr_talents_description">
+                </div>
+            </div>
         </fieldset>
     </div>
     <div>
@@ -891,14 +905,19 @@
                     <input type="number" disabled="true" name="attr_wounds_max"
                            value="ceil((@{body} + @{mind} + @{soul})/2)+@{wounds_max_bonus}">
                 </div>
+                <div class="wounds-tracker">
+                    <div>Severity</div>
+                    <div>Wounds</div>
+                </div>
                 <fieldset class="repeating_wounds-applied">
-                    <div>
+                    <div class="wounds-tracker">
                         <select name="attr_wound_taken" class="wound-selection">
                             <option value="0" selected="selected">Select</option>
                             <option value="1">Minor</option>
                             <option value="2">Serious</option>
                             <option value="3">Deadly</option>
                         </select>
+                        <span name="attr_wound_taken"></span>
                     </div>
                 </fieldset>
             </div>
