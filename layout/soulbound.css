@@ -151,7 +151,7 @@ button[type="roll"].sheet-text-big {
 
 .sheet-talents-container {
     display: grid;
-    grid-template-columns: [col] auto [col] 0 [col] 16px [col] 40px;
+    grid-template-columns: [col] auto [col] 0 [col] 30px [col] 40px;
     grid-auto-flow: dense;
 }
 
@@ -170,8 +170,12 @@ button[type="roll"].sheet-text-big {
     grid-column: col 4;
 }
 
+.sheet-talents-container div {
+    max-width: 330px;
+}
+
 .sheet-talents-container input[type="text"] {
-    width: 350px
+    width: 330px
 }
 
 .sheet-talents-container button {
@@ -185,14 +189,9 @@ button[type="roll"].sheet-text-big {
 .sheet-talents-container button[type="roll"]::before {
     content: "";
 }
-
-.sheet-talents-container div {
-    max-width: 350px;
-}
-
 .sheet-talents-container textarea {
     height: 60px;
-    width: 430px;
+    width: 380px;
 }
 
 .sheet-talents {
@@ -251,16 +250,22 @@ button[type="roll"].sheet-text-big {
 .sheet-death-saves {
     display: flex;
     flex-direction: column;
+    margin-right: 10px;
 }
 
 .sheet-death-saves div {
     display: flex;
     width: 200px;
+    height: 30px;
     justify-content: space-between;
 }
 
 .sheet-wound-selection {
     width: 80px;
+}
+
+.sheet-death-test-checkbox {
+    margin-left: 30px;
 }
 
 .sheet-archetype {
