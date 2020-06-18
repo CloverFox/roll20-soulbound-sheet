@@ -881,15 +881,16 @@
         <div class="header">Talents</div>
         <div class="line"></div>
         <fieldset class="repeating_talents">
-            <div class="talents-container">
-                <span>Show</span>
+            <div class="talents-container"><!--due to css funkyness this is reversed to allow the checkbox to be at the back-->
+                <button type="roll" name="talent-description"
+                value="&{template:default} {{name=@{talents}}} {{@{talents_description}}}">Show</button>
                 <input type="checkbox" class="sheet-block-switch" name="attr_block_switch" value="1"/>
                 <div class="sheet-block-a">
                     <input type="text" name="attr_talents">
                 </div>
                 <div class="sheet-block-b">
                     <input type="text" name="attr_talents">
-                    <input type="text" name="attr_talents_description">
+                    <textarea name="attr_talents_description"></textarea>
                 </div>
             </div>
         </fieldset>
@@ -941,7 +942,7 @@
                 </div>
                 <div>
                     <span>Death Check</span>
-                    <button type="roll" name="test"
+                    <button type="roll" name="death-save"
                             value="&{template:default} {{name=Death Test}} {{DN=[[4+@{death_tests_1}+@{death_tests_2}]]:@{last_wound}}} {{Successes=[[[[{@{body},@{mind},@{soul}}kh1]]d6s>[[4+@{death_tests_1}+@{death_tests_2}]]]]}}"></button>
                 </div>
             </div>

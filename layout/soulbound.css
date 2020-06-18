@@ -7,6 +7,7 @@
 .sheet-block-switch:checked ~ .sheet-block-a {
     display: none;
 }
+
 .sheet-header {
     font-size: 18px;
     text-align: center;
@@ -122,7 +123,30 @@ button[type="roll"].sheet-text-big {
 
 .sheet-talents-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.sheet-talents-container input[type="text"] {
+    width: 300px
+}
+
+.sheet-talents-container button {
+    height: 22px;
+}
+
+.sheet-talents-container input[type="checkbox"] {
+    align-self: start;
+    margin-top: 10px;
+}
+
+.sheet-talents-container div {
+    max-width: 300px;
+}
+
+.sheet-talents-container textarea {
+    height: 60px;
+    width: 458px;
 }
 
 .sheet-talents {
