@@ -240,7 +240,8 @@ button[type="roll"].sheet-text-big {
 }
 
 .sheet-wounds-counter {
-    width: 180px;
+    width: 170px;
+    margin-right: 10px;
 }
 
 .sheet-wounds-counter div {
