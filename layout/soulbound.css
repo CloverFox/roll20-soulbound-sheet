@@ -1,3 +1,41 @@
+.sheet-block-a,
+.sheet-block-switch:checked ~ .sheet-block-b {
+    display: block;
+}
+
+.sheet-block-b,
+.sheet-block-switch:checked ~ .sheet-block-a {
+    display: none;
+}
+
+.sheet-talents-container input[type="checkbox"] {
+    opacity: 0;
+    width: 16px;
+    height: 16px;
+    position: relative;
+    top: 4px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.sheet-talents-container input[type="checkbox"] + span::before {
+    font-family: Pictos, serif;
+    margin-right: 4px;
+    line-height: 14px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    content: "+";
+    width: 14px;
+    height: 14px;
+    font-size: 12px;
+}
+
+.sheet-talents-container input[type="checkbox"]:checked + span::before {
+    content: "-";
+    font-family: Pictos, serif;
+}
+
 .sheet-header {
     font-size: 18px;
     text-align: center;
@@ -15,14 +53,16 @@
 
 .sheet-info {
     width: 500px;
-    display:grid;
+    display: grid;
     grid-template-columns: [col] 100px [col] 100px [col] 100px [col] 100px [col] 100px;
 }
+
 .sheet-img-name {
     width: 300px;
 }
+
 .sheet-img-name div {
-    display:flex;
+    display: flex;
     flex-direction: column;
 }
 
@@ -35,13 +75,14 @@
 }
 
 .sheet-info div {
-    display:flex;
+    display: flex;
     flex-direction: column;
 }
 
 .sheet-info div input {
     width: 100%;
 }
+
 button[type="roll"].sheet-text-button::before {
     content: "";
 }
@@ -61,7 +102,7 @@ button[type="roll"].sheet-text-button {
     text-align: left;
 }
 
-button[type="roll"].sheet-text-big{
+button[type="roll"].sheet-text-big {
     font-size: 30px;
     padding: 0;
     margin: 0;
@@ -86,11 +127,11 @@ button[type="roll"].sheet-text-big{
     height: 40px;
 }
 
-.sheet-attributes input[type="number"]{
+.sheet-attributes input[type="number"] {
     font-size: 30px;
     width: 1.75em;
     border: 0;
-    margin: 0  20px  0 10px;
+    margin: 0 20px 0 10px;
 }
 
 .sheet-combat-ability-entry {
@@ -108,8 +149,54 @@ button[type="roll"].sheet-text-big{
     display: flex;
 }
 
+.sheet-talents-container {
+    display: grid;
+    grid-template-columns: [col] auto [col] 0 [col] 30px [col] 40px;
+    grid-auto-flow: dense;
+}
+
+.sheet-talents-block {
+    grid-column: col 1;
+}
+
+.sheet-talents-check {
+    grid-column: col 2;
+}
+
+.sheet-talents-check2 {
+    grid-column: col 3;
+}
+.sheet-talents-button {
+    grid-column: col 4;
+}
+
+.sheet-talents-container div {
+    max-width: 330px;
+}
+
+.sheet-talents-container input[type="text"] {
+    width: 330px
+}
+
+.sheet-talents-container button {
+    font-family: 'Pictos', serif;
+    height: 22px;
+    border: none;
+    background: none;
+    padding: 0;
+}
+
+.sheet-talents-container button[type="roll"]::before {
+    content: "";
+}
+.sheet-talents-container textarea {
+    height: 60px;
+    width: 380px;
+}
+
 .sheet-talents {
-    width: 210px;
+    flex: 1;
+    margin-right: 10px;
 }
 
 .sheet-currency {
@@ -129,39 +216,91 @@ button[type="roll"].sheet-text-big{
 .sheet-section-abilities {
     display: flex;
 }
+
 .sheet-section-abilities > div {
     margin-right: 10px;
     flex-grow: 1;
+}
+
+.sheet-section-wounds {
+    display: flex;
+}
+
+.sheet-section-talents-wounds {
+    display: flex;
+}
+
+.sheet-wounds-tracker {
+    display: flex;
+    text-align: center;
+}
+
+.sheet-wounds-tracker *{
+    width: 90px;
+}
+
+.sheet-wounds-counter {
+    width: 170px;
+    margin-right: 10px;
+}
+
+.sheet-wounds-counter div {
+    margin-bottom: 5px;
+}
+
+.sheet-death-saves {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+}
+
+.sheet-death-saves div {
+    display: flex;
+    width: 200px;
+    height: 30px;
+    justify-content: space-between;
 }
 
 .sheet-wound-selection {
     width: 80px;
 }
 
+.sheet-death-test-checkbox {
+    margin-left: 30px;
+}
+
 .sheet-archetype {
     grid-column: col / span 3;
 }
+
 .sheet-species {
     grid-column: col 4 / span 2;
 }
+
 .sheet-age {
     grid-column: col / span 1;
 }
+
 .sheet-eyes {
     grid-column: col 2 / span 1;
 }
+
 .sheet-hair {
     grid-column: col 3 / span 1;
 }
+
 .sheet-height {
     grid-column: col 4 / span 1;
 }
+
 .sheet-weight {
     grid-column: col 5 / span 1;
 }
+
 .sheet-dist-features {
     grid-column: col / span 4;
 }
+
 .sheet-xp {
     grid-column: col 5/ span 1;
 }
@@ -182,7 +321,7 @@ button[type="roll"].sheet-text-big{
     margin-right: 5px;
 }
 
-.sheet-desc button[type="roll"].sheet-text-button{
+.sheet-desc button[type="roll"].sheet-text-button {
     font-size: 13px;
 }
 
@@ -199,24 +338,32 @@ button[type="roll"].sheet-text-big{
     display: grid;
     grid-template-columns: 100px 20px 20px 20px;
 }
+
 .sheet-combat-abilities {
     display: flex;
 }
 
-.sheet-combat-misc button[type="roll"]{
+.sheet-combat-misc button[type="roll"] {
     text-align: center;
     font-size: 13px;
 }
+
 .sheet-combat-misc {
+    flex: 1;
     display: grid;
-    grid-template-columns: 100px 100px;
+    grid-template-columns: auto auto;
+}
+
+.sheet-combat-misc-bonus {
+    display: grid;
+    grid-template-columns: auto auto auto;
 }
 
 .sheet-section-gear {
     display: flex;
 }
 
-.sheet-section-gear > div{
+.sheet-section-gear > div {
     margin-right: 10px;
 }
 
@@ -230,12 +377,12 @@ button[type="roll"].sheet-text-big{
 }
 
 .sheet-weapon-focus .sheet-cover {
-    width:70px;
-    height:40px;
-    background:transparent;
-    position:absolute;
-    z-index:2;
-    display:block;
+    width: 70px;
+    height: 40px;
+    background: transparent;
+    position: absolute;
+    z-index: 2;
+    display: block;
 }
 
 .sheet-spells {
@@ -269,7 +416,7 @@ input[type=number]:disabled {
 }
 
 .sheet-no-spin {
-    -moz-appearance:textfield;
+    -moz-appearance: textfield;
 }
 
 input[type="number"].sheet-small-digit {
@@ -340,7 +487,6 @@ input[type="number"].sheet-small-digit {
     width: 210px;
     height: 40px;
 }
-
 
 .sheet-text-area {
     padding: 0;

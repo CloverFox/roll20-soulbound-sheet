@@ -69,6 +69,32 @@
             setAttrs({ initiative:initiative });
         });
     });
+
+    /* ===== PARAMETERS ==========
+    destination = the name of the attribute that stores the total quantity
+    section = name of repeating fieldset, without the repeating_
+    fields = the name of the attribute field to be summed
+          can be a single attribute: 'weight'
+          or an array of attributes: ['weight','number','equipped']
+    multiplier (optional) = a multiplier to the entire fieldset total. For instance, if summing coins of weight 0.02, might want to multiply the final total by 0.02.
+    */
+    const repeatingSum = (destination, section, fields, multiplier = 1) => {
+        if (!Array.isArray(fields)) fields = [fields];
+        getSectionIDs(`repeating_${section}`, idArray => {
+            const attrArray = idArray.reduce( (m,id) => [...m, ...(fields.map(field => `repeating_${section}_${id}_${field}`))],[]);
+            getAttrs(attrArray, v => {
+                console.log("===== values of v: "+ JSON.stringify(v) +" =====");
+                     // getValue: if not a number, returns 1 if it is 'on' (checkbox), otherwise returns 0..
+                const getValue = (section, id,field) => parseFloat(v[`repeating_${section}_${id}_${field}`]) || (v[`repeating_${section}_${id}_${field}`] === 'on' ? 1 : 0);
+                const sumTotal = idArray.reduce((total, id) => total + fields.reduce((subtotal,field) => subtotal * getValue(section, id,field),1),0);
+                setAttrs({[destination]: sumTotal * multiplier});
+            });
+        });
+    };
+
+    on('change:repeating_wounds-applied add:repeating_wounds-applied remove:repeating_wounds-applied', function() {
+        repeatingSum("w_total","wounds-applied","wound_taken");
+    });
 </script>
 
 <input type="hidden" name="attr_melee"
@@ -749,7 +775,10 @@
             </div>
             <div class="combat-misc">
                 <div class="combat-ability-entry">
-                    <button type="roll" class="sheet-text-button" value="&{template:default} {{name=Initiative}} {{Result=[[@{initiative} &{tracker}]]}}">Initiative</button>
+                    <button type="roll" class="sheet-text-button"
+                            value="&{template:default} {{name=Initiative}} {{Result=[[@{initiative} &{tracker}]]}}">
+                        Initiative
+                    </button>
                     <div>
                         <input type="number" disabled="true" name="attr_initiative_display"
                                value="@{initiative}">
@@ -783,7 +812,14 @@
     <div>
         <div class="header">Bonuses</div>
         <div class="line"></div>
-        <div class="combat-misc">
+        <div class="combat-misc-bonus">
+            <div class="combat-ability-entry">
+                <span>Melee</span>
+                <div>
+                    <input type="number" name="attr_melee_bonus"
+                           value="0">
+                </div>
+            </div>
             <div class="combat-ability-entry">
                 <span>Accuracy</span>
                 <div>
@@ -799,9 +835,9 @@
                 </div>
             </div>
             <div class="combat-ability-entry">
-                <span>Melee</span>
+                <span>Initiative</span>
                 <div>
-                    <input type="number" name="attr_melee_bonus"
+                    <input type="number" name="attr_initiative_bonus"
                            value="0">
                 </div>
             </div>
@@ -809,13 +845,6 @@
                 <span>Mettle</span>
                 <div>
                     <input type="number" name="attr_mettle_max_bonus"
-                           value="0">
-                </div>
-            </div>
-            <div class="combat-ability-entry">
-                <span>Initiative</span>
-                <div>
-                    <input type="number" name="attr_initiative_bonus"
                            value="0">
                 </div>
             </div>
@@ -834,7 +863,7 @@
                 </div>
             </div>
             <div class="combat-ability-entry">
-                <span>Nat Awareness</span>
+                <span>Natural Awareness</span>
                 <div>
                     <input type="number" name="attr_natural_awareness_bonus"
                            value="0">
@@ -842,35 +871,82 @@
             </div>
         </div>
     </div>
-    <div class="sheet-talents">
+</div>
+<div class="section-talents-wounds">
+    <div class="talents">
         <div class="header">Talents</div>
         <div class="line"></div>
         <fieldset class="repeating_talents">
-            <input type="text" name="attr_talents">
+            <div class="talents-container">
+                <!--due to css funkyness this is reversed to allow the checkbox to be at the back-->
+                <button type="roll" name="talent-description" class="talents-button"
+                        value="&{template:default} {{name=@{talents}}} {{@{talents_description}}}">w
+                </button>
+                <input type="checkbox" class="sheet-block-switch talents-check" name="attr_block_switch" value="1"/>
+                <span class="talents-check2"></span>
+                <div class="sheet-block-a talents-block">
+                    <input type="text" name="attr_talents">
+                </div>
+                <div class="sheet-block-b talents-block">
+                    <input type="text" name="attr_talents">
+                    <textarea name="attr_talents_description"></textarea>
+                </div>
+            </div>
         </fieldset>
     </div>
-</div>
-<div class="header">Wounds</div>
-<div class="line"></div>
-<div>
-    <span>Wounds</span>
-    <input type="number" name="attr_wounds" value="0">/
-    <input type="number" disabled="true" name="attr_wounds_max"
-           value="ceil((@{body} + @{mind} + @{soul})/2)+@{wounds_max_bonus}">
-    <span>Mortally Wounded</span>
-    <input type="checkbox" name="attr_mortally_wounded" value="1">
-    <span>Last Wound Taken</span>
-    <select name="attr_last_wound" class="wound-selection">
-        <option value="1">Minor</option>
-        <option value="2">Serious</option>
-        <option value="3">Deadly</option>
-    </select>
-    <span>Failures</span>
-    <input type="checkbox" name="attr_death_tests_1" value="1">
-    <input type="checkbox" name="attr_death_tests_2" value="1">
-    <span>Death Check</span>
-    <button type="roll" name="test"
-            value="&{template:default} {{name=Death Test}} {{DN=[[4+@{death_tests_1}+@{death_tests_2}]]:@{last_wound}}} {{Successes=[[[[{@{body},@{mind},@{soul}}kh1]]d6s>[[4+@{death_tests_1}+@{death_tests_2}]]]]}}"></button>
+    <div>
+        <div class="header">Wounds</div>
+        <div class="line"></div>
+        <div class="section-wounds">
+            <div class="wounds-counter">
+                <div>
+                    <span>Wounds</span>
+                    <input type="number" disabled="true" name="attr_wounds" value="@{w_total}">/
+                    <input type="number" disabled="true" name="attr_wounds_max"
+                           value="ceil((@{body} + @{mind} + @{soul})/2)+@{wounds_max_bonus}">
+                </div>
+                <div class="wounds-tracker">
+                    <div>Severity</div>
+                    <div>Wounds</div>
+                </div>
+                <fieldset class="repeating_wounds-applied">
+                    <div class="wounds-tracker">
+                        <select name="attr_wound_taken" class="wound-selection">
+                            <option value="0" selected="selected">Select</option>
+                            <option value="1">Minor</option>
+                            <option value="2">Serious</option>
+                            <option value="3">Deadly</option>
+                        </select>
+                        <span name="attr_wound_taken"></span>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="death-saves">
+                <div>
+                    <span>Mortally Wounded</span>
+                    <input type="checkbox" name="attr_mortally_wounded" value="1">
+                </div>
+                <div>
+                    <span>Last Wound Taken</span>
+                    <select name="attr_last_wound" class="wound-selection">
+                        <option value="1">Minor</option>
+                        <option value="2">Serious</option>
+                        <option value="3">Deadly</option>
+                    </select>
+                </div>
+                <div>
+                    <span>Failures</span>
+                    <input type="checkbox" name="attr_death_tests_1" value="1" class="death-test-checkbox">
+                    <input type="checkbox" name="attr_death_tests_2" value="1">
+                </div>
+                <div>
+                    <span>Death Check</span>
+                    <button type="roll" name="death-save"
+                            value="&{template:default} {{name=Death Test}} {{DN=[[4+@{death_tests_1}+@{death_tests_2}]]:@{last_wound}}} {{Successes=[[[[{@{body},@{mind},@{soul}}kh1]]d6s>[[4+@{death_tests_1}+@{death_tests_2}]]]]}}"></button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <div class="header">Weapons</div>
 <div class="line"></div>
