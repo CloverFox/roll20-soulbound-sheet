@@ -1,102 +1,3 @@
-<script type="text/worker">
-    on("change:body change:reflexes_1 change:reflexes_2 change:reflexes_3 change:defence_bonus", function() {
-        getAttrs(["body", "reflexes_1", "reflexes_2", "reflexes_3", "defence_bonus"], function(values) {
-            let defence = parseInt(values.body) + parseInt(values.reflexes_1) + parseInt(values.reflexes_2) + parseInt(values.reflexes_3) + (2 * parseInt(values.defence_bonus));
-            setAttrs({def_poor:0, def_average:0, def_good:0 , def_great:0, def_superb:0, def_extraordinary:0}, {silent:true});
-            if (defence === 1 || defence === 2){
-                setAttrs({ def_poor:1 }, {silent:true});
-            } else if (defence === 3 || defence === 4){
-                setAttrs({ def_average:1 }, {silent:true});
-            } else if (defence === 5 || defence === 6){
-                setAttrs({ def_good:1 }, {silent:true});
-            } else if (defence === 7 || defence === 8){
-                setAttrs({ def_great:1 }, {silent:true});
-            } else if (defence === 9 || defence === 10){
-                setAttrs({ def_superb:1 }, {silent:true});
-            } else if (defence === 11 || defence === 12){
-                setAttrs({ def_extraordinary:1 }, {silent:true});
-            }
-        });
-    });
-    
-    on("change:body change:weapon_skill_1 change:weapon_skill_2 change:weapon_skill_3 change:melee_bonus", function() {
-        getAttrs(["body", "weapon_skill_1", "weapon_skill_2", "weapon_skill_3", "melee_bonus"], function(values) {
-            let melee = parseInt(values.body) + parseInt(values.weapon_skill_1) + parseInt(values.weapon_skill_2) + parseInt(values.weapon_skill_3) + (2 * parseInt(values.melee_bonus));
-            setAttrs({mel_poor:0, mel_average:0, mel_good:0 , mel_great:0, mel_superb:0, mel_extraordinary:0}, {silent:true});
-            if (melee === 1 || melee === 2){
-                setAttrs({ mel_poor:1 }, {silent:true});
-            } else if (melee === 3 || melee === 4){
-                setAttrs({ mel_average:1 }, {silent:true});
-            } else if (melee === 5 || melee === 6){
-                setAttrs({ mel_good:1 }, {silent:true});
-            } else if (melee === 7 || melee === 8){
-                setAttrs({ mel_great:1 }, {silent:true});
-            } else if (melee === 9 || melee === 10){
-                setAttrs({ mel_superb:1 }, {silent:true});
-            } else if (melee === 11 || melee === 12){
-                setAttrs({ mel_extraordinary:1 }, {silent:true});
-            }
-        });
-    });
-
-    on("change:mind change:ballistic_skill_1 change:ballistic_skill_2 change:ballistic_skill_3 change:accuracy_bonus", function() {
-        getAttrs(["mind", "ballistic_skill_1", "ballistic_skill_2", "ballistic_skill_3", "accuracy_bonus"], function(values) {
-            let accuracy = parseInt(values.mind) + parseInt(values.ballistic_skill_1) + parseInt(values.ballistic_skill_2) + parseInt(values.ballistic_skill_3) + (2 * parseInt(values.accuracy_bonus));
-            setAttrs({acc_poor:0, acc_average:0, acc_good:0 , acc_great:0, acc_superb:0, acc_extraordinary:0}, {silent:true});
-            if (accuracy === 1 || accuracy === 2){
-                setAttrs({ acc_poor:1 }, {silent:true});
-            } else if (accuracy === 3 || accuracy === 4){
-                setAttrs({ acc_average:1 }, {silent:true});
-            } else if (accuracy === 5 || accuracy === 6){
-                setAttrs({ acc_good:1 }, {silent:true});
-            } else if (accuracy === 7 || accuracy === 8){
-                setAttrs({ acc_great:1 }, {silent:true});
-            } else if (accuracy === 9 || accuracy === 10){
-                setAttrs({ acc_superb:1 }, {silent:true});
-            } else if (accuracy === 11 || accuracy === 12){
-                setAttrs({ acc_extraordinary:1 }, {silent:true});
-            }
-        });
-    });
-
-    on("change:mind change:awareness_1 change:awareness_2 change:awareness_3 change:reflexes_1 change:reflexes_2 change:reflexes_3 change:initiative_bonus", function() {
-        getAttrs(["mind", "awareness_1", "awareness_2", "awareness_3", "reflexes_1", "reflexes_2", "reflexes_3", "initiative_bonus"], function(values) {
-            let mind = parseInt(values.mind);
-            let awareness = (parseInt(values.awareness_1) + parseInt(values.awareness_2) + parseInt(values.awareness_3));
-            let reflexes = (parseInt(values.reflexes_1) + parseInt(values.reflexes_2) + parseInt(values.reflexes_3));
-            let initiativeBonus = parseInt(values.initiative_bonus);
-            let initiative = mind + awareness + reflexes + initiativeBonus;
-            setAttrs({ initiative:initiative });
-        });
-    });
-
-    /* ===== PARAMETERS ==========
-    destination = the name of the attribute that stores the total quantity
-    section = name of repeating fieldset, without the repeating_
-    fields = the name of the attribute field to be summed
-          can be a single attribute: 'weight'
-          or an array of attributes: ['weight','number','equipped']
-    multiplier (optional) = a multiplier to the entire fieldset total. For instance, if summing coins of weight 0.02, might want to multiply the final total by 0.02.
-    */
-    const repeatingSum = (destination, section, fields, multiplier = 1) => {
-        if (!Array.isArray(fields)) fields = [fields];
-        getSectionIDs(`repeating_${section}`, idArray => {
-            const attrArray = idArray.reduce( (m,id) => [...m, ...(fields.map(field => `repeating_${section}_${id}_${field}`))],[]);
-            getAttrs(attrArray, v => {
-                console.log("===== values of v: "+ JSON.stringify(v) +" =====");
-                     // getValue: if not a number, returns 1 if it is 'on' (checkbox), otherwise returns 0..
-                const getValue = (section, id,field) => parseFloat(v[`repeating_${section}_${id}_${field}`]) || (v[`repeating_${section}_${id}_${field}`] === 'on' ? 1 : 0);
-                const sumTotal = idArray.reduce((total, id) => total + fields.reduce((subtotal,field) => subtotal * getValue(section, id,field),1),0);
-                setAttrs({[destination]: sumTotal * multiplier});
-            });
-        });
-    };
-
-    on('change:repeating_wounds-applied add:repeating_wounds-applied remove:repeating_wounds-applied', function() {
-        repeatingSum("w_total","wounds-applied","wound_taken");
-    });
-</script>
-
 <input type="hidden" name="attr_melee"
        value="ceil((@{body}+@{weapon_skill_1}+@{weapon_skill_2}+@{weapon_skill_3})/2)" disabled="true">
 <input type="hidden" name="attr_accuracy"
@@ -1126,3 +1027,102 @@
 <div class="header">Connections</div>
 <div class="line"></div>
 <textarea name="attr_connections" class="fluff-info text-area"></textarea>
+
+<script type="text/worker">
+    on("change:body change:reflexes_1 change:reflexes_2 change:reflexes_3 change:defence_bonus", function() {
+        getAttrs(["body", "reflexes_1", "reflexes_2", "reflexes_3", "defence_bonus"], function(values) {
+            let defence = parseInt(values.body) + parseInt(values.reflexes_1) + parseInt(values.reflexes_2) + parseInt(values.reflexes_3) + (2 * parseInt(values.defence_bonus));
+            setAttrs({def_poor:0, def_average:0, def_good:0 , def_great:0, def_superb:0, def_extraordinary:0}, {silent:true});
+            if (defence === 1 || defence === 2){
+                setAttrs({ def_poor:1 }, {silent:true});
+            } else if (defence === 3 || defence === 4){
+                setAttrs({ def_average:1 }, {silent:true});
+            } else if (defence === 5 || defence === 6){
+                setAttrs({ def_good:1 }, {silent:true});
+            } else if (defence === 7 || defence === 8){
+                setAttrs({ def_great:1 }, {silent:true});
+            } else if (defence === 9 || defence === 10){
+                setAttrs({ def_superb:1 }, {silent:true});
+            } else if (defence === 11 || defence === 12){
+                setAttrs({ def_extraordinary:1 }, {silent:true});
+            }
+        });
+    });
+
+    on("change:body change:weapon_skill_1 change:weapon_skill_2 change:weapon_skill_3 change:melee_bonus", function() {
+        getAttrs(["body", "weapon_skill_1", "weapon_skill_2", "weapon_skill_3", "melee_bonus"], function(values) {
+            let melee = parseInt(values.body) + parseInt(values.weapon_skill_1) + parseInt(values.weapon_skill_2) + parseInt(values.weapon_skill_3) + (2 * parseInt(values.melee_bonus));
+            setAttrs({mel_poor:0, mel_average:0, mel_good:0 , mel_great:0, mel_superb:0, mel_extraordinary:0}, {silent:true});
+            if (melee === 1 || melee === 2){
+                setAttrs({ mel_poor:1 }, {silent:true});
+            } else if (melee === 3 || melee === 4){
+                setAttrs({ mel_average:1 }, {silent:true});
+            } else if (melee === 5 || melee === 6){
+                setAttrs({ mel_good:1 }, {silent:true});
+            } else if (melee === 7 || melee === 8){
+                setAttrs({ mel_great:1 }, {silent:true});
+            } else if (melee === 9 || melee === 10){
+                setAttrs({ mel_superb:1 }, {silent:true});
+            } else if (melee === 11 || melee === 12){
+                setAttrs({ mel_extraordinary:1 }, {silent:true});
+            }
+        });
+    });
+
+    on("change:mind change:ballistic_skill_1 change:ballistic_skill_2 change:ballistic_skill_3 change:accuracy_bonus", function() {
+        getAttrs(["mind", "ballistic_skill_1", "ballistic_skill_2", "ballistic_skill_3", "accuracy_bonus"], function(values) {
+            let accuracy = parseInt(values.mind) + parseInt(values.ballistic_skill_1) + parseInt(values.ballistic_skill_2) + parseInt(values.ballistic_skill_3) + (2 * parseInt(values.accuracy_bonus));
+            setAttrs({acc_poor:0, acc_average:0, acc_good:0 , acc_great:0, acc_superb:0, acc_extraordinary:0}, {silent:true});
+            if (accuracy === 1 || accuracy === 2){
+                setAttrs({ acc_poor:1 }, {silent:true});
+            } else if (accuracy === 3 || accuracy === 4){
+                setAttrs({ acc_average:1 }, {silent:true});
+            } else if (accuracy === 5 || accuracy === 6){
+                setAttrs({ acc_good:1 }, {silent:true});
+            } else if (accuracy === 7 || accuracy === 8){
+                setAttrs({ acc_great:1 }, {silent:true});
+            } else if (accuracy === 9 || accuracy === 10){
+                setAttrs({ acc_superb:1 }, {silent:true});
+            } else if (accuracy === 11 || accuracy === 12){
+                setAttrs({ acc_extraordinary:1 }, {silent:true});
+            }
+        });
+    });
+
+    on("change:mind change:awareness_1 change:awareness_2 change:awareness_3 change:reflexes_1 change:reflexes_2 change:reflexes_3 change:initiative_bonus", function() {
+        getAttrs(["mind", "awareness_1", "awareness_2", "awareness_3", "reflexes_1", "reflexes_2", "reflexes_3", "initiative_bonus"], function(values) {
+            let mind = parseInt(values.mind);
+            let awareness = (parseInt(values.awareness_1) + parseInt(values.awareness_2) + parseInt(values.awareness_3));
+            let reflexes = (parseInt(values.reflexes_1) + parseInt(values.reflexes_2) + parseInt(values.reflexes_3));
+            let initiativeBonus = parseInt(values.initiative_bonus);
+            let initiative = mind + awareness + reflexes + initiativeBonus;
+            setAttrs({ initiative:initiative });
+        });
+    });
+
+    /* ===== PARAMETERS ==========
+    destination = the name of the attribute that stores the total quantity
+    section = name of repeating fieldset, without the repeating_
+    fields = the name of the attribute field to be summed
+          can be a single attribute: 'weight'
+          or an array of attributes: ['weight','number','equipped']
+    multiplier (optional) = a multiplier to the entire fieldset total. For instance, if summing coins of weight 0.02, might want to multiply the final total by 0.02.
+    */
+    const repeatingSum = (destination, section, fields, multiplier = 1) => {
+        if (!Array.isArray(fields)) fields = [fields];
+        getSectionIDs(`repeating_${section}`, idArray => {
+            const attrArray = idArray.reduce( (m,id) => [...m, ...(fields.map(field => `repeating_${section}_${id}_${field}`))],[]);
+            getAttrs(attrArray, v => {
+                console.log("===== values of v: "+ JSON.stringify(v) +" =====");
+                     // getValue: if not a number, returns 1 if it is 'on' (checkbox), otherwise returns 0..
+                const getValue = (section, id,field) => parseFloat(v[`repeating_${section}_${id}_${field}`]) || (v[`repeating_${section}_${id}_${field}`] === 'on' ? 1 : 0);
+                const sumTotal = idArray.reduce((total, id) => total + fields.reduce((subtotal,field) => subtotal * getValue(section, id,field),1),0);
+                setAttrs({[destination]: sumTotal * multiplier});
+            });
+        });
+    };
+
+    on('change:repeating_wounds-applied add:repeating_wounds-applied remove:repeating_wounds-applied', function() {
+        repeatingSum("w_total","wounds-applied","wound_taken");
+    });
+</script>
