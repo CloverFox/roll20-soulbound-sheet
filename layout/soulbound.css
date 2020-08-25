@@ -501,3 +501,96 @@ input[type="number"].sheet-small-digit {
 .sheet-text-area {
     padding: 0;
 }
+
+
+/*npc tab*/
+.sheet-npc-name {
+    width: 832px;
+    text-align: center;
+}
+
+.sheet-npc-attacks {
+    display: grid;
+    grid-template-columns: 140px 43px 73px 73px 50px 50px 50px 140px auto
+}
+
+.sheet-npc-attack-name {
+    width: 140px;
+}
+
+.sheet-npc-attack-roll {
+    width: 30px;
+    height: 37px;
+}
+
+.sheet-npc-attack-prof {
+    width: 70px;
+    height: 37px;
+}
+
+.sheet-npc-attack-prof-val {
+    width: 70px;
+}
+
+.sheet-npc-attack-pool {
+    width: 60px;
+}
+
+.sheet-npc-attack-damage {
+    width: 60px;
+}
+
+.sheet-npc-attack-focus {
+    width: 60px;
+}
+
+.sheet-npc-attack-range {
+    width: 140px;
+}
+
+.sheet-npc-details {
+    display: grid;
+    grid-template-columns: 150px 260px auto;
+}
+
+.sheet-npc-skills {
+    display: grid;
+    grid-template-columns: 210px 40px 60px 50px auto;
+}
+
+.sheet-npc-base-stats {
+    display: grid;
+    grid-template-columns: 277px 277px auto;
+    text-align: center;
+}
+
+.sheet-npc-combat-abilities {
+    display: grid;
+    grid-template-columns: 277px 277px auto
+}
+
+.sheet-npc-combat-stats {
+    display: flex;
+}
+
+.sheet-npc-combat-stats *{
+    flex: 1;
+    text-align: center;
+}
+
+.sheet-npc-info {
+    display: grid;
+    grid-template-columns: 208px 208px 208px auto
+}
+
+.sheet-npc-mel-select {
+    width: auto;
+}
+
+.sheet-npc-acc-select {
+    width: auto;
+}
+
+.sheet-npc-def-select {
+    width: auto;
+}

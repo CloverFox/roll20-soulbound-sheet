@@ -635,7 +635,6 @@
     <input type="number" disabled="true" name="attr_nat_awareness"
            value="ceil((@{mind} + @{awareness_1} + @{awareness_2} + @{awareness_3})/2) + @{natural_awareness_bonus}">
 </div>
-
 <div class="section-abilities sheet-player">
     <div>
         <div class="header">Combat Abilities</div>
@@ -1034,6 +1033,206 @@
     <div class="header">Connections</div>
     <div class="line"></div>
     <textarea name="attr_connections" class="fluff-info text-area"></textarea>
+</div>
+
+<div class="section-npc sheet-npc">
+    <div class="npc-name">
+        <input type="text" class="npc-name" name="attr_character_name" value="Name"/>
+    </div>
+    <div class="line"></div>
+    <div class="npc-info">
+        <div class="npc-size">
+            <input type="text" name="attr_npc_size"/>
+            <span>Size</span>
+        </div>
+        <div class="npc-type">
+            <input type="text" name="attr_npc_type"/>
+            <span>Type</span>
+        </div>
+        <div class="npc-faction">
+            <input type="text" name="attr_npc_faction"/>
+            <span>Faction</span>
+        </div>
+        <div class="npc-role">
+            <input type="text" name="attr_npc_role"/>
+            <span>Role</span>
+        </div>
+    </div>
+    <div class="line"></div>
+    <div class="npc-combat-abilities">
+        <div class="npc-mel">
+            <span>Melee</span>
+            <select name="attr_npc_mel" class="npc-mel-select">
+                <option value="Poor">Poor</option>
+                <option value="Average">Average</option>
+                <option value="Good">Good</option>
+                <option value="Great">Great</option>
+                <option value="Superb">Superb</option>
+                <option value="Extraordinary">Extraordinary</option>
+            </select>
+        </div>
+        <div class="npc-acc">
+            <span>Accuracy</span>
+            <select name="attr_npc_acc" class="npc-acc-select">
+                <option value="Poor">Poor</option>
+                <option value="Average">Average</option>
+                <option value="Good">Good</option>
+                <option value="Great">Great</option>
+                <option value="Superb">Superb</option>
+                <option value="Extraordinary">Extraordinary</option>
+            </select>
+        </div>
+        <div class="npc-def">
+            <span>Defence</span>
+            <select name="attr_npc_def" class="npc-def-select">
+                <option value="Poor">Poor</option>
+                <option value="Average">Average</option>
+                <option value="Good">Good</option>
+                <option value="Great">Great</option>
+                <option value="Superb">Superb</option>
+                <option value="Extraordinary">Extraordinary</option>
+            </select>
+        </div>
+    </div>
+    <div class="line"></div>
+    <div class="npc-combat-stats">
+        <div>Armour</div>
+        <div>Toughness</div>
+        <div>Wounds</div>
+        <div>Mettle</div>
+        <div>Swarm</div>
+    </div>
+    <div class="npc-combat-stats">
+        <div class="npc-armour">
+            <input type="number" name="attr_npc_armour" value="0"/>
+        </div>
+        <div class="npc-toughness">
+            <input type="number" name="attr_npc_toughness" value="1"/>
+        </div>
+        <div class="npc-wounds">
+            <input type="number" name="attr_npc_wounds" value="0"/>
+        </div>
+        <div class="npc-mettle">
+            <input type="number" name="attr_npc_mettle" value="0"/>
+        </div>
+        <div class="npc-mettle">
+            <input type="checkbox" name="attr_npc_swarm" value="1"/>
+        </div>
+    </div>
+    <div class="line"></div>
+    <div class="npc-details">
+        <div class="right">
+            <div>Speed:</div>
+            <div>Initiative:</div>
+            <div>Nat Awareness:</div>
+        </div>
+        <div>
+            <div><input type="text" name="attr_npc_speed"/></div>
+            <div><input type="number" name="attr_initiative"/></div>
+            <div><input type="number" name="attr_nat_awareness"/></div>
+        </div>
+        <div>
+            <div class="header">Skills</div>
+            <div class="line"></div>
+            <div class="npc-skills">
+                <div>Name</div>
+                <div>Roll</div>
+                <div>Base Stat</div>
+                <div>Training</div>
+                <div>Focus</div>
+            </div>
+            <fieldset class="repeating_skills">
+                <div class="npc-skills">
+                    <input type="text" name="attr_skill_name"/>
+                    <button type="roll" name="roll_skill"
+                            value="&{template:default} {{name=@{skill_name}}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{skill_base}+@{skill_training}+?{@{skill_name} bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=@{skill_focus} focus points}}"></button>
+                    <select class="attribute-select" name="attr_skill_base">
+                        <option value="@{body}" selected="selected">body</option>
+                        <option value="@{mind}">mind</option>
+                        <option value="@{soul}">soul</option>
+                    </select>
+                    <input type="number" name="attr_skill_training" class="skill-training"/>
+                    <input type="number" name="attr_skill_focus" class="skill-focus"/>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    <div class="talents">
+        <div class="header">Traits</div>
+        <div class="line"></div>
+        <fieldset class="repeating_talents">
+            <div class="talents-container">
+                <!--due to css funkyness this is reversed to allow the checkbox to be at the back-->
+                <button type="roll" name="talent-description" class="talents-button"
+                        value="&{template:default} {{name=@{talents}}} {{@{talents_description}}}">w
+                </button>
+                <input type="checkbox" class="sheet-block-switch talents-check" name="attr_block_switch" value="1"/>
+                <span class="talents-check2"></span>
+                <div class="sheet-block-a talents-block">
+                    <input type="text" name="attr_talents">
+                </div>
+                <div class="sheet-block-b talents-block">
+                    <input type="text" name="attr_talents">
+                    <textarea name="attr_talents_description"></textarea>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div class="section-npc-attacks">
+        <div class="header">Attacks</div>
+        <div class="line"></div>
+        <div class="npc-attacks">
+            <div>Name</div>
+            <div>Roll</div>
+            <div>Type</div>
+            <div>Proficiency</div>
+            <div>Dice</div>
+            <div>Damage</div>
+            <div>Focus</div>
+            <div>Range</div>
+            <div>Traits</div>
+        </div>
+        <fieldset class="repeating_melee">
+            <div class="npc-attacks">
+                <input type="text" name="attr_npc_attack_name" class="npc-attack-name"/>
+                <button type="roll" name="roll_npc_attack" class="npc-attack-roll"
+                        value="&{template:default} {{name=@{npc_attack_name}}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{npc_attack_pool}+[[@{npc_swarm}*@{npc_toughness}]]+?{@{npc_attack_name} bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=@{npc_attack_focus} focus points}} {{Extra Damage=@{npc_attack_damage}}}  {{Range=@{npc_attack_range}}} {{Traits=@{npc_attack_traits}}}"></button>
+                <select class="npc-attack-prof" name="attr_npc_attack_prof">
+                    <option value="@{npc_mel}" selected="selected">Melee</option>
+                    <option value="@{npc_acc}">Ranged</option>
+                </select>
+                <input type="text" name="attr_npc_attack_proficiency" value="@{npc_attack_prof}" disabled="true" class="npc-attack-prof-val"/>
+                <input type="number" name="attr_npc_attack_pool" value="1" class="npc-attack-pool"/>
+                <input type="number" name="attr_npc_attack_damage" value="0" class="npc-attack-damage"/>
+                <input type="number" name="attr_npc_attack_focus" value="0" class="npc-attack-focus"/>
+                <input type="text" name="attr_npc_attack_range" class="npc-attack-range"/>
+                <input type="text" name="attr_npc_attack_traits" class="npc-attack-traits"/>
+            </div>
+        </fieldset>
+    </div>
+    <div class="line"></div>
+    <div class="npc-base-stats">
+        <div class="npc-body">
+            <input type="number" name="attr_body" value="1"/>
+            <button type="roll" class="text-button text-big"
+                    value="&{template:default} {{name=Body}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[@{body}d6s>?{Target DN? |2|3|4|5|6}]] successes}}"
+                    name="roll_might">Body</button>
+        </div>
+        <div class="npc-mind">
+            <input type="number" name="attr_mind" value="1"/>
+            <button type="roll" class="text-button text-big"
+                    value="&{template:default} {{name=Mind}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[@{mind}d6s>?{Target DN? |2|3|4|5|6}]] successes}}"
+                    name="roll_might">Mind
+            </button>
+        </div>
+        <div class="npc-soul">
+            <input type="number" name="attr_soul" value="1"/>
+            <button type="roll" class="text-button text-big"
+                    value="&{template:default} {{name=Soul}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[@{soul}d6s>?{Target DN? |2|3|4|5|6}]] successes}}"
+                    name="roll_might">Soul
+            </button>
+        </div>
+    </div>
 </div>
 <script type="text/worker">
     on("change:body change:reflexes_1 change:reflexes_2 change:reflexes_3 change:defence_bonus", function() {
