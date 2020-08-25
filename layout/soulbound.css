@@ -8,6 +8,16 @@
     display: none;
 }
 
+.sheet-npc,
+.sheet-toggle-npc:checked ~ .sheet-player {
+    display: none;
+}
+
+.sheet-player,
+.sheet-toggle-npc:checked ~ .sheet-npc {
+    display: block;
+}
+
 .sheet-talents-container input[type="checkbox"] {
     opacity: 0;
     width: 16px;
