@@ -176,6 +176,7 @@ button[type="roll"].sheet-text-big {
 .sheet-talents-check2 {
     grid-column: col 3;
 }
+
 .sheet-talents-button {
     grid-column: col 4;
 }
@@ -199,6 +200,7 @@ button[type="roll"].sheet-text-big {
 .sheet-talents-container button[type="roll"]::before {
     content: "";
 }
+
 .sheet-talents-container textarea {
     height: 60px;
     width: 380px;
@@ -245,7 +247,7 @@ button[type="roll"].sheet-text-big {
     text-align: center;
 }
 
-.sheet-wounds-tracker *{
+.sheet-wounds-tracker * {
     width: 90px;
 }
 
@@ -505,82 +507,101 @@ input[type="number"].sheet-small-digit {
 
 /*npc tab*/
 .sheet-npc-name {
-    width: 832px;
+    width: 100%;
     text-align: center;
 }
 
 .sheet-npc-attacks {
     display: grid;
-    grid-template-columns: 140px 43px 73px 73px 50px 50px 50px 140px auto
+    grid-template-columns: 140px 43px 80px 73px 50px 50px 50px 80px auto;
+    grid-template-rows: 28px;
 }
 
 .sheet-npc-attack-name {
     width: 140px;
 }
 
-.sheet-npc-attack-roll {
-    width: 30px;
-    height: 37px;
-}
-
 .sheet-npc-attack-prof {
-    width: 70px;
-    height: 37px;
+    width: 78px;
 }
 
 .sheet-npc-attack-prof-val {
-    width: 70px;
-}
-
-.sheet-npc-attack-pool {
-    width: 60px;
-}
-
-.sheet-npc-attack-damage {
-    width: 60px;
-}
-
-.sheet-npc-attack-focus {
-    width: 60px;
+    width: 68px;
 }
 
 .sheet-npc-attack-range {
-    width: 140px;
+    width: 78px;
+}
+
+.sheet-npc-attack-traits {
+    width: 100%;
 }
 
 .sheet-npc-details {
+    display: flex;
+}
+
+.sheet-npc-speed-int-aware {
     display: grid;
-    grid-template-columns: 150px 260px auto;
+    height: 100px;
+    grid-template-columns: 200px 200px;
+}
+
+.sheet-npc-speed-int-aware input[type="text"] {
+    width: 100px;
+}
+
+.sheet-section-npc-skills-traits {
+    display: flex;
 }
 
 .sheet-npc-skills {
     display: grid;
     grid-template-columns: 210px 40px 60px 50px auto;
+    grid-template-rows: 28px;
 }
 
 .sheet-npc-base-stats {
-    display: grid;
-    grid-template-columns: 277px 277px auto;
+    display: flex;
+    justify-content: space-evenly;
     text-align: center;
 }
 
+.sheet-npc-base-stats input[type="number"] {
+    font-size: 25px;
+    width: 1.75em;
+    border: 0;
+}
+
+.sheet-npc-base-stats button[type="roll"] {
+    text-align: center;
+    font-size: 25px;
+    margin: 10px 0;
+}
+
 .sheet-npc-combat-abilities {
-    display: grid;
-    grid-template-columns: 277px 277px auto
+    display: flex;
+    justify-content: space-between;
 }
 
 .sheet-npc-combat-stats {
     display: flex;
+    margin: 5px 0;
 }
 
-.sheet-npc-combat-stats *{
+.sheet-npc-combat-stats * {
     flex: 1;
     text-align: center;
 }
 
 .sheet-npc-info {
-    display: grid;
-    grid-template-columns: 208px 208px 208px auto
+    display: flex;
+    margin: 0 0 5px 0;
+}
+
+.sheet-npc-info * {
+    text-align: center;
+    width: 100%;
 }
 
 .sheet-npc-mel-select {
