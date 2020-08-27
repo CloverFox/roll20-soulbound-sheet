@@ -5,8 +5,11 @@
 <input type="hidden" name="attr_defence" value="ceil((@{body}+@{reflexes_1}+@{reflexes_2}+@{reflexes_3})/2)"
        disabled="true">
 
-<input type="checkbox" class="sheet-toggle-npc" name="attr_npc" value="0">
-<span>NPC</span>
+<div>
+    <button type="action" name="act_player" >Player</button>
+    <button type="action" name="act_npc" >NPC</button>
+</div>
+<input type='hidden' class='sheet-tabs-toggle' name='attr_sheetTab'  value='player'  />
 
 <div class="sheet-player">
     <div class="section-character">
@@ -919,7 +922,8 @@
                 <button type="roll" name="roll_spell"
                         value="&{template:default} {{name=@{spell_name}}} {{DN=@{spell_dn_target}:@{spell_dn_successes}}} {{Result=[[(@{mind} + @{channelling_1} + @{channelling_2} + @{channelling_3} + ?{Spellcasting bonus|0})d6s>@{spell_dn_target}]] success}} {{Focus=[[@{channelling_focus_1} + @{channelling_focus_2} + @{channelling_focus_3}]] focus points}}} {{Effect=@{spell_effect}}}"></button>
                 <div class="spells-dn">
-                    <input type="number" name="attr_spell_dn_target" class="no-spin small-digit colon-separator-left">
+                    <input type="number" name="attr_spell_dn_target"
+                           class="no-spin small-digit colon-separator-left">
                     <span class="colon-separator">:</span>
                     <input type="number" name="attr_spell_dn_successes" class="no-spin small-digit">
                 </div>
@@ -1037,7 +1041,6 @@
     </div>
 </div>
 
-
 <div class="sheet-npc">
     <div class="section-npc-info">
         <div class="npc-name">
@@ -1120,31 +1123,28 @@
                 <input type="number" name="attr_npc_mettle" value="0"/>
             </div>
             <div class="npc-mettle">
-                <input type="checkbox" name="attr_npc_swarm" value="1"/>
+                <input type="checkbox" name="attr_npc_swarm" value="?{Remaining Swarm Toughness? |@{npc_toughness}}"/>
             </div>
         </div>
     </div>
     <div class="section-npc-stats">
         <div class="line"></div>
         <div class="npc-details">
-            <div class="npc-speed-int-aware">
+            <div>
                 <div>Speed:</div>
-                <div>
-                    <input type="text" name="attr_npc_speed"/>
-                </div>
+                <input type="text" name="attr_npc_speed"/>
+            </div>
+            <div>
                 <div>Initiative:</div>
-                <div>
-                    <input type="number" name="attr_initiative"/>
-                </div>
-                <div>Nat Awareness:</div>
-                <div>
-                    <input type="number" name="attr_nat_awareness"/>
-                </div>
+                <input type="number" name="attr_initiative"/>
+            </div>
+            <div>
+                <div>Natural Awareness:</div>
+                <input type="number" name="attr_nat_awareness"/>
             </div>
         </div>
     </div>
-    <div class="section-npc-skills-traits talents">
-
+    <div class="section-npc-skills-traits">
         <div class="npc-skills-list">
             <div class="header">Skills</div>
             <div class="line"></div>
@@ -1210,7 +1210,7 @@
             <div class="npc-attacks">
                 <input type="text" name="attr_npc_attack_name" class="npc-attack-name"/>
                 <button type="roll" name="roll_npc_attack" class="npc-attack-roll"
-                        value="&{template:default} {{name=@{npc_attack_name}}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{npc_attack_pool}+[[@{npc_swarm}*@{npc_toughness}]]+?{@{npc_attack_name} bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=@{npc_attack_focus} focus points}} {{Extra Damage=@{npc_attack_damage}}}  {{Range=@{npc_attack_range}}} {{Traits=@{npc_attack_traits}}}"></button>
+                        value="&{template:default} {{name=@{npc_attack_name}}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{npc_attack_pool}+@{npc_swarm}+?{@{npc_attack_name} bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=@{npc_attack_focus} focus points}} {{Extra Damage=@{npc_attack_damage}}}  {{Range=@{npc_attack_range}}} {{Traits=@{npc_attack_traits}}}"></button>
                 <select class="npc-attack-prof" name="attr_npc_attack_prof">
                     <option value=" " selected="selected">Select</option>
                     <option value="@{npc_mel}">Melee</option>
@@ -1253,6 +1253,7 @@
         </div>
     </div>
 </div>
+
 <script type="text/worker">
     on("change:body change:reflexes_1 change:reflexes_2 change:reflexes_3 change:defence_bonus", function() {
         getAttrs(["body", "reflexes_1", "reflexes_2", "reflexes_3", "defence_bonus"], function(values) {
@@ -1351,4 +1352,12 @@
         repeatingSum("w_total","wounds-applied","wound_taken");
     });
 
+    const buttonList = ["player","party","npc"];
+    buttonList.forEach(button => {
+        on(`clicked:${button}`, function() {
+            setAttrs({
+                sheetTab: button
+            });
+        });
+    });
 </script>

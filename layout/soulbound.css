@@ -8,13 +8,17 @@
     display: none;
 }
 
-.sheet-npc,
-.sheet-toggle-npc:checked ~ .sheet-player {
+/*Configure the tab buttons*/
+.sheet-player,
+.sheet-party,
+.sheet-npc {
     display: none;
 }
 
-.sheet-player,
-.sheet-toggle-npc:checked ~ .sheet-npc {
+/* show the selected tab */
+.sheet-tabs-toggle[value="player"] ~ div.sheet-player,
+.sheet-tabs-toggle[value="party"] ~ div.sheet-party,
+.sheet-tabs-toggle[value="npc"] ~ div.sheet-npc {
     display: block;
 }
 
@@ -538,21 +542,22 @@ input[type="number"].sheet-small-digit {
 }
 
 .sheet-npc-details {
+    justify-content: space-between;
     display: flex;
 }
 
-.sheet-npc-speed-int-aware {
-    display: grid;
-    height: 100px;
-    grid-template-columns: 200px 200px;
+.sheet-npc-details > div {
+    display: flex;
 }
 
-.sheet-npc-speed-int-aware input[type="text"] {
+.sheet-npc-details input[type="text"] {
     width: 100px;
 }
 
 .sheet-section-npc-skills-traits {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .sheet-npc-skills {
