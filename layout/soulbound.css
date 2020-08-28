@@ -22,6 +22,52 @@
     display: block;
 }
 
+.sheet-content,
+.sheet-options-button:checked ~ .sheet-options {
+    display: block;
+}
+
+.sheet-options,
+.sheet-options-button:checked ~ .sheet-content {
+    display: none;
+}
+
+.sheet-section-options {
+    display: flex;
+}
+
+.sheet-stack {
+    display: grid;
+}
+.sheet-stack > * {
+    grid-row: 1;
+    grid-column: 1;
+}
+
+.sheet-options-check {
+    text-align: center;
+    margin-left: auto;
+}
+
+.sheet-options-check input[type="checkbox"] {
+    opacity: 0;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.sheet-options-check input[type="checkbox"] + span::before {
+    font-family: Pictos, serif;
+    line-height: 14px;
+    text-align: center;
+    content: "y";
+    font-size: 20px;
+}
+
+.sheet-options-check input[type="checkbox"]:checked + span::before {
+    background: grey;
+    color: white;
+}
+
 .sheet-talents-container input[type="checkbox"] {
     opacity: 0;
     width: 16px;
@@ -508,9 +554,9 @@ input[type="number"].sheet-small-digit {
     padding: 0;
 }
 
-
 /*npc tab*/
 .sheet-npc-name {
+    display: flex;
     width: 100%;
     text-align: center;
 }
