@@ -22,12 +22,6 @@
     display: block;
 }
 
-.sheet-tabs-toggle[value="player"] ~ div .sheet-act-player,
-.sheet-tabs-toggle[value="npc"] ~ div .sheet-act-npc,
-.sheet-tabs-toggle[value="party"] ~ div .sheet-act-party{
-    font-weight: bold;
-}
-
 .sheet-content,
 .sheet-options-button:checked ~ .sheet-options {
     display: block;
@@ -42,9 +36,22 @@
     display: flex;
 }
 
+.sheet-option-entry {
+    display: flex;
+}
+
+.sheet-option-entry div{
+    margin-right: 20px;
+}
+
+.sheet-option-entry select {
+    width: 100px;
+}
+
 .sheet-stack {
     display: grid;
 }
+
 .sheet-stack > * {
     grid-row: 1;
     grid-column: 1;
@@ -442,6 +449,10 @@ button[type="roll"].sheet-text-big {
 .sheet-weapons {
     display: grid;
     grid-template-columns: 250px 40px 70px 70px 70px auto;
+}
+
+.sheet-weapon-traits {
+    width: auto;
 }
 
 .sheet-weapon-focus .sheet-cover {
