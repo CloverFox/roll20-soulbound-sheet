@@ -36,11 +36,20 @@
     display: flex;
 }
 
+.sheet-section-options .sheet-options-check {
+    margin-left: auto;
+}
+
+.sheet-options-check-center {
+    display: flex;
+    justify-content: center;
+}
+
 .sheet-option-entry {
     display: flex;
 }
 
-.sheet-option-entry div{
+.sheet-option-entry div {
     margin-right: 20px;
 }
 
@@ -59,7 +68,6 @@
 
 .sheet-options-check {
     text-align: center;
-    margin-left: auto;
 }
 
 .sheet-options-check input[type="checkbox"] {
@@ -321,6 +329,10 @@ button[type="roll"].sheet-text-big {
 
 .sheet-wounds-counter div {
     margin-bottom: 5px;
+}
+
+.sheet-wounds-counter input:read-only {
+    cursor: default;
 }
 
 .sheet-death-saves {
