@@ -12,7 +12,7 @@ player sheet only
 
 added new options menu (Accessible by the cog symbol)
 
-added npc sheet (toggle switch in options menu)
+added npc sheet (toggle between player and npc switch in options menu)
 
 fixed issue with wounds, sheetworker will update existing sheets
 
@@ -20,4 +20,4 @@ fixed issue with wounds, sheetworker will update existing sheets
 For issues or contributions consider raising an issue on the [development repo](https://github.com/CloverFox/roll20-soulbound-sheet)
 
 ## Special Thanks
-ej93 for group-init compatibility
+ej93 for group-init compatibility, as well as the lions share of the NPC sheet
