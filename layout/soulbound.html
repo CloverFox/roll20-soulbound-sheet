@@ -20,7 +20,10 @@
             <option value="npc">npc</option>
         </select>
     </div>
-    <div>Sheet version: 2.0</div>
+    <div>Sheet version:
+        <input type="text" name="attr_version" value="2.0" disabled="true" hidden="true">
+        <span name="attr_version"></span>
+    </div>
 </div>
 <div class="content">
     <input type='hidden' class='sheet-tabs-toggle' name='attr_sheet_tab' value='player'/>
@@ -1407,16 +1410,6 @@
         on(`clicked:${button}`, function () {
             setAttrs({
                 sheet_tab: button
-            });
-        });
-    });
-
-    on("clicked:direction_toggle", function () {
-        // Check the current value of the hidden attribute.
-        getAttrs(["direction"], function (v) {
-            // Toggle the hidden attribute value between "down" and "right"
-            setAttrs({
-                "direction": v["direction"] !== "down" ? "down" : "right"
             });
         });
     });
