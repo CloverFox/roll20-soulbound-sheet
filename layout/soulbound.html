@@ -1398,7 +1398,7 @@
         });
     };
 
-    on('change:repeating_wounds-applied add:repeating_wounds-applied remove:repeating_wounds-applied', function () {
+    on('sheet:opened change:repeating_wounds-applied add:repeating_wounds-applied remove:repeating_wounds-applied', function () {
         repeatingSum("wounds", "wounds-applied", "wound_taken");
     });
 
