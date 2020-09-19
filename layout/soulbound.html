@@ -20,8 +20,16 @@
             <option value="npc">npc</option>
         </select>
     </div>
+    <div class="option-entry">
+        <div>Initiative:</div>
+        <select name="attr_initiative_dice">
+            <option value="0" selected="selected">none</option>
+            <option value="d6">d6</option>
+            <option value="2d6">2d6</option>
+        </select>
+    </div>
     <div>Sheet version:
-        <input type="text" name="attr_version" value="2.0" disabled="true" hidden="true">
+        <input type="text" name="attr_version" value="3.0" disabled="true" hidden="true">
         <span name="attr_version"></span>
     </div>
 </div>
@@ -707,7 +715,7 @@
                     <div class="combat-misc">
                         <div class="combat-ability-entry">
                             <button type="roll" class="sheet-text-button"
-                                    value="&{template:default} {{name=Initiative}} {{Result=[[@{initiative} &{tracker}]]}}">
+                                    value="&{template:default} {{name=Initiative}} {{Result=[[@{initiative_dice} + @{initiative} &{tracker}]]}}">
                                 Initiative
                             </button>
                             <div>
@@ -1159,13 +1167,16 @@
         </div>
         <div class="section-npc-stats">
             <div class="line"></div>
-            <div class="npc-details">
+            <div class="npc-details combat-misc">
                 <div>
                     <div>Speed:</div>
                     <input type="text" name="attr_npc_speed"/>
                 </div>
                 <div>
-                    <div>Initiative:</div>
+                    <button type="roll" class="sheet-text-button"
+                            value="&{template:default} {{name=Initiative}} {{Result=[[@{initiative_dice} + @{initiative} &{tracker}]]}}">
+                        Initiative:
+                    </button>
                     <input type="number" name="attr_npc_initiative"/>
                 </div>
                 <div>
