@@ -18,6 +18,7 @@
         <select name="attr_sheet_tab">
             <option value="player" selected="selected">player</option>
             <option value="npc">npc</option>
+            <option value="party">party</option>
         </select>
     </div>
     <div class="option-entry">
@@ -1294,6 +1295,95 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="sheet-party">
+        <div class="party-info">
+            <input type="text" class="npc-name" name="attr_character_name"/>
+            <div class="options-check stack">
+                <input type="checkbox" class="options-button" name="attr_options" value="1"/>
+                <span></span>
+            </div>
+        </div>
+        <div class="soulfire">
+            <div>
+                <div class="header">Party Members</div>
+                <div class="line"></div>
+                <fieldset class="repeating_party-members">
+                    <input type="text" name="attr_party_member">
+                </fieldset>
+            </div>
+            <div class="soulfire-info">
+                <div class="header">Using Soulfire</div>
+                <div class="line"></div>
+                <p>Maximise Successes - Everything counts as a 6</p>
+                <p>Reroll as many dice as you like</p>
+                <p>Regain all spent Mettle</p>
+                <p>Recover all your Toughness</p>
+                <p>Cheat Death - you are no longer Mortally Wounded</p>
+            </div>
+            <div>
+                <div class="header">Soulfire</div>
+                <div class="line"></div>
+                <input type="number" name="attr_soulfire">/
+                <input type="number" name="attr_soulfire_max">
+            </div>
+        </div>
+        <div class="party-info">
+            <div class="party-goals">
+                <div class="header">Short term goals</div>
+                <div class="line"></div>
+                <fieldset class="repeating_short-term-goals">
+                    <textarea name="attr_short_term_goal"></textarea>
+                </fieldset>
+
+                <div class="header">Long term goals</div>
+                <div class="line"></div>
+                <fieldset class="repeating_long-term-goals">
+                    <textarea name="attr_long_term_goal"></textarea>
+                </fieldset>
+
+                <div class="header">Rumours</div>
+                <div class="line"></div>
+                <fieldset class="repeating_rumours">
+                    <textarea name="attr_rumours"></textarea>
+                </fieldset>
+            </div>
+            <div class="party-contacts">
+                <div class="header">Allies</div>
+                <div class="line"></div>
+                <fieldset class="repeating_allies">
+                    <textarea name="attr_allies"></textarea>
+                </fieldset>
+
+                <div class="header">Enemies</div>
+                <div class="line"></div>
+                <fieldset class="repeating_enemies">
+                    <textarea name="attr_enemies"></textarea>
+                </fieldset>
+
+                <div class="header">Fears</div>
+                <div class="line"></div>
+                <fieldset class="repeating_fears">
+                    <textarea name="attr_fears"></textarea>
+                </fieldset>
+            </div>
+            <div class="party-resources-threats">
+                <div class="header">Resources</div>
+                <div class="line"></div>
+                <fieldset class="repeating_resources">
+                    <textarea name="attr_resources"></textarea>
+                </fieldset>
+
+                <div class="header">Threats</div>
+                <div class="line"></div>
+                <fieldset class="repeating_threats">
+                    <textarea name="attr_threats"></textarea>
+                </fieldset>
+            </div>
+        </div>
+
+        <div>Doom</div>
     </div>
 </div>
 

@@ -695,3 +695,15 @@ input[type="number"].sheet-small-digit {
 .sheet-npc-def-select {
     width: auto;
 }
+
+.sheet-party-info {
+    display: flex;
+}
+
+.sheet-soulfire {
+    display: flex;
+}
+
+.sheet-soulfire-info {
+    text-align: center;
+}
