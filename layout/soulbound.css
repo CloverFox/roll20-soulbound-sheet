@@ -698,12 +698,37 @@ input[type="number"].sheet-small-digit {
 
 .sheet-party-info {
     display: flex;
+    justify-content: space-between;
 }
 
 .sheet-soulfire {
     display: flex;
+    justify-content: space-between;
 }
 
 .sheet-soulfire-info {
     text-align: center;
+}
+
+.sheet-soulfire-sides {
+    width: 30%;
+}
+
+.sheet-soulfire-sides input[type="text"] {
+    width: 100%;
+}
+
+.sheet-soulfire-stat {
+    text-align: center;
+}
+
+.sheet-party-info > div{
+    width: 32%;
+}
+
+.sheet-party-info textarea {
+    box-sizing: border-box;
+    max-width: 100%;
+    min-width: 100%;
+    height: 50px;
 }
