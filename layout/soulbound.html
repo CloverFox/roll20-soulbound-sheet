@@ -1316,14 +1316,32 @@
             <div class="soulfire-info">
                 <div class="header">Using Soulfire</div>
                 <div class="line"></div>
-                <p>Maximise Successes - Everything counts as a 6</p>
-                <p>Reroll as many dice as you like</p>
-                <p>Regain all spent Mettle</p>
-                <p>Recover all your Toughness</p>
-                <p>Cheat Death - you are no longer Mortally Wounded</p>
+                <button type="roll" class="text-button soulfire-entry"
+                        value="/em uses soulfire to maximise successes - everything counts as a 6"
+                        name="roll_soulfire_success">Maximise Successes - Everything counts as a 6
+                </button>
+                <button type="roll" class="text-button soulfire-entry"
+                        value="/em uses soulfire to reroll as many dice as they like"
+                        name="roll_soulfire_reroll">Reroll as many dice as you like
+                </button>
+                <button type="roll" class="text-button soulfire-entry"
+                        value="/em uses soulfire to regain all of their spent Mettle"
+                        name="roll_soulfire_mettle">Regain all spent Mettle
+                </button>
+                <button type="roll" class="text-button soulfire-entry"
+                        value="/em uses soulfire to recover all of their Toughness"
+                        name="roll_soulfire_toughness">Recover all your Toughness
+                </button>
+                <button type="roll" class="text-button soulfire-entry"
+                        value="/em uses soulfire to cheat death - they are no longer Mortally Wounded"
+                        name="roll_soulfire_death">Cheat Death - you are no longer Mortally Wounded
+                </button>
             </div>
             <div class="soulfire-sides">
-                <div class="header">Soulfire</div>
+                <button type="roll" class="sheet-text-button header"
+                        value="&{template:default} {{name=Souldfire}} {{Current Soulfire points=@{soulfire}/@{soulfire|max}}}"
+                        name="roll_soulfire">Soulfire
+                </button>
                 <div class="line"></div>
                 <div class="soulfire-stat">
                     <input type="number" name="attr_soulfire">/
@@ -1395,8 +1413,10 @@
                 </div>
             </div>
         </div>
-        <div>
-            <div class="header">Doom</div>
+        <div class="doom">
+            <button type="roll" class="sheet-text-button header"
+                    value="&{template:default} {{name=Doom}} {{Current Doom level=@{doom}}}" name="roll_doom">Doom
+            </button>
             <div class="line"></div>
 
             <div class="dots">

@@ -708,6 +708,7 @@ input[type="number"].sheet-small-digit {
 
 .sheet-soulfire-info {
     text-align: center;
+    width: 38%;
 }
 
 .sheet-soulfire-sides {
@@ -720,10 +721,16 @@ input[type="number"].sheet-small-digit {
 
 .sheet-soulfire-stat {
     text-align: center;
+    margin-top: 10px;
 }
 
 .sheet-party-info > div{
     width: 32%;
+}
+
+button[type="roll"].sheet-soulfire-entry {
+    font-size: 12px;
+    text-align: center;
 }
 
 .sheet-party-info textarea {
@@ -731,6 +738,12 @@ input[type="number"].sheet-small-digit {
     max-width: 100%;
     min-width: 100%;
     height: 50px;
+}
+
+button[type="roll"].sheet-header {
+    font-size: 18px;
+    text-align: center;
+    height: 25.71px;
 }
 
 .sheet-dots{
