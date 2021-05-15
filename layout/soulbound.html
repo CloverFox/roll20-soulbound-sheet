@@ -954,7 +954,7 @@
                 <div class="spells">
                     <input type="text" name="attr_spell_name"/>
                     <button type="roll" name="roll_spell"
-                            value="&{template:default} {{name=@{spell_name}}} {{DN=@{spell_dn_target}:@{spell_dn_successes}}} {{Result=[[(@{mind} + @{channelling_1} + @{channelling_2} + @{channelling_3} + ?{Spellcasting bonus|0})d6s>@{spell_dn_target}]] success}} {{Focus=[[@{channelling_focus_1} + @{channelling_focus_2} + @{channelling_focus_3}]] focus points}}} {{Effect=@{spell_effect}}}"></button>
+                            value="&{template:default} {{name=@{spell_name}}} {{DN=@{spell_dn_target}:@{spell_dn_successes}}} {{Result=[[(@{mind} + @{channelling_1} + @{channelling_2} + @{channelling_3} + ?{Spellcasting bonus|0})d6s>@{spell_dn_target}]] success}} {{Focus=[[@{channelling_focus_1} + @{channelling_focus_2} + @{channelling_focus_3}]] focus points}} {{Effect=@{spell_effect}}}"></button>
                     <div class="spells-dn">
                         <input type="number" name="attr_spell_dn_target"
                                class="no-spin small-digit colon-separator-left">
@@ -1266,6 +1266,44 @@
                     <input type="number" name="attr_npc_attack_focus" value="0" class="npc-attack-focus"/>
                     <input type="text" name="attr_npc_attack_range" class="npc-attack-range"/>
                     <input type="text" name="attr_npc_attack_traits" class="npc-attack-traits"/>
+                </div>
+            </fieldset>
+        </div>
+        <div class="section-npc-spells-miracles">
+            <div class="header">Spells and Miracles</div>
+            <div class="line"></div>
+            <div class="npc-spells-miracles">
+                <div>Name</div>
+                <div>Roll</div>
+                <div>Skill</div>
+                <div>Focus</div>
+                <div>Skill</div>
+                <div>Target</div>
+                <div>Range</div>
+                <div>Duration</div>
+                <div>Effect</div>
+            </div>
+            <fieldset class="repeating_npc-spells-miracles">
+                <div class="npc-spells-miracles">
+                    <input type="text" name="attr_npc_miraspell_name" class="npc_miraspell_name"/>
+                    <button type="roll" name="roll_npc_miraspell_roll" class="npc_miraspell_roll"
+                            value="&{template:default} {{name=@{npc_miraspell_name}}} @{npc_use_skill} {{range=@{npc_miraspell_range}}} {{duration=@{npc_miraspell_duration}}} {{effect=@{npc_miraspell_effect}}}"></button>
+                    <input type="number" name="attr_npc_miraspell_pool" value="1" class="npc_miraspell_pool"/>
+                    <input type="number" name="attr_npc_miraspell_focus" value="0" class="npc_miraspell_focus"/>
+                    <select name="attr_npc_use_skill" class="npc_miraspell_skill">
+                        <option value="" selected="selected">no</option>
+                        <option value="{{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{npc_miraspell_pool}+?{spell or miracle bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=@{npc_miraspell_focus} focus points}}">yes</option>
+                    </select>
+                    <input type="text" name="attr_npc_miraspell_target" class="npc_miraspell_target"/>
+                    <select name="attr_npc_miraspell_range" class="npc_miraspell_range">
+                        <option value="self">self</option>
+                        <option value="close">close</option>
+                        <option value="short">short</option>
+                        <option value="medium">medium</option>
+                        <option value="long">long</option>
+                    </select>
+                    <input type="text" name="attr_npc_miraspell_duration" class="npc_miraspell_duration"/>
+                    <textarea type="text" name="attr_npc_miraspell_effect" class="text-area spells-effect npc_miraspell_effect"></textarea>
                 </div>
             </fieldset>
         </div>

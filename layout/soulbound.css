@@ -567,15 +567,18 @@ input[type="number"].sheet-small-digit {
 
 .sheet-fluff-info {
     height: 60px;
+    resize: vertical;
 }
 
 .sheet-miracle-effect {
-    width: 210px;
+    width: 100%;
+    resize: vertical;
     height: 40px;
 }
 
 .sheet-spells-effect {
-    width: 210px;
+    width: 100%;
+    resize: vertical;
     height: 40px;
 }
 
@@ -696,6 +699,58 @@ input[type="number"].sheet-small-digit {
     width: auto;
 }
 
+.sheet-npc-spells-miracles {
+    display: grid;
+    grid-template-columns: 140px 43px 50px 50px 73px 73px 73px 80px auto;
+}
+
+.sheet-npc-spells-miracles input {
+    height: 28px;
+}
+
+.sheet-npc-spells-miracles textarea {
+    height: 28px;
+}
+
+.sheet-npc_miraspell_name {
+    width: 140px;
+}
+
+button[type="roll"].sheet-npc_miraspell_roll {
+    height: 22px;
+}
+
+.sheet-npc_miraspell_pool  {
+    width: 50px;
+}
+
+.sheet-npc_miraspell_focus {
+    width: 50px;
+}
+
+.sheet-npc_miraspell_skill {
+    width: 68px;
+}
+
+.sheet-npc_miraspell_target {
+    width: 68px;
+}
+
+.sheet-npc_miraspell_range {
+    width: 68px;
+}
+
+.sheet-npc_miraspell_duration {
+    width: 76px;
+}
+
+.sheet-npc_miraspell_effect {
+    width: auto;
+    height: auto;
+    box-sizing: border-box;
+}
+
+
 .sheet-party-info {
     display: flex;
     justify-content: space-between;
@@ -724,7 +779,7 @@ input[type="number"].sheet-small-digit {
     margin-top: 10px;
 }
 
-.sheet-party-info > div{
+.sheet-party-info > div {
     width: 32%;
 }
 
@@ -747,11 +802,12 @@ button[type="roll"].sheet-header {
     height: 25.71px;
 }
 
-.sheet-dots{
-    display:flex;
+.sheet-dots {
+    display: flex;
     justify-content: space-evenly;
     margin-top: 10px;
 }
+
 button.sheet-dot {
     padding: 0;
     border: solid 1px #a8a8a8;
@@ -780,38 +836,47 @@ input.sheet-dot[value="0"] ~ button.sheet-gt-0 > span.sheet-checked {
     background: white;
     color: black;
 }
+
 input.sheet-dot[value="1"] ~ button.sheet-gt-1 > span.sheet-checked {
     background: white;
     color: black;
 }
+
 input.sheet-dot[value="2"] ~ button.sheet-gt-2 > span.sheet-checked {
     background: white;
     color: black;
 }
+
 input.sheet-dot[value="3"] ~ button.sheet-gt-3 > span.sheet-checked {
     background: white;
     color: black;
 }
+
 input.sheet-dot[value="4"] ~ button.sheet-gt-4 > span.sheet-checked {
     background: white;
     color: black;
 }
+
 input.sheet-dot[value="5"] ~ button.sheet-gt-5 > span.sheet-checked {
     background: white;
     color: black;
 }
+
 input.sheet-dot[value="6"] ~ button.sheet-gt-6 > span.sheet-checked {
     background: white;
     color: black;
 }
+
 input.sheet-dot[value="7"] ~ button.sheet-gt-7 > span.sheet-checked {
     background: white;
     color: black;
 }
+
 input.sheet-dot[value="8"] ~ button.sheet-gt-8 > span.sheet-checked {
     background: white;
     color: black;
 }
+
 input.sheet-dot[value="9"] ~ button.sheet-gt-9 > span.sheet-checked {
     background: white;
     color: black;
