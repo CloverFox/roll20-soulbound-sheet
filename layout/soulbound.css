@@ -440,6 +440,10 @@ button[type="roll"].sheet-text-big {
     grid-template-columns: 100px 20px 20px 20px;
 }
 
+.sheet-combat-mel-acc-def input[type="checkbox"]{
+    pointer-events: none;
+}
+
 .sheet-combat-abilities {
     display: flex;
 }
