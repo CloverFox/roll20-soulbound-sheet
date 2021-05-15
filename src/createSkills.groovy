@@ -1,6 +1,6 @@
 def template = """<div class="desc">
             <button type="roll" class="sheet-text-button"
-                    value="&{template:default} {{name=Athletics}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{athletics_attribute}+@{athletics_1}+@{athletics_2}+@{athletics_3}+?{Athletics bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{athletics_focus_1} + @{athletics_focus_2} + @{athletics_focus_3}]] focus points}}"
+                    value="&{template:default} {{name=Athletics}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{athletics_attribute}+@{athletics_1}+@{athletics_2}+@{athletics_3}+@{athletics_perm_bonus}+?{Athletics bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{athletics_focus_1} + @{athletics_focus_2} + @{athletics_focus_3}]] focus points}}"
                     name="roll_athletics">Athletics</button>
             <select class="attribute-select" name="attr_athletics_attribute">
                 <option value="@{body}">body</option>
@@ -23,7 +23,7 @@ def template = """<div class="desc">
 def skillsList = ["Arcana",
                   "Athletics",
                   "Awareness",
-                  "Ballistic skill",
+                  "Ballistic Skill",
                   "Beast Handling",
                   "Channelling",
                   "Crafting",

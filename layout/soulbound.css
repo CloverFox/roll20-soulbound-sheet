@@ -57,6 +57,20 @@
     width: 100px;
 }
 
+.sheet-skill-perm-bonus {
+    display: flex;
+    width: 200px;
+    justify-content: space-between;
+}
+
+.sheet-skill-perm-bonus-entry {
+    display: flex;
+}
+
+.sheet-skill-perm-bonus-entry div {
+    margin-right: 20px;
+}
+
 .sheet-stack {
     display: grid;
 }

@@ -29,8 +29,110 @@
             <option value="2d6">2d6</option>
         </select>
     </div>
+    <div class="skill-perm-bonus-entry">
+        <div>
+            <div class="skill-perm-bonus">
+                <div>Arcana</div>
+                <input type="number" name="attr_arcana_perm_bonus" value="0">
+            </div>
+            <div class="skill-perm-bonus">
+                <div>Athletics</div>
+                <input type="number" name="attr_athletics_perm_bonus" value="0">
+            </div>
+            <div class="skill-perm-bonus">
+                <div>Awareness</div>
+                <input type="number" name="attr_awareness_perm_bonus" value="0">
+            </div>
+            <div class="skill-perm-bonus">
+                <div>Ballistic skill</div>
+                <input type="number" name="attr_ballistic_skill_perm_bonus" value="0">
+            </div>
+            <div class="skill-perm-bonus">
+                <div>Beast Handling</div>
+                <input type="number" name="attr_beast Handling_perm_bonus" value="0">
+            </div>
+            <div class="skill-perm-bonus">
+                <div>Channelling</div>
+                <input type="number" name="attr_channelling_perm_bonus" value="0">
+            </div>
+            <div class="skill-perm-bonus">
+                <div>Crafting</div>
+                <input type="number" name="attr_crafting_perm_bonus" value="0">
+            </div>
+            <div class="skill-perm-bonus">
+                <div>Determination</div>
+                <input type="number" name="attr_determination_perm_bonus" value="0">
+            </div>
+            <div class="skill-perm-bonus">
+                <div>Devotion</div>
+                <input type="number" name="attr_devotion_perm_bonus" value="0">
+            </div>
+            <div class="skill-perm-bonus">
+                <div>Arcana</div>
+                <input type="number" name="attr_dexterity_perm_bonus" value="0">
+            </div>
+            <div class="skill-perm-bonus">
+                <div>Dexterity</div>
+                <input type="number" name="attr_entertain_perm_bonus" value="0">
+            </div>
+            <div class="skill-perm-bonus">
+                <div>Entertain</div>
+                <input type="number" name="attr_fortitude_perm_bonus" value="0">
+            </div>
+        </div>
+        <div>
+            <div class="skill-perm-bonus">
+                <div>Fortitude</div>
+                <input type="number" name="attr_guile_perm_bonus" value="0">
+            </div>
+            <div class="skill-perm-bonus">
+                <div>Guile</div>
+                <input type="number" name="attr_intimidation_perm_bonus" value="0">
+            </div>
+            <div class="skill-perm-bonus">
+                <div>Intimidation</div>
+                <input type="number" name="attr_intuition_perm_bonus" value="0">
+            </div>
+            <div class="skill-perm-bonus">
+                <div>Intuition</div>
+                <input type="number" name="attr_lore_perm_bonus" value="0">
+            </div>
+            <div class="skill-perm-bonus">
+                <div>Lore</div>
+                <input type="number" name="attr_medicine_perm_bonus" value="0">
+            </div>
+            <div class="skill-perm-bonus">
+                <div>Medicine</div>
+                <input type="number" name="attr_might_perm_bonus" value="0">
+            </div>
+            <div class="skill-perm-bonus">
+                <div>Might</div>
+                <input type="number" name="attr_nature_perm_bonus" value="0">
+            </div>
+            <div class="skill-perm-bonus">
+                <div>Nature</div>
+                <input type="number" name="attr_reflexes_perm_bonus" value="0">
+            </div>
+            <div class="skill-perm-bonus">
+                <div>Reflexes</div>
+                <input type="number" name="attr_stealth_perm_bonus" value="0">
+            </div>
+            <div class="skill-perm-bonus">
+                <div>Stealth</div>
+                <input type="number" name="attr_survival_perm_bonus" value="0">
+            </div>
+            <div class="skill-perm-bonus">
+                <div>Survival</div>
+                <input type="number" name="attr_theology_perm_bonus" value="0">
+            </div>
+            <div class="skill-perm-bonus">
+                <div>Theology</div>
+                <input type="number" name="attr_weapon_skill_perm_bonus" value="0">
+            </div>
+        </div>
+    </div>
     <div>Sheet version:
-        <input type="text" name="attr_version" value="3.0" disabled="true" hidden="true">
+        <input type="text" name="attr_version" value="4" disabled="true" hidden="true">
         <span name="attr_version"></span>
     </div>
 </div>
@@ -131,7 +233,7 @@
                         <div>Focus</div>
                         <div class="desc">
                             <button type="roll" class="sheet-text-button"
-                                    value="&{template:default} {{name=Arcana}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{arcana_attribute}+@{arcana_1}+@{arcana_2}+@{arcana_3}+?{Arcana bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{arcana_focus_1} + @{arcana_focus_2} + @{arcana_focus_3}]] focus points}}"
+                                    value="&{template:default} {{name=Arcana}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{arcana_attribute}+@{arcana_1}+@{arcana_2}+@{arcana_3}+@{arcana_perm_bonus}+?{Arcana bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{arcana_focus_1} + @{arcana_focus_2} + @{arcana_focus_3}]] focus points}}"
                                     name="roll_arcana">Arcana
                             </button>
                             <select class="attribute-select" name="attr_arcana_attribute">
@@ -153,7 +255,7 @@
 
                         <div class="desc">
                             <button type="roll" class="sheet-text-button"
-                                    value="&{template:default} {{name=Athletics}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{athletics_attribute}+@{athletics_1}+@{athletics_2}+@{athletics_3}+?{Athletics bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{athletics_focus_1} + @{athletics_focus_2} + @{athletics_focus_3}]] focus points}}"
+                                    value="&{template:default} {{name=Athletics}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{athletics_attribute}+@{athletics_1}+@{athletics_2}+@{athletics_3}+@{athletics_perm_bonus}+?{Athletics bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{athletics_focus_1} + @{athletics_focus_2} + @{athletics_focus_3}]] focus points}}"
                                     name="roll_athletics">Athletics
                             </button>
                             <select class="attribute-select" name="attr_athletics_attribute">
@@ -175,7 +277,7 @@
 
                         <div class="desc">
                             <button type="roll" class="sheet-text-button"
-                                    value="&{template:default} {{name=Awareness}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{awareness_attribute}+@{awareness_1}+@{awareness_2}+@{awareness_3}+?{Awareness bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{awareness_focus_1} + @{awareness_focus_2} + @{awareness_focus_3}]] focus points}}"
+                                    value="&{template:default} {{name=Awareness}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{awareness_attribute}+@{awareness_1}+@{awareness_2}+@{awareness_3}+@{awareness_perm_bonus}+?{Awareness bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{awareness_focus_1} + @{awareness_focus_2} + @{awareness_focus_3}]] focus points}}"
                                     name="roll_awareness">Awareness
                             </button>
                             <select class="attribute-select" name="attr_awareness_attribute">
@@ -197,8 +299,8 @@
 
                         <div class="desc">
                             <button type="roll" class="sheet-text-button"
-                                    value="&{template:default} {{name=Ballistic skill}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{ballistic_skill_attribute}+@{ballistic_skill_1}+@{ballistic_skill_2}+@{ballistic_skill_3}+?{Ballistic skill bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{ballistic_skill_focus_1} + @{ballistic_skill_focus_2} + @{ballistic_skill_focus_3}]] focus points}}"
-                                    name="roll_ballistic_skill">Ballistic skill
+                                    value="&{template:default} {{name=Ballistic skill}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{ballistic_skill_attribute}+@{ballistic_skill_1}+@{ballistic_skill_2}+@{ballistic_skill_3}+@{ballistic_skill_perm_bonus}+?{Ballistic skill bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{ballistic_skill_focus_1} + @{ballistic_skill_focus_2} + @{ballistic_skill_focus_3}]] focus points}}"
+                                    name="roll_ballistic_skill">Ballistic Skill
                             </button>
                             <select class="attribute-select" name="attr_ballistic_skill_attribute">
                                 <option value="@{body}" selected="selected">body</option>
@@ -219,7 +321,7 @@
 
                         <div class="desc">
                             <button type="roll" class="sheet-text-button"
-                                    value="&{template:default} {{name=Beast Handling}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{beast_handling_attribute}+@{beast_handling_1}+@{beast_handling_2}+@{beast_handling_3}+?{Beast Handling bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{beast_handling_focus_1} + @{beast_handling_focus_2} + @{beast_handling_focus_3}]] focus points}}"
+                                    value="&{template:default} {{name=Beast Handling}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{beast_handling_attribute}+@{beast_handling_1}+@{beast_handling_2}+@{beast_handling_3}+@{beast_handling_perm_bonus}+?{Beast Handling bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{beast_handling_focus_1} + @{beast_handling_focus_2} + @{beast_handling_focus_3}]] focus points}}"
                                     name="roll_beast_handling">Beast Handling
                             </button>
                             <select class="attribute-select" name="attr_beast_handling_attribute">
@@ -241,7 +343,7 @@
 
                         <div class="desc">
                             <button type="roll" class="sheet-text-button"
-                                    value="&{template:default} {{name=Channelling}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{channelling_attribute}+@{channelling_1}+@{channelling_2}+@{channelling_3}+?{Channelling bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{channelling_focus_1} + @{channelling_focus_2} + @{channelling_focus_3}]] focus points}}"
+                                    value="&{template:default} {{name=Channelling}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{channelling_attribute}+@{channelling_1}+@{channelling_2}+@{channelling_3}+@{channelling_perm_bonus}+?{Channelling bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{channelling_focus_1} + @{channelling_focus_2} + @{channelling_focus_3}]] focus points}}"
                                     name="roll_channelling">Channelling
                             </button>
                             <select class="attribute-select" name="attr_channelling_attribute">
@@ -263,7 +365,7 @@
 
                         <div class="desc">
                             <button type="roll" class="sheet-text-button"
-                                    value="&{template:default} {{name=Crafting}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{crafting_attribute}+@{crafting_1}+@{crafting_2}+@{crafting_3}+?{Crafting bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{crafting_focus_1} + @{crafting_focus_2} + @{crafting_focus_3}]] focus points}}"
+                                    value="&{template:default} {{name=Crafting}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{crafting_attribute}+@{crafting_1}+@{crafting_2}+@{crafting_3}+@{crafting_perm_bonus}+?{Crafting bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{crafting_focus_1} + @{crafting_focus_2} + @{crafting_focus_3}]] focus points}}"
                                     name="roll_crafting">Crafting
                             </button>
                             <select class="attribute-select" name="attr_crafting_attribute">
@@ -285,7 +387,7 @@
 
                         <div class="desc">
                             <button type="roll" class="sheet-text-button"
-                                    value="&{template:default} {{name=Determination}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{determination_attribute}+@{determination_1}+@{determination_2}+@{determination_3}+?{Determination bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{determination_focus_1} + @{determination_focus_2} + @{determination_focus_3}]] focus points}}"
+                                    value="&{template:default} {{name=Determination}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{determination_attribute}+@{determination_1}+@{determination_2}+@{determination_3}+@{determination_perm_bonus}+?{Determination bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{determination_focus_1} + @{determination_focus_2} + @{determination_focus_3}]] focus points}}"
                                     name="roll_determination">Determination
                             </button>
                             <select class="attribute-select" name="attr_determination_attribute">
@@ -307,7 +409,7 @@
 
                         <div class="desc">
                             <button type="roll" class="sheet-text-button"
-                                    value="&{template:default} {{name=Devotion}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{devotion_attribute}+@{devotion_1}+@{devotion_2}+@{devotion_3}+?{Devotion bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{devotion_focus_1} + @{devotion_focus_2} + @{devotion_focus_3}]] focus points}}"
+                                    value="&{template:default} {{name=Devotion}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{devotion_attribute}+@{devotion_1}+@{devotion_2}+@{devotion_3}+@{devotion_perm_bonus}+?{Devotion bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{devotion_focus_1} + @{devotion_focus_2} + @{devotion_focus_3}]] focus points}}"
                                     name="roll_devotion">Devotion
                             </button>
                             <select class="attribute-select" name="attr_devotion_attribute">
@@ -329,7 +431,7 @@
 
                         <div class="desc">
                             <button type="roll" class="sheet-text-button"
-                                    value="&{template:default} {{name=Dexterity}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{dexterity_attribute}+@{dexterity_1}+@{dexterity_2}+@{dexterity_3}+?{Dexterity bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{dexterity_focus_1} + @{dexterity_focus_2} + @{dexterity_focus_3}]] focus points}}"
+                                    value="&{template:default} {{name=Dexterity}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{dexterity_attribute}+@{dexterity_1}+@{dexterity_2}+@{dexterity_3}+@{dexterity_perm_bonus}+?{Dexterity bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{dexterity_focus_1} + @{dexterity_focus_2} + @{dexterity_focus_3}]] focus points}}"
                                     name="roll_dexterity">Dexterity
                             </button>
                             <select class="attribute-select" name="attr_dexterity_attribute">
@@ -351,7 +453,7 @@
 
                         <div class="desc">
                             <button type="roll" class="sheet-text-button"
-                                    value="&{template:default} {{name=Entertain}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{entertain_attribute}+@{entertain_1}+@{entertain_2}+@{entertain_3}+?{Entertain bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{entertain_focus_1} + @{entertain_focus_2} + @{entertain_focus_3}]] focus points}}"
+                                    value="&{template:default} {{name=Entertain}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{entertain_attribute}+@{entertain_1}+@{entertain_2}+@{entertain_3}+@{entertain_perm_bonus}+?{Entertain bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{entertain_focus_1} + @{entertain_focus_2} + @{entertain_focus_3}]] focus points}}"
                                     name="roll_entertain">Entertain
                             </button>
                             <select class="attribute-select" name="attr_entertain_attribute">
@@ -373,7 +475,7 @@
 
                         <div class="desc">
                             <button type="roll" class="sheet-text-button"
-                                    value="&{template:default} {{name=Fortitude}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{fortitude_attribute}+@{fortitude_1}+@{fortitude_2}+@{fortitude_3}+?{Fortitude bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{fortitude_focus_1} + @{fortitude_focus_2} + @{fortitude_focus_3}]] focus points}}"
+                                    value="&{template:default} {{name=Fortitude}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{fortitude_attribute}+@{fortitude_1}+@{fortitude_2}+@{fortitude_3}+@{fortitude_perm_bonus}+?{Fortitude bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{fortitude_focus_1} + @{fortitude_focus_2} + @{fortitude_focus_3}]] focus points}}"
                                     name="roll_fortitude">Fortitude
                             </button>
                             <select class="attribute-select" name="attr_fortitude_attribute">
@@ -401,7 +503,7 @@
 
                         <div class="desc">
                             <button type="roll" class="sheet-text-button"
-                                    value="&{template:default} {{name=Guile}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{guile_attribute}+@{guile_1}+@{guile_2}+@{guile_3}+?{Guile bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{guile_focus_1} + @{guile_focus_2} + @{guile_focus_3}]] focus points}}"
+                                    value="&{template:default} {{name=Guile}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{guile_attribute}+@{guile_1}+@{guile_2}+@{guile_3}+@{guile_perm_bonus}+?{Guile bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{guile_focus_1} + @{guile_focus_2} + @{guile_focus_3}]] focus points}}"
                                     name="roll_guile">Guile
                             </button>
                             <select class="attribute-select" name="attr_guile_attribute">
@@ -423,7 +525,7 @@
 
                         <div class="desc">
                             <button type="roll" class="sheet-text-button"
-                                    value="&{template:default} {{name=Intimidation}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{intimidation_attribute}+@{intimidation_1}+@{intimidation_2}+@{intimidation_3}+?{Intimidation bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{intimidation_focus_1} + @{intimidation_focus_2} + @{intimidation_focus_3}]] focus points}}"
+                                    value="&{template:default} {{name=Intimidation}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{intimidation_attribute}+@{intimidation_1}+@{intimidation_2}+@{intimidation_3}+@{intimidation_perm_bonus}+?{Intimidation bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{intimidation_focus_1} + @{intimidation_focus_2} + @{intimidation_focus_3}]] focus points}}"
                                     name="roll_intimidation">Intimidation
                             </button>
                             <select class="attribute-select" name="attr_intimidation_attribute">
@@ -445,7 +547,7 @@
 
                         <div class="desc">
                             <button type="roll" class="sheet-text-button"
-                                    value="&{template:default} {{name=Intuition}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{intuition_attribute}+@{intuition_1}+@{intuition_2}+@{intuition_3}+?{Intuition bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{intuition_focus_1} + @{intuition_focus_2} + @{intuition_focus_3}]] focus points}}"
+                                    value="&{template:default} {{name=Intuition}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{intuition_attribute}+@{intuition_1}+@{intuition_2}+@{intuition_3}+@{intuition_perm_bonus}+?{Intuition bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{intuition_focus_1} + @{intuition_focus_2} + @{intuition_focus_3}]] focus points}}"
                                     name="roll_intuition">Intuition
                             </button>
                             <select class="attribute-select" name="attr_intuition_attribute">
@@ -467,7 +569,7 @@
 
                         <div class="desc">
                             <button type="roll" class="sheet-text-button"
-                                    value="&{template:default} {{name=Lore}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{lore_attribute}+@{lore_1}+@{lore_2}+@{lore_3}+?{Lore bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{lore_focus_1} + @{lore_focus_2} + @{lore_focus_3}]] focus points}}"
+                                    value="&{template:default} {{name=Lore}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{lore_attribute}+@{lore_1}+@{lore_2}+@{lore_3}+@{lore_perm_bonus}+?{Lore bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{lore_focus_1} + @{lore_focus_2} + @{lore_focus_3}]] focus points}}"
                                     name="roll_lore">Lore
                             </button>
                             <select class="attribute-select" name="attr_lore_attribute">
@@ -489,7 +591,7 @@
 
                         <div class="desc">
                             <button type="roll" class="sheet-text-button"
-                                    value="&{template:default} {{name=Medicine}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{medicine_attribute}+@{medicine_1}+@{medicine_2}+@{medicine_3}+?{Medicine bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{medicine_focus_1} + @{medicine_focus_2} + @{medicine_focus_3}]] focus points}}"
+                                    value="&{template:default} {{name=Medicine}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{medicine_attribute}+@{medicine_1}+@{medicine_2}+@{medicine_3}+@{medicine_perm_bonus}+?{Medicine bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{medicine_focus_1} + @{medicine_focus_2} + @{medicine_focus_3}]] focus points}}"
                                     name="roll_medicine">Medicine
                             </button>
                             <select class="attribute-select" name="attr_medicine_attribute">
@@ -511,7 +613,7 @@
 
                         <div class="desc">
                             <button type="roll" class="sheet-text-button"
-                                    value="&{template:default} {{name=Might}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{might_attribute}+@{might_1}+@{might_2}+@{might_3}+?{Might bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{might_focus_1} + @{might_focus_2} + @{might_focus_3}]] focus points}}"
+                                    value="&{template:default} {{name=Might}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{might_attribute}+@{might_1}+@{might_2}+@{might_3}+@{might_perm_bonus}+?{Might bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{might_focus_1} + @{might_focus_2} + @{might_focus_3}]] focus points}}"
                                     name="roll_might">Might
                             </button>
                             <select class="attribute-select" name="attr_might_attribute">
@@ -533,7 +635,7 @@
 
                         <div class="desc">
                             <button type="roll" class="sheet-text-button"
-                                    value="&{template:default} {{name=Nature}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{nature_attribute}+@{nature_1}+@{nature_2}+@{nature_3}+?{Nature bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{nature_focus_1} + @{nature_focus_2} + @{nature_focus_3}]] focus points}}"
+                                    value="&{template:default} {{name=Nature}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{nature_attribute}+@{nature_1}+@{nature_2}+@{nature_3}+@{nature_perm_bonus}+?{Nature bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{nature_focus_1} + @{nature_focus_2} + @{nature_focus_3}]] focus points}}"
                                     name="roll_nature">Nature
                             </button>
                             <select class="attribute-select" name="attr_nature_attribute">
@@ -555,7 +657,7 @@
 
                         <div class="desc">
                             <button type="roll" class="sheet-text-button"
-                                    value="&{template:default} {{name=Reflexes}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{reflexes_attribute}+@{reflexes_1}+@{reflexes_2}+@{reflexes_3}+?{Reflexes bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{reflexes_focus_1} + @{reflexes_focus_2} + @{reflexes_focus_3}]] focus points}}"
+                                    value="&{template:default} {{name=Reflexes}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{reflexes_attribute}+@{reflexes_1}+@{reflexes_2}+@{reflexes_3}+@{reflexes_perm_bonus}+?{Reflexes bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{reflexes_focus_1} + @{reflexes_focus_2} + @{reflexes_focus_3}]] focus points}}"
                                     name="roll_reflexes">Reflexes
                             </button>
                             <select class="attribute-select" name="attr_reflexes_attribute">
@@ -577,7 +679,7 @@
 
                         <div class="desc">
                             <button type="roll" class="sheet-text-button"
-                                    value="&{template:default} {{name=Stealth}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{stealth_attribute}+@{stealth_1}+@{stealth_2}+@{stealth_3}+?{Stealth bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{stealth_focus_1} + @{stealth_focus_2} + @{stealth_focus_3}]] focus points}}"
+                                    value="&{template:default} {{name=Stealth}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{stealth_attribute}+@{stealth_1}+@{stealth_2}+@{stealth_3}+@{stealth_perm_bonus}+?{Stealth bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{stealth_focus_1} + @{stealth_focus_2} + @{stealth_focus_3}]] focus points}}"
                                     name="roll_stealth">Stealth
                             </button>
                             <select class="attribute-select" name="attr_stealth_attribute">
@@ -599,7 +701,7 @@
 
                         <div class="desc">
                             <button type="roll" class="sheet-text-button"
-                                    value="&{template:default} {{name=Survival}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{survival_attribute}+@{survival_1}+@{survival_2}+@{survival_3}+?{Survival bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{survival_focus_1} + @{survival_focus_2} + @{survival_focus_3}]] focus points}}"
+                                    value="&{template:default} {{name=Survival}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{survival_attribute}+@{survival_1}+@{survival_2}+@{survival_3}+@{survival_perm_bonus}+?{Survival bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{survival_focus_1} + @{survival_focus_2} + @{survival_focus_3}]] focus points}}"
                                     name="roll_survival">Survival
                             </button>
                             <select class="attribute-select" name="attr_survival_attribute">
@@ -621,7 +723,7 @@
 
                         <div class="desc">
                             <button type="roll" class="sheet-text-button"
-                                    value="&{template:default} {{name=Theology}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{theology_attribute}+@{theology_1}+@{theology_2}+@{theology_3}+?{Theology bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{theology_focus_1} + @{theology_focus_2} + @{theology_focus_3}]] focus points}}"
+                                    value="&{template:default} {{name=Theology}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{theology_attribute}+@{theology_1}+@{theology_2}+@{theology_3}+@{theology_perm_bonus}+?{Theology bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{theology_focus_1} + @{theology_focus_2} + @{theology_focus_3}]] focus points}}"
                                     name="roll_theology">Theology
                             </button>
                             <select class="attribute-select" name="attr_theology_attribute">
@@ -643,7 +745,7 @@
 
                         <div class="desc">
                             <button type="roll" class="sheet-text-button"
-                                    value="&{template:default} {{name=Weapon Skill}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{weapon_skill_attribute}+@{weapon_skill_1}+@{weapon_skill_2}+@{weapon_skill_3}+?{Weapon Skill bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{weapon_skill_focus_1} + @{weapon_skill_focus_2} + @{weapon_skill_focus_3}]] focus points}}"
+                                    value="&{template:default} {{name=Weapon Skill}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{weapon_skill_attribute}+@{weapon_skill_1}+@{weapon_skill_2}+@{weapon_skill_3}+@{weapon_skill_perm_bonus}+?{Weapon Skill bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=[[@{weapon_skill_focus_1} + @{weapon_skill_focus_2} + @{weapon_skill_focus_3}]] focus points}}"
                                     name="roll_weapon_skill">Weapon Skill
                             </button>
                             <select class="attribute-select" name="attr_weapon_skill_attribute">
@@ -1292,7 +1394,9 @@
                     <input type="number" name="attr_npc_miraspell_focus" value="0" class="npc_miraspell_focus"/>
                     <select name="attr_npc_use_skill" class="npc_miraspell_skill">
                         <option value="" selected="selected">no</option>
-                        <option value="{{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{npc_miraspell_pool}+?{spell or miracle bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=@{npc_miraspell_focus} focus points}}">yes</option>
+                        <option value="{{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{npc_miraspell_pool}+?{spell or miracle bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{focus=@{npc_miraspell_focus} focus points}}">
+                            yes
+                        </option>
                     </select>
                     <input type="text" name="attr_npc_miraspell_target" class="npc_miraspell_target"/>
                     <select name="attr_npc_miraspell_range" class="npc_miraspell_range">
@@ -1303,7 +1407,8 @@
                         <option value="long">long</option>
                     </select>
                     <input type="text" name="attr_npc_miraspell_duration" class="npc_miraspell_duration"/>
-                    <textarea type="text" name="attr_npc_miraspell_effect" class="text-area spells-effect npc_miraspell_effect"></textarea>
+                    <textarea type="text" name="attr_npc_miraspell_effect"
+                              class="text-area spells-effect npc_miraspell_effect"></textarea>
                 </div>
             </fieldset>
         </div>
@@ -1614,6 +1719,15 @@
 
     on('sheet:opened change:repeating_wounds-applied add:repeating_wounds-applied remove:repeating_wounds-applied', function () {
         repeatingSum("wounds", "wounds-applied", "wound_taken");
+    });
+
+    // can be used for updating the sheet later on
+    on('sheet:opened', function () {
+        getAttrs(["version"], function (values) {
+            if (parseInt(values.version) < 4) {
+                setAttrs({version: 4});
+            }
+        });
     });
 
     const buttonList = ["player", "party", "npc"];
