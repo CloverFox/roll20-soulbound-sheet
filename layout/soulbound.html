@@ -1007,7 +1007,7 @@
                 <div class="weapons">
                     <input type="text" name="attr_melee_name">
                     <button type="roll" name="roll_melee_attack"
-                            value="&{template:default} {{name=@{melee_name}}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{weapon_skill_attribute}+@{weapon_skill_1}+@{weapon_skill_2}+@{weapon_skill_3}+?{Melee bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{Focus=[[@{weapon_skill_focus_1} + @{weapon_skill_focus_2} + @{weapon_skill_focus_3}]] focus points}} {{Extra Damage=@{melee_damage}}} {{Traits=@{melee_traits}}}"></button>
+                            value="&{template:default} [[[[(@{weapon_skill_attribute}+@{weapon_skill_1}+@{weapon_skill_2}+@{weapon_skill_3}+?{Melee bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] + @{melee_damage}]] {{name=@{melee_name}}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=$[[0]] successes}} {{Focus=[[@{weapon_skill_focus_1} + @{weapon_skill_focus_2} + @{weapon_skill_focus_3}]] focus points}} {{Damage=$[[1]]}} {{Traits=@{melee_traits}}}"></button>
                     <input type="number" disabled="true" name="attr_melee_pool"
                            value="@{body} + @{weapon_skill_1} + @{weapon_skill_2} + @{weapon_skill_3}">
                     <input type="number" name="attr_melee_focus" disabled="true"
@@ -1029,7 +1029,7 @@
                 <div class="weapons">
                     <input type="text" name="attr_ranged_name"/>
                     <button type="roll" name="roll_ranged_attack"
-                            value="&{template:default} {{name=@{ranged_name}}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=[[(@{ballistic_skill_attribute}+@{ballistic_skill_1}+@{ballistic_skill_2}+@{ballistic_skill_3}+?{Ranged bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] successes}} {{Focus=[[@{ballistic_skill_focus_1} + @{ballistic_skill_focus_2} + @{ballistic_skill_focus_3}]] focus points}} {{Extra Damage=@{ranged_damage}}} {{Traits=@{ranged_traits}}}"></button>
+                            value="&{template:default} [[[[(@{ballistic_skill_attribute}+@{ballistic_skill_1}+@{ballistic_skill_2}+@{ballistic_skill_3}+?{Ranged bonus|0})d6s>?{Target DN? |2|3|4|5|6}]] + @{ranged_damage}]] {{name=@{ranged_name}}} {{DN=?{Target DN? |2|3|4|5|6}}} {{Result=$[[0]] successes}} {{Focus=[[@{ballistic_skill_focus_1} + @{ballistic_skill_focus_2} + @{ballistic_skill_focus_3}]] focus points}} {{Damage=$[[1]]}} {{Traits=@{ranged_traits}}}"></button>
                     <input type="number" disabled="true" name="attr_ranged_pool"
                            value="@{body} + @{ballistic_skill_1} + @{ballistic_skill_2} + @{ballistic_skill_3}"/>
                     <input type="number" name="attr_ranged_focus" disabled="true"
@@ -1594,7 +1594,8 @@
                 <button type="action" name="act_doom_9" class="dot gt-0 gt-1 gt-2 gt-3 gt-4 gt-5 gt-6 gt-7 gt-8">
                     <span class="checked">9</span>
                 </button>
-                <button type="action" name="act_doom_10" class="dot gt-0 gt-1 gt-2 gt-3 gt-4 gt-5 gt-6 gt-7 gt-8 gt-9">
+                <button type="action" name="act_doom_10"
+                        class="dot gt-0 gt-1 gt-2 gt-3 gt-4 gt-5 gt-6 gt-7 gt-8 gt-9">
                     <span class="checked">10</span>
                 </button>
             </div>
